@@ -1,0 +1,23 @@
+{
+  "name": "tmsv3-react-app",
+  "version": "3.2.0",
+  "private": true,
+  "dependencies": {
+    "firebase": "^4.11.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-ga": "^2.4.1",
+    "react-google-maps": "^9.4.5",
+    "react-lazyload": "^2.3.0",
+    "react-loadable": "^5.3.1",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.17",
+    "styled-components": "^2.4.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
