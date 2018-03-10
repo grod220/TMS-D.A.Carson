@@ -1,4 +1,5 @@
-# The Meatball Stoppe: React App, Version 4 -> D.A. Carson
+# The Meatball Stoppe: React App 
+##### Version 4: [D.A. Carson](https://en.wikipedia.org/wiki/D._A._Carson)
 
 The app repo for themeatballstoppe.com. If you're in the Orlando area, give us a visit! [YELP](https://www.yelp.com/biz/the-meatball-stoppe-orlando-2) - [Google Maps](https://goo.gl/maps/zQhgK1nnauw)
 
@@ -25,7 +26,7 @@ npm install && npm start
 - On Firebase Blaze plan. Will pay as you go.
 
 ### Notes
-- Increasingly inspired by [JAM stack] (https://jamstack.org/). Pre-rendered, statically served content + serverless cloud functions for backend/routes.
+- Increasingly inspired by [JAM stack](https://jamstack.org/). Pre-rendered, statically served content + serverless cloud functions for backend/routes.
 
 ### Update from v3
 - Moved from front-end + backend expressjs in Heroku to only front-end app with serverless cloud functions with Firebase (+hosting).
