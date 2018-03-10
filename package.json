@@ -1,6 +1,6 @@
 {
-  "name": "tmsv3-react-app",
-  "version": "3.2.0",
+  "name": "tms-d.a.carson",
+  "version": "4.0.0",
   "private": true,
   "dependencies": {
     "firebase": "^4.11.0",
