@@ -50,6 +50,7 @@ const SectionDescription = ({
         items.map((item, i) => (
           <LineItem key={i}>
             {item.name} {item.price && " :: $" + addZeroIfNeeded(item.price)}
+            {item.extra && <i>({item.extra})</i>}
           </LineItem>
         ))}
     </AllItems>
