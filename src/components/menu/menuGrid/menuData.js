@@ -124,7 +124,9 @@ export default [
       { name: "Baked Mozzarella", price: 7.95 },
       { name: "Gator or Crab Balls", price: 10.95 },
       { name: "Fried Calamari", price: 9.95 },
-      { name: "Meatball or Focaccia Pizza", price: 10.95 }
+      { name: "Meatball or Focaccia Pizza", price: 10.95 },
+      { name: "Meatball sliders", price: 6.95, extra: "one style" },
+      { name: "Meatball lettuce wraps", price: 6.95, extra: "one style" }
     ]
   },
   {
