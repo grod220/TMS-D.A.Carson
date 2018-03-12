@@ -75,7 +75,7 @@ export default [
     description: "Served with Stoppe salad and focaccia",
     items: [
       { name: "Eggplant Stack" },
-      { name: "Cheese Ravioli and Meatball" },
+      { name: "Tortellini in pink sauce" },
       { name: "Lasagna Bolognese" },
       { name: "Baked Ziti" },
       { name: "Eggplant Panino" },
