@@ -22,7 +22,6 @@ app.get("/helloworld", (req, res) => {
   res.send("Hello from Firebase!");
 });
 
-// Need to change from /webhook in the FB dev console to the new link
 app.get("/webhook", (req, res) => {
   if (
     req.query["hub.verify_token"] === functions.config().myservicekeys.fbtoken
@@ -56,16 +55,43 @@ app.post("/webhook", (req, res) => {
       return postInfo;
     })
     .then(postInfo => {
-      firebase
-        .database()
-        .ref("mostRecentFBPost")
-        .set({
-          imageURL: postInfo.full_picture,
-          url: postInfo.permalink_url,
-          message: postInfo.message
-        });
-      res.send(postInfo);
-      return;
+      const githubToken = functions.config().myservicekeys.githubtoken;
+      const options = {
+        uri: `https://api.github.com/repos/grod220/TMS-D.A.Carson/contents/src/components/homepage/socialBar/livePost/FBData.json?access_token=${githubToken}`,
+        json: true
+      };
+      return Promise.all(rp(options), postInfo, githubToken);
+    })
+    .then(([gResponse, postInfo, githubToken]) => {
+      const newJSONcontent = {
+        "mostRecentFBPost" : {
+          "imageURL" : postInfo.full_picture,
+          "message" : postInfo.message,
+          "url" : postInfo.permalink_url
+        }
+      }
+
+      const objJsonStr = JSON.stringify(newJSONcontent);
+      const objJsonB64 = Buffer.from(objJsonStr).toString("base64");
+
+      const newFileBody = {
+        "message": `Updated FB post content on ${new Date()}`,
+        "committer": {
+          "name": "Mr. Robot",
+          "email": "mrrobot-fake-email@firebase.com"
+        },
+        "content": objJsonB64,
+        "sha": gResponse.sha
+      }
+
+      const options = {
+        method: 'PUT',
+        uri: `https://api.github.com/repos/grod220/TMS-D.A.Carson/contents/src/components/homepage/socialBar/livePost/FBData.json?access_token=${githubToken}`,
+        json: true,
+        body: newFileBody
+      };
+
+      return rp(options);
     })
     .catch(err => {
       res.send(err);
