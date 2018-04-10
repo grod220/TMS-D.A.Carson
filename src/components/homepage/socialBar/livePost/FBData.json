@@ -1,7 +1,7 @@
 {
   "mostRecentFBPost" : {
-    "imageURL" : "htt://somethingelse.com",
-    "message" : "test1",
-    "url" : "https://www.facebook.com/meatballstoppe/posts/ABC123"
+    "imageURL" : "TEST URL",
+    "message" : "test2",
+    "url" : "https://www.facebook.com/meatballstoppe/posts/MORESTUFF"
   }
 }
