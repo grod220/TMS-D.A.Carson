@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-
 import FBSmallIcon from "./../images/fblogo.svg";
-// import * as firebase from "firebase";
 import { mostRecentFBPost } from "./FBData.json";
 
 const OuterBox = styled.div`
@@ -89,33 +87,6 @@ const LoadingAnimation = styled.div`
   }
 `;
 class LivePost extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     postUrl: "https://www.facebook.com/meatballstoppe",
-  //     caption: "",
-  //     imageUrl: "",
-  //     loading: true
-  //   };
-  // }
-
-  componentDidMount() {
-    // const fbPostRef = firebase.database().ref().child("mostRecentFBPost");
-    // fbPostRef.on("value", snap => {
-    //   let { imageURL, message, url } = snap.val();
-    //   if (!message.length) {
-    //       url = this.state.postUrl;
-    //       message = "View the latest posts & announcements on Facebook"
-    //   }
-    //   this.setState({
-    //     imageUrl: imageURL,
-    //     caption: message,
-    //     postUrl: url,
-    //     loading: false
-    //   });
-    // });
-  }
-
   render() {
     return (
       <div>
