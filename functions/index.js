@@ -1,17 +1,8 @@
 const functions = require("firebase-functions");
 const express = require("express");
-// const firebase = require("firebase-admin");
 const bodyParser = require("body-parser");
 const rp = require("request-promise");
 const cors = require("cors");
-
-// const serviceAccount = JSON.parse(
-//   Buffer.from(functions.config().myservicekeys.firebase64key, "base64")
-// );
-// firebase.initializeApp({
-//   credential: firebase.credential.cert(serviceAccount),
-//   databaseURL: "https://the-meatball-stoppe.firebaseio.com"
-// });
 
 const app = express();
 app.use(cors({ origin: true }));
@@ -98,6 +89,10 @@ app.post("/webhook", (req, res) => {
       };
 
       return rp(options);
+    })
+    .then((lastRes) => {
+      res.send(lastRes)
+      return;
     })
     .catch(err => {
       res.send(err);
