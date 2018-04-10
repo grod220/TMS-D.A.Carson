@@ -92,7 +92,7 @@ app.post("/webhook", (req, res) => {
     })
     .then((lastRes) => {
       res.send(lastRes)
-      return;
+      return lastRes;
     })
     .catch(err => {
       res.send(err);
