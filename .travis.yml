@@ -1,10 +1,17 @@
 language: node_js
 node_js:
   - "9.2"
+cache:
+  directories:
+  - node_modules
+notifications:
+  email: false
 script:
-  - echo "Deploying!"
-install:
-  - npm install -g firebase-tools
-  - npm install -g eslint eslint-plugin-promise eslint-config-react-app eslint-plugin-import
-after_success:
-  - firebase deploy --token $FIREBASE_TOKEN
+  - npm run deploy
+deploy:
+  provider: firebase
+  skip_cleanup: true
+  token:
+    secure: $FIREBASE_TOKEN
+  project: "the-meatball-stoppe"
+  message: "Deploying to Firebase Hosting"
