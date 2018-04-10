@@ -1,17 +1,17 @@
 const functions = require("firebase-functions");
 const express = require("express");
-const firebase = require("firebase-admin");
+// const firebase = require("firebase-admin");
 const bodyParser = require("body-parser");
 const rp = require("request-promise");
 const cors = require("cors");
 
-const serviceAccount = JSON.parse(
-  Buffer.from(functions.config().myservicekeys.firebase64key, "base64")
-);
-firebase.initializeApp({
-  credential: firebase.credential.cert(serviceAccount),
-  databaseURL: "https://the-meatball-stoppe.firebaseio.com"
-});
+// const serviceAccount = JSON.parse(
+//   Buffer.from(functions.config().myservicekeys.firebase64key, "base64")
+// );
+// firebase.initializeApp({
+//   credential: firebase.credential.cert(serviceAccount),
+//   databaseURL: "https://the-meatball-stoppe.firebaseio.com"
+// });
 
 const app = express();
 app.use(cors({ origin: true }));
@@ -32,7 +32,7 @@ app.get("/webhook", (req, res) => {
   }
 });
 
-// Change made to TMS FB page :: Update Firebase
+// Change made to TMS FB page :: Update FBData.json in github repo
 app.post("/webhook", (req, res) => {
   let options = {
     uri: `https://graph.facebook.com/v2.8/790534394301792/feed?fields=permalink_url,from,message,full_picture&access_token=1828570360690824|${
@@ -58,9 +58,12 @@ app.post("/webhook", (req, res) => {
       const githubToken = functions.config().myservicekeys.githubtoken;
       const options = {
         uri: `https://api.github.com/repos/grod220/TMS-D.A.Carson/contents/src/components/homepage/socialBar/livePost/FBData.json?access_token=${githubToken}`,
-        json: true
+        json: true,
+        headers : {
+          'User-Agent': 'Request-Promise'
+        }
       };
-      return Promise.all(rp(options), postInfo, githubToken);
+      return Promise.all([rp(options), postInfo, githubToken])
     })
     .then(([gResponse, postInfo, githubToken]) => {
       const newJSONcontent = {
@@ -71,7 +74,7 @@ app.post("/webhook", (req, res) => {
         }
       }
 
-      const objJsonStr = JSON.stringify(newJSONcontent);
+      const objJsonStr = JSON.stringify(newJSONcontent, null, 4);
       const objJsonB64 = Buffer.from(objJsonStr).toString("base64");
 
       const newFileBody = {
@@ -88,7 +91,10 @@ app.post("/webhook", (req, res) => {
         method: 'PUT',
         uri: `https://api.github.com/repos/grod220/TMS-D.A.Carson/contents/src/components/homepage/socialBar/livePost/FBData.json?access_token=${githubToken}`,
         json: true,
-        body: newFileBody
+        body: newFileBody,
+        headers : {
+          'User-Agent': 'Request-Promise'
+        }
       };
 
       return rp(options);
