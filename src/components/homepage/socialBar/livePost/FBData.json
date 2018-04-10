@@ -1,7 +1,1 @@
-{
-  "mostRecentFBPost" : {
-    "imageURL" : "TEST URL",
-    "message" : "test2",
-    "url" : "https://www.facebook.com/meatballstoppe/posts/MORESTUFF"
-  }
-}
+{"mostRecentFBPost":{"imageURL":"SAMPLE URL","message":"SOME MESSAGE","url":"GO HERE"}}
