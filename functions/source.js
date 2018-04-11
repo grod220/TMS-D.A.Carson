@@ -79,7 +79,7 @@ const updateGithubFBData = async (githubFBJson, postInfo, githubToken) => {
   const newObjJsonStr = JSON.stringify(newJSONcontent, null, 2);
   const newObjJsonB64 = Buffer.from(newObjJsonStr).toString("base64");
   if (newObjJsonB64 === githubFBJson.content.replace(/\n/g, "")) {
-    console.log("DOES IT FAIL HERE?")
+    console.log("Post already published on site.")
     return "Post already published on site.";
   }
 
@@ -103,8 +103,7 @@ const updateGithubFBData = async (githubFBJson, postInfo, githubToken) => {
     }
   };
 
-  console.log('DOES IT MAKE A PUT REQUEST?')
-
+  console.log("Making PUT request to Github. Updating FBDatafile with ", newJSONcontent)
   return rp(options);
 };
 
