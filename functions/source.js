@@ -28,7 +28,19 @@ app.post("/webhook", async (req, res) => {
   const githubToken = functions.config().myservicekeys.githubtoken;
   try {
     const postInfo = await getMostRecentPost();
+  } catch (err) {
+    console.log("Something on getting the most recent FB post!", err);
+    return res.send(err);
+  }
+
+  try {
     const githubFBJson = await getFBDataFromGithub(githubToken);
+  } catch (err) {
+    console.log("Failed on getting the FBData JSON file info from github!", err);
+    return res.send(err);
+  }
+
+  try {
     const response = await updateGithubFBData(
       githubFBJson,
       postInfo,
@@ -36,7 +48,7 @@ app.post("/webhook", async (req, res) => {
     );
     return res.send(response);
   } catch (err) {
-    console.log("Something failed!", err);
+    console.log("Something failed on updating the githubdatat", err);
     return res.send(err);
   }
 });
