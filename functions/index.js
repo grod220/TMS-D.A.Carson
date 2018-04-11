@@ -68,9 +68,9 @@ app.post("/webhook", (req, res) => {
       const newObjJsonStr = JSON.stringify(newJSONcontent, null, 2);
       const newObjJsonB64 = Buffer.from(newObjJsonStr).toString("base64");
 
-      if (newObjJsonB64 === gResonse.content.replace(/\n/g, '')) {
-        throw new Error('Post already published on site.')
-      }
+      // if (newObjJsonB64 === gResonse.content.replace(/\n/g, '')) {
+      //   throw new Error('Post already published on site.')
+      // }
 
       const newFileBody = {
         "message": `Updated FB post content on ${new Date()}`,
