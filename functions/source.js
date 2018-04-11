@@ -28,19 +28,7 @@ app.post("/webhook", async (req, res) => {
   const githubToken = functions.config().myservicekeys.githubtoken;
   try {
     const postInfo = await getMostRecentPost();
-  } catch (err) {
-    console.log("Something on getting the most recent FB post!", err);
-    return res.send(err);
-  }
-
-  try {
     const githubFBJson = await getFBDataFromGithub(githubToken);
-  } catch (err) {
-    console.log("Failed on getting the FBData JSON file info from github!", err);
-    return res.send(err);
-  }
-
-  try {
     const response = await updateGithubFBData(
       githubFBJson,
       postInfo,
@@ -48,7 +36,7 @@ app.post("/webhook", async (req, res) => {
     );
     return res.send(response);
   } catch (err) {
-    console.log("Something failed on updating the githubdatat", err);
+    console.log("Something failed!", err);
     return res.send(err);
   }
 });
@@ -91,6 +79,7 @@ const updateGithubFBData = async (githubFBJson, postInfo, githubToken) => {
   const newObjJsonStr = JSON.stringify(newJSONcontent, null, 2);
   const newObjJsonB64 = Buffer.from(newObjJsonStr).toString("base64");
   if (newObjJsonB64 === githubFBJson.content.replace(/\n/g, "")) {
+    console.log("DOES IT FAIL HERE?")
     return "Post already published on site.";
   }
 
@@ -113,6 +102,8 @@ const updateGithubFBData = async (githubFBJson, postInfo, githubToken) => {
       "User-Agent": "Request-Promise"
     }
   };
+
+  console.log('DOES IT MAKE A PUT REQUEST?')
 
   return rp(options);
 };
