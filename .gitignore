@@ -23,3 +23,8 @@ yarn-error.log*
 .vscode
 
 .env
+
+# ignore built index.js files
+functions/index.js
+
+*.log
