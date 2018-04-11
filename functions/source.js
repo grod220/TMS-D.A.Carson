@@ -23,7 +23,7 @@ app.get("/webhook", (req, res) => {
 
 app.get("/test", async (req, res) => {
   try {
-    const website = await rp('http://www.google.com/')
+    const website = await rp('http://www.microsoft.com/')
     return res.send(website);
   }
   catch (err) {
