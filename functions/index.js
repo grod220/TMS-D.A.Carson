@@ -25,10 +25,9 @@ app.get("/webhook", (req, res) => {
 
 // Change made to TMS FB page :: Update FBData.json in githubrepo
 app.post("/webhook", (req, res) => {
+  const fbSecret = functions.config().myservicekeys.fbappsecret;
   let options = {
-    uri: `https://graph.facebook.com/v2.8/790534394301792/feed?fields=permalink_url,from,message,full_picture&access_token=1828570360690824|${
-      functions.config().myservicekeys.fbappsecret
-    }`,
+    uri: `https://graph.facebook.com/v2.8/790534394301792/feed?fields=permalink_url,from,message,full_picture&access_token=1828570360690824|${fbSecret}`,
     json: true
   };
 
@@ -50,53 +49,52 @@ app.post("/webhook", (req, res) => {
       const options = {
         uri: `https://api.github.com/repos/grod220/TMS-D.A.Carson/contents/src/components/homepage/socialBar/livePost/FBData.json?access_token=${githubToken}`,
         json: true,
-        headers : {
-          'User-Agent': 'Request-Promise'
+        headers: {
+          "User-Agent": "Request-Promise"
         }
       };
-      return Promise.all([rp(options), postInfo, githubToken])
+      return Promise.all([rp(options), postInfo, githubToken]);
     })
     .then(([gResponse, postInfo, githubToken]) => {
       const newJSONcontent = {
-        "mostRecentFBPost" : {
-          "imageURL" : postInfo.full_picture,
-          "message" : postInfo.message,
-          "url" : postInfo.permalink_url
+        mostRecentFBPost: {
+          imageURL: postInfo.full_picture,
+          message: postInfo.message,
+          url: postInfo.permalink_url
         }
-      }
+      };
 
       const newObjJsonStr = JSON.stringify(newJSONcontent, null, 2);
       const newObjJsonB64 = Buffer.from(newObjJsonStr).toString("base64");
 
-      if (newObjJsonB64 === gResonse.content.replace(/\n/g, '')) {
-        throw new Error('Post already published on site.')
+      if (newObjJsonB64 === gResponse.content.replace(/\n/g, "")) {
+        return "Post already published on site.";
       }
 
       const newFileBody = {
-        "message": `Updated FB post content on ${new Date()}`,
-        "committer": {
-          "name": "Mr. Robot",
-          "email": "mrrobot-fake-email@firebase.com"
+        message: `Updated FB post content on ${new Date()}`,
+        committer: {
+          name: "Mr. Robot",
+          email: "mrrobot-fake-email@firebase.com"
         },
-        "content": newObjJsonB64,
-        "sha": gResponse.sha
-      }
+        content: newObjJsonB64,
+        sha: gResponse.sha
+      };
 
       const options = {
-        method: 'PUT',
+        method: "PUT",
         uri: `https://api.github.com/repos/grod220/TMS-D.A.Carson/contents/src/components/homepage/socialBar/livePost/FBData.json?access_token=${githubToken}`,
         json: true,
         body: newFileBody,
-        headers : {
-          'User-Agent': 'Request-Promise'
+        headers: {
+          "User-Agent": "Request-Promise"
         }
       };
 
       return rp(options);
     })
-    .then((lastRes) => {
-      res.send(lastRes)
-      return lastRes;
+    .then(lastRes => {
+      return res.send(lastRes);
     })
     .catch(err => {
       res.send(err);
