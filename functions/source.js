@@ -53,7 +53,7 @@ const getMostRecentPost = async () => {
   )[0];
   postInfo.message = postInfo.message
     ? postInfo.message.slice(0, 115) + "..."
-    : "";
+    : "View the latest post on Facebook ⇗";
   return postInfo;
 };
 
