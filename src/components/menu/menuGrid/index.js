@@ -20,11 +20,6 @@ const Container = styled.div`
     transition: all 0.5s;
     -webkit-backface-visibility: hidden;
   }
-
-  > div:hover {
-    transform: scale(1.03);
-    box-shadow: 10px 10px 36px 0px rgba(0, 0, 0, 0.55);
-  }
 `;
 
 const shuffle = (array) => {
