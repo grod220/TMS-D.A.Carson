@@ -94,19 +94,27 @@ const LoadingAnimation = styled.div`
   }
 `;
 class LivePost extends Component {
+  constructor() {
+    super()
+    this.state = {
+      imageLoading: true
+    }
+  }
+
   render() {
     return (
       <div>
         <a rel="noopener noreferrer" target="_blank" href={mostRecentFBPost.url}>
           <OuterBox>
             <SocialWrapper>
-              <LoadingAnimation activated={false} />
+              <LoadingAnimation activated={this.state.imageLoading} />
               <FBImage src={mostRecentFBPost.imageURL} />
               <ContentBlock>
                 <Caption>{mostRecentFBPost.message}</Caption>
                 <SmallFBIcon>
                   <img
                     src={FBSmallIcon}
+                    onLoad={() => this.setState({imageLoading: false})}
                     alt="Facebook icon"
                     width="40"
                     height="40"
