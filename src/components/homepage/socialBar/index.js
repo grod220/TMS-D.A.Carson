@@ -35,10 +35,10 @@ const LeftSide = styled.div`
     margin-right: 2.4rem;
 
     ${media.tablet`
-      margin-right: 0`}
+      margin-right: 0;`}
 
     ${media.phone`
-      margin-right: 0`};
+      margin-right: 0;`};
   }
 `;
 
@@ -63,7 +63,7 @@ const Connect = styled.div`
 
 const SocialIcons = styled.div`
   ${media.desktop`
-    min-width: 35.5rem`}
+    min-width: 35.5rem;`}
 
   ${media.tablet`
     display:flex;

@@ -97,8 +97,16 @@ class LivePost extends Component {
   constructor() {
     super()
     this.state = {
-      imageLoading: true
+      imageLoading: true,
+      loaderAlive: true
     }
+  }
+
+  removeLoader() {
+    this.setState({imageLoading: false})
+    setTimeout(() => {
+      this.setState({loaderAlive: false})
+    }, 1000)
   }
 
   render() {
@@ -107,14 +115,14 @@ class LivePost extends Component {
         <a rel="noopener noreferrer" target="_blank" href={mostRecentFBPost.url}>
           <OuterBox>
             <SocialWrapper>
-              <LoadingAnimation activated={this.state.imageLoading} />
+              { this.state.loaderAlive && <LoadingAnimation activated={this.state.imageLoading} /> }
               <FBImage src={mostRecentFBPost.imageURL} />
               <ContentBlock>
                 <Caption>{mostRecentFBPost.message}</Caption>
                 <SmallFBIcon>
                   <img
                     src={FBSmallIcon}
-                    onLoad={() => this.setState({imageLoading: false})}
+                    onLoad={() => this.removeLoader()}
                     alt="Facebook icon"
                     width="40"
                     height="40"
