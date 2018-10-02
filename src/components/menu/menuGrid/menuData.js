@@ -131,7 +131,7 @@ export default [
   },
   {
     headline: "Happy Hour",
-    description: "3-7 PM DAILY 2 for $10. In-house only.",
+    description: "3-7 PM Mon-Fri. 2 for $10. In-house only.",
     items: [
       { name: "Fried Calamari" },
       { name: "Baked Mozzarella" },
