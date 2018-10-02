@@ -26,7 +26,7 @@ const TopText = () => (
       options for <Highlight i>vegan &amp; glutten free (*gf)</Highlight>{" "}
       guests. Download PDF menu{" "}
       <Highlight i>
-        <a href={MenuPDF} target="_blank">
+        <a href={MenuPDF} target="_blank" rel="noopener noreferrer">
           HERE
         </a>{" "}
       </Highlight>.
