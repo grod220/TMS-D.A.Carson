@@ -3,9 +3,7 @@ import Chomps from "./images/chomps.png";
 import Life from "./images/life.png";
 import Orlando from "./images/orlando.png";
 import RealRadio from "./images/realradio.png";
-import InterviewMP3 from "./audio/PrimetimeKitchenInterview.mp3"
 import WESH2 from "./images/wesh2.png";
-
 
 export default [
   {
@@ -17,7 +15,7 @@ export default [
   {
     name: "Real Radio 104.1",
     image: RealRadio,
-    audio: InterviewMP3,
+    audio: "https://firebasestorage.googleapis.com/v0/b/the-meatball-stoppe.appspot.com/o/PrimetimeKitchenInterview.mp3?alt=media&token=c7e90421-1cc9-4e5c-b048-e1fd8b696de6",
     text: "The chicken meatball, buffalo style, balanced with blue cheese on top––that with the white-bean ragout is crazy killer."
   },
   {
