@@ -1,14 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import FBSmallIcon from "./../images/fblogo.svg";
-// import { mostRecentFBPost } from "./FBData.json";
-
-import FoodDisplay from "../images/food-display.jpg"
-const mostRecentFBPost = {
-  url: 'https://www.facebook.com/tastyladies.bx/videos/673459176352442/?t=109',
-  imageURL: FoodDisplay,
-  message: 'Bailey Provetto, NYC food critic, loves The Meatball Stoppe ❤️'
-}
+import { mostRecentFBPost } from "./FBData.json";
 
 const OuterBox = styled.div`
   box-shadow: -0.5rem 0.1rem 1.3rem 0 rgba(0, 0, 0, 0.5);
