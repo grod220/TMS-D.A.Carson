@@ -24,7 +24,4 @@ yarn-error.log*
 
 .env
 
-# ignore built index.js files
-functions/index.js
-
 *.log
