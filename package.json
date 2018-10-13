@@ -1,6 +1,6 @@
 {
   "name": "tms-d.a.carson",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "private": true,
   "dependencies": {
     "react": "^16.5.2",
@@ -10,14 +10,17 @@
     "react-lazyload": "^2.3.0",
     "react-loadable": "^5.5.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.0.3",
-    "styled-components": "^3.4.9"
+    "react-scripts": "^2.0.4",
+    "styled-components": "^3.4.10"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   },
   "browserslist": [
     ">0.2%",
