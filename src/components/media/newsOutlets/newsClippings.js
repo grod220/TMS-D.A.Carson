@@ -1,5 +1,5 @@
 import TenBest from "./images/10best.jpg";
-import Chomps from "./images/chomps.png";
+import EdibleBronx from "./images/edible-bronx.png";
 import Life from "./images/life.png";
 import Orlando from "./images/orlando.png";
 import RealRadio from "./images/realradio.png";
@@ -25,10 +25,10 @@ export default [
     text: "Orlando's #1 ranked most family-friendly restaurant and #7 best value in USA Today's travel guide."
   },
   {
-    name: "Tasty Chomps",
-    image: Chomps,
-    linkTo: "http://tastychomps.com/2016/05/inside-look-at-the-meatball-stoppe.html",
-    text: "Homemade meatballs are hard to come by. Meatballs are prepared to the highest quality of freshness at Meatball Stoppe."
+    name: "Edible Bronx",
+    image: EdibleBronx,
+    linkTo: "https://www.facebook.com/tastyladies.bx/videos/673459176352442/?t=109",
+    text: "If ever I had a last meal this would be it! If you’re a Floridian who never had real Italian food, you need to get here."
   },
   {
     name: "Central Florida Lifestyle Magazine",
