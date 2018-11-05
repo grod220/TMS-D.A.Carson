@@ -10,10 +10,10 @@ export default [
       { name: "Chicken Marsala", gf: true },
       { name: "Chicken Parmigiana", gf: true },
       { name: "Chicken Buffalo Bleu", gf: true },
-      { name: "Vegetarian", gf: true, extra: "add $2" },
-      { name: "Spicy Pork" },
+      { name: "Vegetarian", gf: true },
+      { name: "Spicy Pork", gf: true },
       { name: "Mac & Cheese Meatball" },
-      { name: "Lamb" },
+      { name: "Lamb", gf: true },
       { name: "Jeffy’s Crab Ball", extra: "add $3" },
       { name: "Gator Meatball", extra: "add $3" },
       { name: "Add Iana's Gem", price: 1.5 }
@@ -30,11 +30,11 @@ export default [
       { name: "Chicken Marsala", gf: true },
       { name: "Chicken Parmigiana", gf: true },
       { name: "Chicken Buffalo Bleu", gf: true },
-      { name: "Vegetarian", gf: true, extra: "add $2" },
+      { name: "Vegetarian", gf: true },
       { name: "Spicy Pork" },
       { name: "Mac & Cheese Meatball" },
       { name: "Lamb" },
-      { name: "Stoppe Steak & Cheese" }
+      { name: "Polenta", gf: true }
     ]
   },
   {
@@ -49,10 +49,10 @@ export default [
   },
   {
     headline: "Bucket of 13 meatballs",
-    price: 23.95,
+    price: 24.95,
     description: "One style, with choice of sauce & focaccia",
     items: [
-      { name: "Veggie", extra: "add $6" },
+      { name: "Polenta", extra: "add $8" },
       { name: "Crab, Gator", extra: "add $12" }
     ]
   },
@@ -94,13 +94,13 @@ export default [
   },
   {
     headline: "Focaccia Pizza",
-    price: 9.95,
+    price: 10.95,
     items: [
       { name: "Cheese" },
       { name: "All toppings", extra: "$1.50 each" },
       {
         name:
-          "Meatball, Isabella’s Pesto, Salami, Banana Peppers, Onions, Red Peppers, Olives, Anchovies, Tomatoes, Arugula"
+          "Meatball, Isabella’s Pesto, Banana Peppers, Onions, Red Peppers, Olives, Anchovies, Tomatoes, Arugula"
       },
       { name: "Focaccia Grande with two toppings", extra: "$29.95 14 pieces" }
     ]
@@ -126,7 +126,8 @@ export default [
       { name: "Fried Calamari", price: 9.95 },
       { name: "Meatball or Focaccia Pizza", price: 10.95 },
       { name: "Meatball sliders", price: 6.95, extra: "one style" },
-      { name: "Meatball lettuce wraps", price: 6.95, extra: "one style" }
+      { name: "Meatball lettuce wraps", price: 6.95, extra: "one style" },
+      { name: "Polenta balls", price: 8.95 },
     ]
   },
   {
