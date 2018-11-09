@@ -16,7 +16,8 @@ export default [
       { name: "Lamb", gf: true },
       { name: "Jeffy’s Crab Ball", extra: "add $3" },
       { name: "Gator Meatball", extra: "add $3" },
-      { name: "Add Iana's Gem", price: 1.5 }
+      { name: "Add Iana's Gem", price: 1.5 },
+      { name: "Polenta", gf: true, extra: "add $3" }
     ]
   },
   {
@@ -31,10 +32,14 @@ export default [
       { name: "Chicken Parmigiana", gf: true },
       { name: "Chicken Buffalo Bleu", gf: true },
       { name: "Vegetarian", gf: true },
-      { name: "Spicy Pork" },
+      { name: "Spicy Pork", gf: true },
       { name: "Mac & Cheese Meatball" },
-      { name: "Lamb" },
-      { name: "Polenta", gf: true }
+      { name: "Lamb", gf: true },
+      { name: "Polenta", gf: true, extra: "add $3" },
+      { name: "Jeffy’s Crab Ball", extra: "add $3" },
+      { name: "Gator Meatball", extra: "add $3" },
+      { name: "Iana's Gem", extra: "add $1.5" },
+      { name: "Guy Fieri's #DDD SMASH", extra: "add $4" }
     ]
   },
   {
@@ -43,7 +48,7 @@ export default [
     items: [
       {
         name:
-          "Includes 5 meatballs, polenta or white bean ragu, focaccia, beverage & cannoli"
+          "Includes 5 meatballs, polenta or white bean ragu, focaccia, & beverage"
       }
     ]
   },
@@ -127,35 +132,36 @@ export default [
       { name: "Meatball or Focaccia Pizza", price: 10.95 },
       { name: "Meatball sliders", price: 6.95, extra: "one style" },
       { name: "Meatball lettuce wraps", price: 6.95, extra: "one style" },
-      { name: "Polenta balls", price: 8.95 },
+      { name: "Polenta balls", price: 8.95 }
     ]
   },
   {
     headline: "Happy Hour",
-    description: "3-7 PM Mon-Fri. 2 for $10. In-house only.",
+    description: "4-6:30 PM Mon-Fri. 2 for $10. In-house only.",
     items: [
       { name: "Fried Calamari" },
       { name: "Baked Mozzarella" },
       { name: "Balls on a Stick" },
       { name: "Garlic Focaccia Bites" },
-      { name: "Meatball or Cheese Focaccia Pizza" }
+      { name: "Meatball or Cheese Focaccia Pizza" },
+      { name: "Polenta balls" }
     ]
   },
   {
     headline: "Beverages",
     items: [
-      { name: "Coke - Diet Coke - Sprite - Fanta Orange", price: 1.5 },
-      { name: "Unsweet Tea - Lemonade", price: 1.5 },
-      { name: "Cappuccino/Iced Cappuccino", price: 3.5 },
-      { name: "Espresso", price: 3.5 },
-      { name: "Double Espresso", price: 5 },
-      { name: "Coffee", price: 1.5 },
-      { name: "Pellegrino", price: 3 },
-      { name: "Domestic Beer", price: 4 },
-      { name: "Imported Beer", price: 5.5 },
-      { name: "Craft Beer", price: 5.5 },
-      { name: "Wine: Red - White", price: 5.25 },
-      { name: "Sangria - Pink Moscato", price: 5.95 }
+      { name: "Coke - Diet Coke - Sprite - Fanta Orange" },
+      { name: "Unsweet Tea - Lemonade" },
+      { name: "Cappuccino/Iced Cappuccino" },
+      { name: "Espresso" },
+      { name: "Double Espresso" },
+      { name: "Coffee" },
+      { name: "Pellegrino" },
+      { name: "Domestic Beer" },
+      { name: "Imported Beer" },
+      { name: "Craft Beer" },
+      { name: "Wine: Red - White" },
+      { name: "Sangria - Pink Moscato" }
     ]
   }
 ];
