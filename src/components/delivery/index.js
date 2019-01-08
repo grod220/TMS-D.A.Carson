@@ -6,7 +6,6 @@ import ShortHero from "../shared/shortHero/";
 import DeliveryHero from "./uberEatsBiker.jpg";
 import deviceScreens from "./telephoneBG.jpg";
 import uberEatsLogo from "./uber.png";
-import bitesLogo from "./bite.png";
 import Highlight from "../shared/highlight/";
 import SingleService from "./singleService/";
 
@@ -28,14 +27,14 @@ const LeftBox = styled.div`
   ${media.phone`
     width: 90vw;`};
 `;
-const SmallRedirect = styled.span`
-  color: #c1c1c1;
-  font-style: italic;
-  font-size: 1.8rem;
-`;
-const Underline = styled.a`
-  text-decoration: underline;
-`;
+// const SmallRedirect = styled.span`
+//   color: #c1c1c1;
+//   font-style: italic;
+//   font-size: 1.8rem;
+// `;
+// const Underline = styled.a`
+//   text-decoration: underline;
+// `;
 
 const ServicesBox = styled.div`
   display: flex;
@@ -64,7 +63,7 @@ const Delivery = () => (
         Do you live within a <Highlight i>7-8mile radius</Highlight> of the
         Meatball Stoppe? We’ll come to you!
         <br />
-        <SmallRedirect>
+        {/* <SmallRedirect>
           If not, just{" "}
           <span>
             <Underline
@@ -75,20 +74,13 @@ const Delivery = () => (
               go for a pickup
             </Underline>
           </span>.
-        </SmallRedirect>
+        </SmallRedirect> */}
         <ServicesBox>
           <SingleService
             image={uberEatsLogo}
             buttonText="Go to Uber"
             color="rgb(91, 192, 222)"
             url="https://www.ubereats.com/stores/c810eda3-c78d-436f-97d8-784dbcc637f5/"
-            line
-          />
-          <SingleService
-            image={bitesLogo}
-            buttonText="Go to Bite Squad"
-            color="rgb(92, 184, 92)"
-            url="http://www.bitesquad.com/food/the-meatball-stoppe/7457"
           />
         </ServicesBox>
       </LeftBox>
