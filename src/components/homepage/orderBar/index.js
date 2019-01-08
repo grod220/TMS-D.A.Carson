@@ -8,7 +8,7 @@ const RedBar = styled.div`
   display: flex;
   justify-content: center;
   ${media.phone`
-      height: 17rem;`};
+      height: 10rem;`};
 `;
 
 const Container = styled.div`
@@ -16,12 +16,11 @@ const Container = styled.div`
   display: flex;
 
   a {
-    width: 25%;
+    width: 75%;
     display: flex;
 
     ${media.tablet`
       width: 100%;
-      margin-left: 3rem;
       max-width: 33rem;`};
 
     ${media.phone`
@@ -42,6 +41,15 @@ const Container = styled.div`
     width: 91vw;
     justify-content: space-evenly;`};
 `;
+
+const SubContainer = styled.div`
+  width: 50%;
+  justify-content: center;
+  display:flex;
+
+  ${media.phone`
+      width: 100%;`};
+`
 
 const WhiteButton = styled.button`
   background: #fff;
@@ -67,16 +75,11 @@ const WhiteButton = styled.button`
 const OrderBar = () => (
   <RedBar>
     <Container>
-      <a
-        href="http://eat24hrs.com/restaurants/order2/menu.php?id=71250"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <WhiteButton>Pickup Order</WhiteButton>
-      </a>
-      <Link to="/delivery">
-        <WhiteButton>Delivery Order</WhiteButton>
-      </Link>
+      <SubContainer>
+        <Link to="/delivery">
+          <WhiteButton>Delivery Order</WhiteButton>
+        </Link>
+      </SubContainer>
     </Container>
   </RedBar>
 );
