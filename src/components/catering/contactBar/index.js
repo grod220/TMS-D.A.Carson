@@ -2,19 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { media } from "../../../sharedUtilities/media";
 
-import ContactImage from "./partyPic.jpg";
-
-const TopLine = styled.div`
-  font-family: "Dancing Script", cursive;
-  color: #902e2d;
-  text-align: right;
-  font-size: 5rem;
-  margin: 0 7rem -0.7rem 0;
-
-  ${media.phone`
-    text-align: center;
-    margin: 0;`}
-`;
+import BakedZiti from "./baked-ziti.jpg";
 
 const TwoBoxContainer = styled.div`
   display: flex;
@@ -27,21 +15,20 @@ const TwoBoxContainer = styled.div`
 `;
 
 const LeftImage = styled.div`
-  flex: 1;
-  background: url(${ContactImage});
+  flex: 2;
+  background: url(${BakedZiti});
   background-size: cover;
   background-position: 50%;
 `;
 
 const RightContactInfo = styled.div`
-  flex: 1;
+  flex: 3;
   color: white;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 3rem;
-  margin: 0 2rem;
+  flex-direction: column;
 
   ${media.tablet`
     font-size: 2.6rem`}
@@ -52,13 +39,21 @@ const RightContactInfo = styled.div`
 
 const ContactBar = () => (
   <div>
-    <TopLine>Contact Chef Isabella</TopLine>
     <TwoBoxContainer>
       <LeftImage />
       <RightContactInfo>
-        (407) 267-6033
-        <br />
-        isabella@themeatballstoppe.com
+        Place your catering order with:
+        <u>
+          <i>
+            <a
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://www.ladifferenzabakery.com/catering/"
+            >
+              Isabella's Bella Cucina →
+            </a>
+          </i>
+        </u>
       </RightContactInfo>
     </TwoBoxContainer>
   </div>

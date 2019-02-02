@@ -17,22 +17,30 @@ const Container = styled.div`
 
   ${media.phone`
     width: 90vw`}
-`
+`;
 
 const BodyText = () => (
   <Container>
-    Let us take away your pressure! The Meatball Stoppe can be the missing
-    ingredient for your event.
+    Let Isabella's Bella Cucina help you create menu's to suit your many
+    catering needs! We are your missing ingredient for your event.
     <ul>
       <li>
-        <Highlight i>Corporate or social catering</Highlight> including weddings, cocktail receptions,
-        dinner parties, holiday parties.... and more. You name it, we do it.
+        <Highlight i>Corporate Catering</Highlight> - Isabella's Bella Cucina's
+        unique menu and services allows you to stand above the rest. For
+        delivery to your office call Isabella, Owner/Chef at 407-267-6033
       </li>
       <li>
-      <Highlight i>Private Cooking Classes</Highlight> used for Corporate Team Building, Employee and
-        Client Appreciation and many other celebrations.
+        <Highlight i>Social Catering</Highlight> - Intimate or larger weddings,
+        cocktail receptions, dinner parties, holiday parties... and more.
       </li>
-      <li><Highlight i>Premier Dining Experience</Highlight> with Chef Isabella in your home.</li>
+      <li>
+        <Highlight i>Private Cooking Classes - Corporate Team
+        Building, Client Appreciation</Highlight> and many other celebrations.
+      </li>
+      <li>
+        <Highlight i>Premier Dining Experience </Highlight>with Chef Isabella in
+        your home.
+      </li>
     </ul>
   </Container>
 );
