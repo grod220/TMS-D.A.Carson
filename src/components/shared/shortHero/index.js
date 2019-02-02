@@ -24,12 +24,13 @@ const RedBar = styled.div`
     height: 15vw;`};
 `;
 
-const HeadlineText = styled.span`
+const HeadlineText = styled.h1`
   font-size: 8.4rem;
   color: white;
   font-family: "Dancing Script", cursive;
   position: absolute;
   margin-top: -3.3rem;
+  font-weight: 500;
 
   ${media.tablet`
     font-size: 8vw;
