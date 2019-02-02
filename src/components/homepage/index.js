@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 
 import TallHero from "./hero/";
 import OrderBar from "./orderBar/";
@@ -14,6 +15,13 @@ import LazyLoad from "react-lazyload";
 
 const Homepage = () => (
   <div>
+    <Helmet>
+      <title>The Meatball Stoppe :: Love & Famiglia, All Rolled Up</title>
+      <meta
+        name="description"
+        content="Authentic Italian food loved by Guy Fieri & the entire community. Orlando's #1 ranked most family-friendly restaurant by USA Today."
+      />
+    </Helmet>
     <TallHero />
     <OrderBar />
     <LazyLoad height={350}>

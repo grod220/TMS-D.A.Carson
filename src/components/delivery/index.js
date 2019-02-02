@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { media } from "../../sharedUtilities/media";
+import { Helmet } from "react-helmet";
 
 import ShortHero from "../shared/shortHero/";
 import DeliveryHero from "./uberEatsBiker.jpg";
@@ -57,6 +58,13 @@ const RightImage = styled.div`
 
 const Delivery = () => (
   <div>
+    <Helmet>
+      <title>Delivery :: The Meatball Stoppe</title>
+      <meta
+        name="description"
+        content="Sit back and enjoy the couch. We'll come to you."
+      />
+    </Helmet>
     <ShortHero image={DeliveryHero} headline="Delivery Order" />
     <Container>
       <LeftBox>

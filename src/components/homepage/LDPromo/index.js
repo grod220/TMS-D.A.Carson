@@ -62,7 +62,7 @@ const LDPromo = () => (
           using the best ingredients available. {" "}
           <RedLink to="/pastries">
             <b>
-              <i>See more about the bakery</i>
+              <i>See more about the bakery →</i>
             </b>
           </RedLink>
         </p>
