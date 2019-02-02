@@ -50,9 +50,15 @@ class Navigation extends Component {
             </Link>
           </Logo>
           <NavLinks>
-            <NavItem path="/pastries" action={this.toggleMobileMenu(false)}>
-              Pastries
-            </NavItem>
+            <li>
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://www.ladifferenzabakery.com"
+              >
+                Bakery
+              </a>
+            </li>
             <NavItem path="/media" action={this.toggleMobileMenu(false)}>
               Media
             </NavItem>
@@ -61,7 +67,7 @@ class Navigation extends Component {
         </NavBar>
         <MobileNavBar>
           <span onClick={this.toggleMobileMenu()}>
-            <img src={HamburgerIcon} alt="Menu icon"  />
+            <img src={HamburgerIcon} alt="Menu icon" />
           </span>
           <Link to="/">
             <img src={MiniLogo} alt="The Meatball Stoppe logo" />

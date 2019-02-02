@@ -10,7 +10,6 @@ import Homepage from "./components/homepage";
 const Menu = loadable(() => import("./components/menu"));
 const Catering = loadable(() => import("./components/catering"));
 const AboutUs = loadable(() => import("./components/aboutUs"));
-const Pastries = loadable(() => import("./components/pastries"));
 const Media = loadable(() => import("./components/media"));
 const Delivery = loadable(() => import("./components/delivery"));
 
@@ -35,7 +34,6 @@ class App extends Component {
           <Route exact path="/" component={Homepage} />
           <Route path="/menu" component={Menu} />
           <Route path="/catering" component={Catering} />
-          <Route path="/pastries" component={Pastries} />
           <Route path="/aboutus" component={AboutUs} />
           <Route path="/media" component={Media} />
           <Route path="/delivery" component={Delivery} />

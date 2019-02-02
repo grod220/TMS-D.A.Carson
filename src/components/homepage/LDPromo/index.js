@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { media } from "../../../sharedUtilities/media";
 
 import StrawberryCakeImg from "./images/strawberry-cake.jpg";
@@ -42,9 +41,9 @@ const DetailsTextContainer = styled.div`
     width: 90vw`}
 `;
 
-const RedLink = styled(Link)`
+const RedLink = styled.a`
   color: #902e2d;
-`
+`;
 
 const LDPromo = () => (
   <div>
@@ -59,10 +58,14 @@ const LDPromo = () => (
         <p>
           La Differenza is a different approach to desserts and baking. Our
           desserts are made in small batches, often a single cake at a time,
-          using the best ingredients available. {" "}
-          <RedLink to="/pastries">
+          using the best ingredients available.{" "}
+          <RedLink
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://www.ladifferenzabakery.com/"
+          >
             <b>
-              <i>See more about the bakery →</i>
+              <i>See more about our bakery →</i>
             </b>
           </RedLink>
         </p>
