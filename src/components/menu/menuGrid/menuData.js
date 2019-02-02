@@ -136,6 +136,23 @@ export default [
     ]
   },
   {
+    headline: "La Differenza",
+    description: "An Artisanal Bakery",
+    items: [
+      { name: "Cannoli" },
+      { name: "Tiramisu" },
+      { name: "Sfogliatelli" },
+      { name: "Berry Cheesecake" },
+      { name: "Pumpkin Spice Cheesecake" },
+      { name: "Chocolate Cheesecake" },
+      { name: "Dark Chocolate Mousse cake" },
+      { name: "Italian Eclairs" },
+      { name: "Limoncello Cake" },
+      { name: "Chiffon Cake" },
+      { name: "Sabyon Cake" },
+    ]
+  },
+  {
     headline: "Happy Hour",
     description: "4-6:30 PM Mon-Fri. 2 for $10. In-house only.",
     items: [

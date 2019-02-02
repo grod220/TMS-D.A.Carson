@@ -9,6 +9,8 @@ import DDDSmash from "./images/DDD-smash.jpg";
 import FiveBall from "./images/five-meatball-appetizer.jpg";
 import GarlicBites from "./images/garlic-bites.jpg";
 import FocacciaPizza from "./images/focaccia-pizza.jpg";
+import BerryCheesecake from "./images/berry-cheesecake.jpg";
+import ChocolateCheesecake from "./images/chocolate-cheesecake.jpg";
 
 export default [
   { name: "Calamari", imagePath: Calamari },
@@ -21,5 +23,7 @@ export default [
   { name: "DDD Meatball Smash", imagePath: DDDSmash },
   { name: "Five Ball Appetizer", imagePath: FiveBall },
   { name: "Garlic Focaccia Bites", imagePath: GarlicBites },
-  { name: "Focaccia Pizza", imagePath: FocacciaPizza }
+  { name: "Focaccia Pizza", imagePath: FocacciaPizza },
+  { name: "Berry Cheesecake", imagePath: BerryCheesecake },
+  { name: "Chocolate Cheesecake", imagePath: ChocolateCheesecake }
 ];
