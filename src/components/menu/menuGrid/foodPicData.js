@@ -25,5 +25,5 @@ export default [
   { name: "Garlic Focaccia Bites", imagePath: GarlicBites },
   { name: "Focaccia Pizza", imagePath: FocacciaPizza },
   { name: "Berry Cheesecake", imagePath: BerryCheesecake },
-  { name: "Chocolate Cheesecake", imagePath: ChocolateCheesecake }
+  { name: "Dark Chocolate Mousse cake", imagePath: ChocolateCheesecake }
 ];

@@ -144,7 +144,6 @@ export default [
       { name: "Sfogliatelli" },
       { name: "Berry Cheesecake" },
       { name: "Pumpkin Spice Cheesecake" },
-      { name: "Chocolate Cheesecake" },
       { name: "Dark Chocolate Mousse cake" },
       { name: "Italian Eclairs" },
       { name: "Limoncello Cake" },
