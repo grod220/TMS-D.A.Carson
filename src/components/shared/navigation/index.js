@@ -50,8 +50,8 @@ class Navigation extends Component {
             </Link>
           </Logo>
           <NavLinks>
-            <NavItem path="/aboutus" action={this.toggleMobileMenu(false)}>
-              About Us
+            <NavItem path="/pastries" action={this.toggleMobileMenu(false)}>
+              Pastries
             </NavItem>
             <NavItem path="/media" action={this.toggleMobileMenu(false)}>
               Media
