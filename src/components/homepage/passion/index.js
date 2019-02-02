@@ -70,7 +70,7 @@ const Passion = () => (
       <p>
         <u>
           <i>
-            <Link to="/aboutus">Learn more about us</Link>
+            <Link to="/aboutus">Learn more about us →</Link>
           </i>
         </u>
       </p>
