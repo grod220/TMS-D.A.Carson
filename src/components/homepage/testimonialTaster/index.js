@@ -16,6 +16,7 @@ const FlexContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 5rem;
 `;
 
 const BorderBox = styled.div`

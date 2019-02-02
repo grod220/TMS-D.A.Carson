@@ -5,6 +5,7 @@ import OrderBar from "./orderBar/";
 import SocialBar from "./socialBar/";
 import HomeMenu from "./homeMenu/";
 import TestimonialTaster from "./testimonialTaster/";
+import LDPromo from "./LDPromo/";
 import Map from "./map/";
 import Passion from "./passion/";
 import Footer from "./footer/";
@@ -23,6 +24,9 @@ const Homepage = () => (
     </LazyLoad>
     <LazyLoad height={350}>
       <TestimonialTaster />
+    </LazyLoad>
+    <LazyLoad height={400}>
+      <LDPromo />
     </LazyLoad>
     <LazyLoad height={450}>
       <Map />

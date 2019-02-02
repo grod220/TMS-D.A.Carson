@@ -12,7 +12,7 @@ import CustomMarker from "./marker.png";
 
 const MapStyle = styled.div`
   height: 46rem;
-  margin-top: 5rem;
+  margin-top: 6rem;
 `;
 
 const directionsLink = () => {
