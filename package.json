@@ -3,6 +3,7 @@
   "version": "4.4.0",
   "private": true,
   "dependencies": {
+    "express": "^4.16.4",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-ga": "^2.5.7",
@@ -18,7 +19,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start-server": "node app.js"
   },
   "eslintConfig": {
     "extends": "react-app"
