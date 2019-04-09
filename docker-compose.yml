@@ -1,12 +1,9 @@
 version: '3'
 services:
     nodejs-server:
-        build:
-            context: .
-            dockerfile: node.dockerfile
+        image: grod220/tms-nodejs
+        expose: ['3000']
     nginx-static-files:
-        build:
-            context: .
-            dockerfile: nginx.dockerfile
+        image: grod220/tms-nginx
         ports:
             - '8080:80'

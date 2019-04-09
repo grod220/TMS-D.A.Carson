@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.18.0 (06a2e56)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: nodejs-server
+  name: nodejs-server
+spec:
+  replicas: 20
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: nodejs-server
+    spec:
+      containers:
+      - image: grod220/tms-nodejs
+        name: nodejs-server
+        resources: {}
+      restartPolicy: Always
+status: {}
