@@ -10,7 +10,7 @@ const Description = ({ name, text }) => (
   </div>
 );
 
-Description.proptypes = {
+Description.propTypes = {
   name: PropTypes.string,
   text: PropTypes.string
 };
