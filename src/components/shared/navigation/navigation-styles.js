@@ -22,7 +22,7 @@ export const NavBar = styled.ul`
   ${media.phone`
     position: fixed;
     background-color: white;
-    left: ${props => (props.showMobileMenu ? "0" : "-30.7rem")};
+    left: ${props => (props.mobileMenuShown ? "0" : "-30.7rem")};
     top: -5.2rem;
     height: 100%;
     width: 22.7rem;

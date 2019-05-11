@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import TMSlogo from "./images/logo.svg";
@@ -16,68 +16,62 @@ import {
   SubBar
 } from "./navigation-styles";
 
-class Navigation extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showMobileMenu: false
-    };
+export default function Navigation() {
+  const [mobileMenu, setmMobileMenu] = useState(false);
+
+  function showMobileMenu() {
+    setmMobileMenu(!mobileMenu);
   }
 
-  toggleMobileMenu = status => () =>
-    this.setState(prevState => ({
-      showMobileMenu: status !== undefined ? status : !prevState.showMobileMenu
-    }));
+  function hideMobileMenu() {
+    setmMobileMenu(false);
+  }
 
-  render() {
-    return (
-      <div>
-        <NavBar {...this.state}>
-          <NavLinks>
-            <DismissX onClick={this.toggleMobileMenu()}>
-              <span>✕</span>
-            </DismissX>
-            <NavItem path="/menu" action={this.toggleMobileMenu(false)}>
-              Menu
-            </NavItem>
-            <NavItem path="/catering" action={this.toggleMobileMenu(false)}>
-              Catering
-            </NavItem>
-          </NavLinks>
-          <Logo>
-            <Link to="/">
-              <img src={TMSlogo} alt="The Meatball Stoppe logo" />
-            </Link>
-          </Logo>
-          <NavLinks>
-            <li>
-              <a
-                rel="noopener noreferrer"
-                target="_blank"
-                href="https://www.ladifferenzabakery.com"
-              >
-                Bakery
-              </a>
-            </li>
-            <NavItem path="/media" action={this.toggleMobileMenu(false)}>
-              Media
-            </NavItem>
-            <MobileMoreDetails />
-          </NavLinks>
-        </NavBar>
-        <MobileNavBar>
-          <span onClick={this.toggleMobileMenu()}>
-            <img src={HamburgerIcon} alt="Menu icon" />
-          </span>
+  return (
+    <div>
+      <NavBar mobileMenuShown={mobileMenu}>
+        <NavLinks>
+          <DismissX onClick={hideMobileMenu}>
+            <span>✕</span>
+          </DismissX>
+          <NavItem path="/menu" action={hideMobileMenu}>
+            Menu
+          </NavItem>
+          <NavItem path="/catering" action={hideMobileMenu}>
+            Catering
+          </NavItem>
+        </NavLinks>
+        <Logo>
           <Link to="/">
-            <img src={MiniLogo} alt="The Meatball Stoppe logo" />
+            <img src={TMSlogo} alt="The Meatball Stoppe logo" />
           </Link>
-          <div />
-        </MobileNavBar>
-        <SubBar />
-      </div>
-    );
-  }
+        </Logo>
+        <NavLinks>
+          <li>
+            <a
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://www.ladifferenzabakery.com"
+            >
+              Bakery
+            </a>
+          </li>
+          <NavItem path="/media" action={hideMobileMenu}>
+            Media
+          </NavItem>
+          <MobileMoreDetails />
+        </NavLinks>
+      </NavBar>
+      <MobileNavBar>
+        <span onClick={showMobileMenu}>
+          <img src={HamburgerIcon} alt="Menu icon" />
+        </span>
+        <Link to="/">
+          <img src={MiniLogo} alt="The Meatball Stoppe logo" />
+        </Link>
+        <div />
+      </MobileNavBar>
+      <SubBar />
+    </div>
+  );
 }
-
-export default Navigation;
