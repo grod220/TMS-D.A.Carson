@@ -16,8 +16,6 @@ const Backdrop = styled.div`
     margin:0;`};
 `;
 
-// KNOWN ISSUE on styled-components v3: On npm start, display: flex not applied to this component.
-  // started doing this on react+styled component update. Full build works
 const Container = styled.div`
   width: 73vw;
   display: flex;
