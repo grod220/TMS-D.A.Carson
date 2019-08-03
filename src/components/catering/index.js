@@ -2,10 +2,11 @@ import React from "react";
 import { Helmet } from "react-helmet";
 
 import ShortHero from "../shared/shortHero/";
-import CateringHero from "./tablesetPic.jpg";
+import CateringHero from "./plate-spread.jpg";
 import BodyText from "./bodyText/";
 import ContactBar from "./contactBar/";
 import CateringTestimonials from "./cateringTestimonials/";
+import PictureWaterfall from "./PictureWaterfall/";
 
 const Catering = () => (
   <div>
@@ -20,6 +21,7 @@ const Catering = () => (
     <BodyText />
     <ContactBar />
     <CateringTestimonials />
+    <PictureWaterfall />
   </div>
 );
 
