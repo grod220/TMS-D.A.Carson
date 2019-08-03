@@ -30,8 +30,8 @@ app.post("/order", async (req, res) => {
         req.body.tax,
         req.body.deliveryFee
       ),
-      success_url: "http://localhost:3000/order/success", // prod vs dev switch?
-      cancel_url: "http://localhost:3000/order/cancelled",
+      success_url: "https://www.themeatballstoppe.com/order/success",
+      cancel_url: "https://www.themeatballstoppe.com/order/cancelled",
       payment_intent_data: Utils.formatPaymentIntentObj(req.body)
     };
 

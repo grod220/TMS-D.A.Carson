@@ -2,7 +2,6 @@
   "name": "functions",
   "description": "Cloud Functions for Firebase",
   "scripts": {
-    "lint": "eslint .",
     "serve": "firebase serve --only functions",
     "shell": "firebase functions:shell",
     "start": "npm run shell",
@@ -21,8 +20,6 @@
     "stripe": "^7.5.0"
   },
   "devDependencies": {
-    "eslint": "^6.1.0",
-    "eslint-plugin-promise": "^4.2.1",
     "parcel-bundler": "^1.12.3"
   },
   "engines": {
