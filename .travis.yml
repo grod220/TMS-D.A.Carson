@@ -3,8 +3,11 @@ node_js:
   - "9.2"
 before_script:
   - npm install -g firebase-tools
-  - npm install
-  - cd functions && npm install && cd ../
+  - npm install # react-app
+  - cd functions 
+  - npm install # firebase functions
+  - parcel build entry.js -t node
+  - cd ../
 script:
   - npm run build
 after_success:
