@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import TallHero from "./hero/";
 import OrderBar from "./orderBar/";
 import SocialBar from "./socialBar/";
-import HomeMenu from "./homeMenu/";
+import HomeMenu from "./HomeMenu";
 import TestimonialTaster from "./testimonialTaster/";
 import LDPromo from "./LDPromo/";
 import Map from "./map/";

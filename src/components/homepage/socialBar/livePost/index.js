@@ -91,15 +91,20 @@ class LivePost extends Component {
     super()
     this.state = {
       imageLoading: true,
-      loaderAlive: true
+      loaderAlive: true,
+      timeout: null
     }
   }
 
   removeLoader() {
     this.setState({imageLoading: false})
-    setTimeout(() => {
+    this.setState({timeout: setTimeout(() => {
       this.setState({loaderAlive: false})
-    }, 1000)
+    }, 1000)})
+  }
+
+  componentWillUnmount() {
+    window.clearTimeout(this.state.timeout);
   }
 
   render() {

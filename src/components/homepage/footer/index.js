@@ -57,16 +57,10 @@ const Footer = () => (
         </li>
         <br />
         <li>
-          <a
-            href="http://eat24hrs.com/restaurants/order2/menu.php?id=71250"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Pickup Order
-          </a>
+          <Link to="/order/">Order Online</Link>
         </li>
-        <Link to="/delivery">
-          <li>Delivery order</li>
+        <Link to="/order/catering">
+          <li>Order Catering</li>
         </Link>
       </ul>
       <span>© 2017 The Meatball Stoppe. All rights reserved.</span>

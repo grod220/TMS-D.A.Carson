@@ -8,78 +8,83 @@ const RedBar = styled.div`
   display: flex;
   justify-content: center;
   ${media.phone`
-      height: 10rem;`};
+      height: 17rem;`};
 `;
 
 const Container = styled.div`
   width: 80vw;
   display: flex;
-
   a {
-    width: 75%;
+    width: 25%;
     display: flex;
-
     ${media.tablet`
       width: 100%;
+      margin-left: 3rem;
       max-width: 33rem;`};
-
     ${media.phone`
       width: 100%;`};
   }
-
   a + a {
     ${media.tablet`
       margin-right: 3rem;`};
   }
-
   ${media.tablet`
     width: 100%;
     justify-content: space-evenly;`};
-
   ${media.phone`
     flex-direction: column;
     width: 91vw;
     justify-content: space-evenly;`};
 `;
 
-const SubContainer = styled.div`
-  width: 50%;
-  justify-content: center;
-  display:flex;
-
-  ${media.phone`
-      width: 100%;`};
-`
-
-const WhiteButton = styled.button`
-  background: #fff;
-  color: #902e2d;
-  font-size: 2vw;
-  border: 0.2rem solid #902e2d;
-  outline: 0.3rem solid #fff;
+const OrderButton = styled.button`
   font-family: inherit;
   margin: 2rem 1.5rem;
   padding: 0.6rem 1.2rem;
   flex: 1;
   cursor: pointer;
+  border: 0.2rem solid;
+  outline: 0.3rem solid;
+  font-size: 1.6vw;
+  text-transform: uppercase;
+  transition: transform 0.6s;
+
+  &:hover {
+    transform: scale(1.03);
+  }
 
   ${media.tablet`
     font-size: 2.4rem;
     margin: 2rem 0`};
-
   ${media.phone`
     font-size: 2.4rem;
     margin: 0;`};
 `;
 
+const WhiteButton = styled(OrderButton)`
+  background: #fff;
+  color: #902e2d;
+  border-color: #902e2d;
+  outline-color: #fff;
+`;
+
+const RedButton = styled(OrderButton)`
+  background: #902e2d;
+  color: #fff;
+  border-color: #fff;
+  outline-color: #8b1a19;
+  box-shadow: -0.5rem 0.1rem 1rem 0 rgba(0, 0, 0, 0.3);
+`;
+
 const OrderBar = () => (
   <RedBar>
     <Container>
-      <SubContainer>
-        <Link to="/delivery">
-          <WhiteButton>Delivery Order</WhiteButton>
-        </Link>
-      </SubContainer>
+      <Link to="/order/">
+        <WhiteButton>Order Online</WhiteButton>
+      </Link>
+      <Link to="/order/catering">
+        <RedButton>Order Catering</RedButton>
+      </Link>
     </Container>
   </RedBar>
 );
