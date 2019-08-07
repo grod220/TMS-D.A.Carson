@@ -24,145 +24,179 @@ import Cappuccino from "./OrderModule/images/cappuccino.png";
 
 export default [
   {
-    category: "Mains",
+    category: "Appetizers",
     items: [
       {
-        name: "Stoppe Trio",
-        price: 10.95,
-        description: "Served with side, Stoppe salad, and any style meatball",
-        image: StoppeTrio,
-        options: [
-          {
-            name: "Choice of Meatball",
-            choices: [
-              { name: "Nonna's Traditional Italian", selection: true },
-              { name: "Sausage Pepper & Onions", gf: true, selection: true },
-              { name: "Jeffy’s Sausage", gf: true, selection: true },
-              { name: "Chicken Marsala", gf: true, selection: true },
-              { name: "Chicken Parmigiana", gf: true, selection: true },
-              { name: "Chicken Buffalo Bleu", gf: true, selection: true },
-              { name: "Vegetarian", gf: true, selection: true },
-              { name: "Vegan", gf: true, selection: true },
-              { name: "Spicy Pork", gf: true, selection: true },
-              { name: "Mac & Cheese Meatball", selection: true },
-              { name: "Lamb", gf: true, selection: true },
-              { name: "Jeffy’s Crab Ball", extra: 3, selection: true },
-              { name: "Gator Meatball", extra: 3, selection: true },
-              { name: "Iana's Gem", extra: 1.5, addition: true }
-            ]
-          },
-          {
-            name: "Choice of Side",
-            choices: [
-              { name: "Creamy Polenta", selection: true },
-              { name: "White Bean Ragu", selection: true },
-              { name: "Penne Pasta", gf: true, selection: true },
-              { name: "Linguine", selection: true }
-            ]
-          },
-          {
-            name: "Choice of Sauce",
-            choices: [
-              { name: "Roasted Tomato", gf: true, selection: true },
-              { name: "Peppers and Onions", gf: true, selection: true },
-              { name: "Creamy Provolone", gf: true, selection: true },
-              { name: "Marsala Mushroom", gf: true, selection: true },
-              { name: "Isabella’s Signature Pesto", gf: true, selection: true },
-              { name: "Buffalo Bleu", gf: true, selection: true },
-              { name: "Spicy Pork", gf: true, selection: true }
-            ]
-          }
-        ]
-      },
-      {
-        name: "Meatball Smash",
+        name: "Fried Calamari",
         price: 9.95,
-        description: "Served on fresh ciabatta roll and Stoppe salad",
-        vegan: true,
-        image: Smash,
-        options: [
-          {
-            name: "Choice of Meatball",
-            choices: [
-              { name: "Nonna's Traditional Italian", selection: true },
-              { name: "Sausage Pepper & Onions", gf: true, selection: true },
-              { name: "Jeffy’s Sausage", gf: true, selection: true },
-              { name: "Chicken Marsala", gf: true, selection: true },
-              { name: "Chicken Parmigiana", gf: true, selection: true },
-              { name: "Chicken Buffalo Bleu", gf: true, selection: true },
-              {
-                name: "Vegetarian",
-                gf: true,
-                extra: 2,
-                vegan: true,
-                selection: true
-              },
-              { name: "Spicy Pork", gf: true, selection: true },
-              { name: "Mac & Cheese Meatball", selection: true },
-              { name: "Lamb", gf: true, selection: true }
-            ]
-          }
-        ]
+        image: Calamari,
+        gf: true
       },
       {
-        name: "Meatball Flight",
-        price: 19.95,
-        description:
-          "Includes 5 meatballs, polenta or white bean ragu, focaccia, & beverage",
-        image: VeggieFlight,
+        name: "Spicy Fried Shrimp",
+        price: 10.95,
+        gf: true
+      },
+      {
+        name: "4 Ball Sampler",
+        price: 8.95,
+        image: FiveBall,
+        vegetarian: true,
+        vegan: true,
         options: [
           {
-            name: "Choice of Meatball",
+            name: "Choice of Meatballs",
             minimum: 1,
-            maximum: 5,
+            maximum: 4,
             choices: [
               { name: "Nonna's Traditional Italian", addition: true },
               { name: "Sausage Pepper & Onions", gf: true, addition: true },
-              { name: "Jeffy’s Sausage", gf: true, addition: true },
+              { name: "Sausage", gf: true, addition: true },
               { name: "Chicken Marsala", gf: true, addition: true },
               { name: "Chicken Parmigiana", gf: true, addition: true },
               { name: "Chicken Buffalo Bleu", gf: true, addition: true },
-              { name: "Vegetarian", gf: true, vegan: true, addition: true },
-              { name: "Spicy Pork", gf: true, addition: true },
-              { name: "Mac & Cheese Meatball", addition: true },
+              {
+                name: "Vegetarian",
+                gf: true,
+                vegetarian: true,
+                addition: true
+              },
+              { name: "Vegan", gf: true, vegan: true, addition: true },
+              { name: "Spicy Pork", addition: true },
+              {
+                name: "Mac & Cheese Meatball",
+                vegetarian: true,
+                addition: true
+              },
               { name: "Lamb", gf: true, addition: true },
               { name: "Jeffy’s Crab Ball", extra: 3, addition: true },
-              { name: "Gator Meatball", extra: 3, addition: true }
+              { name: "Gator Meatball", extra: 3, addition: true },
+              {
+                name: "Polenta Ball",
+                gf: true,
+                vegetarian: true,
+                addition: true
+              },
+              {
+                name: "Eggplant Zucchini Quinoa",
+                gf: true,
+                vegan: true,
+                addition: true
+              },
+              { name: "Porcupine Ball", addition: true }
             ]
           },
           {
-            name: "Choice of Side",
+            name: "Addon",
             choices: [
-              { name: "Creamy Polenta", selection: true },
-              { name: "White Bean Ragu", selection: true }
-            ]
-          },
-          {
-            name: "Choice of Beverage",
-            choices: [
-              { name: "Coke", selection: true },
-              { name: "Diet Coke", selection: true },
-              { name: "Sprite", selection: true },
-              { name: "Fanta Orange", selection: true },
-              { name: "Unsweet Tea", selection: true },
-              { name: "Lemonade", selection: true },
-              { name: "Coffee", selection: true }
+              {
+                name: "Iana's Gem (fried egg)",
+                extra: 1.5,
+                gf: true,
+                vegetarian: true,
+                addition: true
+              }
             ]
           }
         ]
       },
       {
-        name: "Bucket of 13 meatballs",
-        price: 24.95,
-        description: "One style, with choice of sauce & focaccia",
-        image: BucketOfBalls,
+        name: "Baked Mozzarella",
+        price: 7.95,
+        description: "Served with Crostini",
+        image: BakedMozzarella,
+        vegetarian: true
+      },
+      {
+        name: "Focaccia Pizza",
+        price: 9.95,
+        vegan: true,
+        vegetarian: true,
+        image: Focaccia,
         options: [
           {
-            name: "Choice of Meatball",
+            name: "Choice of Toppings",
+            choices: [
+              {
+                name: "Nonna's Traditional Italian",
+                extra: 1.5,
+                addition: true
+              },
+              {
+                name: "Sausage Pepper & Onions",
+                extra: 1.5,
+                gf: true,
+                addition: true
+              },
+              { name: "Sausage", extra: 1.5, gf: true, addition: true },
+              {
+                name: "Chicken Parmigiana",
+                extra: 1.5,
+                gf: true,
+                addition: true
+              },
+              {
+                name: "Chicken Buffalo Bleu",
+                extra: 1.5,
+                gf: true,
+                addition: true
+              },
+              {
+                name: "Vegetarian",
+                extra: 1.5,
+                gf: true,
+                vegetarian: true,
+                addition: true
+              },
+              {
+                name: "Vegan",
+                extra: 1.5,
+                gf: true,
+                vegan: true,
+                addition: true
+              },
+              { name: "Spicy Pork", extra: 1.5, addition: true },
+              { name: "Lamb", extra: 1.5, gf: true, addition: true },
+              { name: "Jeffy’s Crab Ball", extra: 3, addition: true },
+              { name: "Gator Meatball", extra: 3, addition: true },
+              {
+                name: "Iana's Gem (fried egg)",
+                extra: 1.5,
+                gf: true,
+                vegetarian: true,
+                addition: true
+              },
+              { name: "Banana Peppers", extra: 1.5, gf: true, vegan: true },
+              { name: "onions", extra: 1.5, gf: true, vegan: true },
+              { name: "peppers", extra: 1.5, gf: true, vegan: true },
+              { name: "tomatoes", extra: 1.5, gf: true, vegan: true },
+              { name: "anchovies", extra: 1.5, gf: true },
+              { name: "arugula", extra: 1.5, gf: true, vegan: true }
+            ]
+          },
+          {
+            name: "Vegan",
+            choices: [{ name: "no cheese", vegan: true, addition: true }]
+          }
+        ]
+      },
+      {
+        name: "Garlic Focaccia Bites",
+        price: 6.95,
+        vegan: true,
+        image: FocacciaBites
+      },
+      {
+        name: "Meatball Lettuce Wrap",
+        price: 7.25,
+        vegan: true,
+        options: [
+          {
+            name: "Choice of Meatballs",
             choices: [
               { name: "Nonna's Traditional Italian", selection: true },
               { name: "Sausage Pepper & Onions", gf: true, selection: true },
-              { name: "Jeffy’s Sausage", gf: true, selection: true },
+              { name: "Sausage", gf: true, selection: true },
               { name: "Chicken Marsala", gf: true, selection: true },
               { name: "Chicken Parmigiana", gf: true, selection: true },
               { name: "Chicken Buffalo Bleu", gf: true, selection: true },
@@ -170,321 +204,121 @@ export default [
                 name: "Vegetarian",
                 gf: true,
                 vegetarian: true,
-                extra: 6,
                 selection: true
               },
-              { name: "Spicy Pork", gf: true, selection: true },
-              { name: "Mac & Cheese Meatball", selection: true },
+              { name: "Vegan", gf: true, vegan: true, selection: true },
+              { name: "Spicy Pork", selection: true },
+              {
+                name: "Mac & Cheese Meatball",
+                vegetarian: true,
+                selection: true
+              },
               { name: "Lamb", gf: true, selection: true },
-              { name: "Jeffy’s Crab Ball", extra: 12, selection: true },
-              { name: "Gator Meatball", extra: 12, selection: true },
-              { name: "Iana's Gem", extra: 1.5, addition: true }
+              { name: "Jeffy’s Crab Ball", extra: 3, selection: true },
+              { name: "Gator Meatball", extra: 3, selection: true },
+              {
+                name: "Polenta Ball",
+                gf: true,
+                vegetarian: true,
+                selection: true
+              },
+              {
+                name: "Eggplant Zucchini Quinoa",
+                gf: true,
+                vegan: true,
+                selection: true
+              },
+              { name: "Porcupine Ball", selection: true }
             ]
           },
           {
-            name: "Choice of Sauce",
+            name: "Addon",
             choices: [
-              { name: "Roasted Tomato", gf: true, selection: true },
-              { name: "Peppers and Onions", gf: true, selection: true },
-              { name: "Creamy Provolone", gf: true, selection: true },
-              { name: "Marsala Mushroom", gf: true, selection: true },
-              { name: "Isabella’s Signature Pesto", gf: true, selection: true },
-              { name: "Buffalo Bleu", gf: true, selection: true },
-              { name: "Spicy Pork", gf: true, selection: true }
+              {
+                name: "Iana's Gem (fried egg)",
+                extra: 1.5,
+                gf: true,
+                vegetarian: true,
+                addition: true
+              }
             ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    category: "Famiglia Favorites",
-    items: [
-      {
-        name: "Eggplant Stack",
-        price: 10.95,
-        description: "Served with Stoppe salad and focaccia",
-        image: EggplantStack,
-        vegetarian: true
-      },
-      {
-        name: "Cheese Ravioli and Meatball",
-        price: 10.95,
-        description: "Served with stoppe salad and focaccia"
-      },
-      {
-        name: "Tortellini in Pink Sauce",
-        price: 10.95,
-        description: "Served with stoppe salad and focaccia",
-        image: Tortellini
-      },
-      {
-        name: "Lasagna Bolognese",
-        price: 10.95,
-        description: "Served with stoppe salad and focaccia",
-        image: Lasagna
-      },
-      {
-        name: "Vegetarian Lasagna",
-        price: 10.95,
-        description: "Served with stoppe salad and focaccia",
-        vegetarian: true
-      },
-      {
-        name: "Baked Ziti",
-        price: 10.95,
-        description: "Served with stoppe salad and focaccia",
-        image: BakedZiti
-      },
-      {
-        name: "Eggplant Panino",
-        price: 10.95,
-        description: "Served with stoppe salad and focaccia",
-        vegan: true,
-        image: Panino
-      },
-      {
-        name: "Pasta Fagioli",
-        price: 10.95,
-        gf: true,
-        image: PastaFagioli
-      },
-      {
-        name: "Pasta Aglia E Olio",
-        price: 10.95,
-        description: "Served with stoppe salad and focaccia",
-        vegan: true,
-        gf: true,
-        image: PastaAglia
-      },
-      {
-        name: "Pasta Primavera Vegan - Penne with Seasonal",
-        price: 10.95,
-        vegan: true,
-        gf: true
-      }
-    ]
-  },
-  {
-    category: "Fresh Crisp Salads",
-    items: [
-      {
-        name: "Caprese Salad",
-        price: 7.5,
-        description: "Service with focaccia",
-        image: CapreseSalad
-      },
-      {
-        name: "Stoppe Salad",
-        price: 6.95,
-        description: "Service with focaccia",
-        image: StoppeSalad
-      },
-      {
-        name: "Roasted Vegetable Salad",
-        price: 7.5,
-        description: "Service with focaccia"
-      }
-    ]
-  },
-  {
-    category: "Focaccia Pizza",
-    items: [
-      {
-        name: "Focaccia Pizza",
-        price: 10.95,
-        description: "Vegan also available",
-        vegan: true,
-        image: Focaccia,
-        options: [
-          {
-            name: "Choice of Toppings",
-            maximum: 10,
-            choices: [
-              { name: "Meatball", extra: 1.5, addition: true },
-              { name: "Vegan meatball", extra: 1.5, addition: true },
-              { name: "Isabella’s Pesto", extra: 1.5, addition: true },
-              { name: "Salami", extra: 1.5, addition: true },
-              { name: "Banana Peppers", extra: 1.5, addition: true },
-              { name: "Onions", extra: 1.5, addition: true },
-              { name: "Red Peppers", extra: 1.5, addition: true },
-              { name: "Olives", extra: 1.5, addition: true },
-              { name: "Anchovies", extra: 1.5, addition: true },
-              { name: "Tomatoes", extra: 1.5, addition: true },
-              { name: "Arugula", extra: 1.5, addition: true }
-            ]
-          },
-          {
-            name: "Vegan",
-            choices: [{ name: "no cheese", addition: true }]
           }
         ]
       },
       {
-        name: "Focaccia Grande Pizza",
-        price: 29.95,
-        description: "14 pieces with two toppings",
-        image: FocacciaGrande,
+        name: "Meatball Sliders",
+        price: 7.95,
+        vegan: true,
         options: [
           {
-            name: "Choice of Toppings",
+            name: "Choice of Meatballs",
+            minimum: 1,
             maximum: 2,
             choices: [
-              { name: "Meatball", addition: true },
-              { name: "Isabella’s Pesto", addition: true },
-              { name: "Salami", addition: true },
-              { name: "Banana Peppers", addition: true },
-              { name: "Onions", addition: true },
-              { name: "Red Peppers", addition: true },
-              { name: "Olives", addition: true },
-              { name: "Anchovies", addition: true },
-              { name: "Tomatoes", addition: true },
-              { name: "Arugula", addition: true }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    category: "À la Carte Sides",
-    items: [
-      {
-        name: "Creamy Polenta",
-        price: 6.25,
-        gf: true,
-        image: Polenta
-      },
-      {
-        name: "White Bean Ragu",
-        price: 6.25,
-        vegan: true,
-        gf: true,
-        image: WhiteBeanRagu
-      },
-      {
-        name: "Penne Pasta",
-        price: 6.25,
-        description: "With choice of sauce",
-        gf: true,
-        vegan: true,
-        options: [
-          {
-            name: "Choice of Sauce",
-            choices: [
-              { name: "Roasted Tomato", gf: true, selection: true },
-              { name: "Peppers and Onions", gf: true, selection: true },
-              { name: "Creamy Provolone", gf: true, selection: true },
-              { name: "Marsala Mushroom", gf: true, selection: true },
-              { name: "Isabella’s Signature Pesto", gf: true, selection: true },
-              { name: "Buffalo Bleu", gf: true, selection: true },
-              { name: "Spicy Pork", gf: true, selection: true }
+              { name: "Nonna's Traditional Italian", addition: true },
+              { name: "Sausage Pepper & Onions", gf: true, addition: true },
+              { name: "Sausage", gf: true, addition: true },
+              { name: "Chicken Marsala", gf: true, addition: true },
+              { name: "Chicken Parmigiana", gf: true, addition: true },
+              { name: "Chicken Buffalo Bleu", gf: true, addition: true },
+              {
+                name: "Vegetarian",
+                gf: true,
+                vegetarian: true,
+                addition: true
+              },
+              { name: "Vegan", gf: true, vegan: true, addition: true },
+              { name: "Spicy Pork", addition: true },
+              {
+                name: "Mac & Cheese Meatball",
+                vegetarian: true,
+                addition: true
+              },
+              { name: "Lamb", gf: true, addition: true },
+              { name: "Jeffy’s Crab Ball", extra: 3, addition: true },
+              { name: "Gator Meatball", extra: 3, addition: true },
+              {
+                name: "Polenta Ball",
+                gf: true,
+                vegetarian: true,
+                addition: true
+              },
+              {
+                name: "Eggplant Zucchini Quinoa",
+                gf: true,
+                vegan: true,
+                addition: true
+              },
+              { name: "Porcupine Ball", addition: true }
             ]
           },
           {
-            name: "Gluten free pasta option",
-            choices: [{ name: "Gluten free", addition: true }]
+            name: "Addon",
+            choices: [
+              {
+                name: "Iana's Gem (fried egg)",
+                extra: 1.5,
+                gf: true,
+                vegetarian: true,
+                addition: true
+              }
+            ]
           }
         ]
-      }
-    ]
-  },
-  {
-    category: "Appetizers",
-    items: [
-      {
-        name: "Meatballs on a stick",
-        price: 6.95
       },
       {
-        name: "5 balls",
-        price: 8.95,
-        image: FiveBall
-      },
-      {
-        name: "Garlic Focaccia Bites",
-        price: 6.95,
-        vegan: true,
-        gf: true,
-        image: FocacciaBites
-      },
-      {
-        name: "Baked Mozzarella",
-        price: 7.95,
-        image: BakedMozzarella
-      },
-      {
-        name: "Gator Balls",
-        price: 10.95
-      },
-      {
-        name: "Crab Balls",
-        price: 10.95,
-        image: CrabBalls
-      },
-      {
-        name: "Fried Calamari",
-        price: 9.95,
-        image: Calamari
-      },
-      {
-        name: "3 Meatball Slider",
-        price: 6.95,
-        vegan: true
-      }
-    ]
-  },
-  {
-    category: "Beverages",
-    items: [
-      {
-        name: "Coke",
-        price: 2.5
-      },
-      {
-        name: "Diet Coke",
-        price: 2.5
-      },
-      {
-        name: "Sprite",
-        price: 2.5
-      },
-      {
-        name: "Root Beer",
-        price: 2.5
-      },
-      {
-        name: "Unsweet Tea",
-        price: 2.5
-      },
-      {
-        name: "Lemonade",
-        price: 2.5
-      },
-      {
-        name: "Cappuccino",
-        price: 3.5,
-        image: Cappuccino
-      },
-      {
-        name: "Iced Cappuccino",
-        price: 3.5
-      },
-      {
-        name: "Espresso",
-        price: 3.5
-      },
-      {
-        name: "Double Espresso",
-        price: 5
-      },
-      {
-        name: "Coffee",
-        price: 1.5
-      },
-      {
-        name: "Pellegrino",
-        price: 3
+        name: "3 Crab or Gator Balls",
+        price: 11.95,
+        image: CrabBalls,
+        options: [
+          {
+            name: "Choice of Meatball",
+            choices: [
+              { name: "Crab Ball", selection: true },
+              { name: "Gator Ball", gf: true, selection: true }
+            ]
+          }
+        ]
       }
     ]
   }

@@ -27,3 +27,4 @@ yarn-error.log*
 *.log
 /functions/dist/
 /functions/.cache
+.idea/

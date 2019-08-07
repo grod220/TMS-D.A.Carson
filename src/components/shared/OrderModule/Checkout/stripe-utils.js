@@ -28,7 +28,8 @@ export default async function handleCheckoutRequest(showSpinner, showError) {
   showSpinner(true);
   try {
     const res = await fetch(
-      "http://localhost:5000/the-meatball-stoppe/us-central1/stripe/order",
+      // "http://localhost:5000/the-meatball-stoppe/us-central1/stripe/order",
+      "https://us-central1-the-meatball-stoppe.cloudfunctions.net/stripe/order",
       {
         headers: {
           "Content-Type": "application/json"

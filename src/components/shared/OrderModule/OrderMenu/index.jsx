@@ -21,15 +21,20 @@ const Content = styled.div`
   position: relative;
 `;
 
-const filterOptions = (item, filterCat) => {
+const filterOptions = (item, filterCats) => {
   const itemCopy = JSON.parse(JSON.stringify(item));
   if (itemCopy.options) {
-    itemCopy.options = itemCopy.options.map(option => {
-      return {
-        name: option.name,
-        choices: option.choices.filter(choice => choice[filterCat])
-      };
-    });
+    itemCopy.options = itemCopy.options
+      .map(option => {
+        return {
+          ...option,
+          name: option.name,
+          choices: option.choices.filter(choice =>
+            filterCats.some(category => choice[category])
+          )
+        };
+      })
+      .filter(option => option.choices.length);
   }
   return itemCopy;
 };
@@ -46,14 +51,14 @@ const filterMenu = (tab, fullMenu) => {
         {
           category: "Vegetarian",
           items: fullMenuItems
-            .filter(item => item.vegetarian)
-            .map(item => filterOptions(item, "vegetarian"))
+            .filter(item => item.vegetarian || item.vegan)
+            .map(item => filterOptions(item, ["vegetarian", "vegan"]))
         },
         {
           category: "Vegan",
           items: fullMenuItems
             .filter(item => item.vegan)
-            .map(item => filterOptions(item, "vegan"))
+            .map(item => filterOptions(item, ["vegan"]))
         }
       ];
     } else if (tab === "Gluten-free") {
@@ -62,7 +67,7 @@ const filterMenu = (tab, fullMenu) => {
           category: "Gluten-free",
           items: fullMenuItems
             .filter(item => item.gf)
-            .map(item => filterOptions(item, "gf"))
+            .map(item => filterOptions(item, ["gf"]))
         }
       ];
     }
