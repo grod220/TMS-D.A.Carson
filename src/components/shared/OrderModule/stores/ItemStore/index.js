@@ -6,12 +6,22 @@ function countChoices(choices, type) {
   ).length;
 }
 
+function additionsFulfilled(choices, additionsRequired) {
+  return Object.entries(additionsRequired).every(
+    ([optionName, minimumRequired]) => {
+      return (
+        choices[optionName] && choices[optionName].length >= minimumRequired
+      );
+    }
+  );
+}
+
 class ItemStore {
   dishName;
   basePrice;
   choices = {};
   selectionsRequired = 0;
-  additionsRequired = 0;
+  additionsRequired = {};
 
   get total() {
     const extraCosts = Object.values(this.choices)
@@ -22,11 +32,9 @@ class ItemStore {
   }
 
   get readyForCart() {
-    const selections = countChoices(this.choices, "selection");
-    const additions = countChoices(this.choices, "addition");
     return (
-      this.selectionsRequired === selections &&
-      this.additionsRequired <= additions
+      this.selectionsRequired === countChoices(this.choices, "selection") &&
+      additionsFulfilled(this.choices, this.additionsRequired)
     );
   }
 }

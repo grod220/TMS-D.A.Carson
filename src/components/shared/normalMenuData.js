@@ -287,6 +287,7 @@ export default [
           },
           {
             name: "Choice of Toppings",
+            minimum: 1,
             maximum: 2,
             choices: [
               { name: "Nonna's Traditional Italian", addition: true },
@@ -790,12 +791,42 @@ export default [
               { name: "Jeffy’s Crab Ball", extra: 3, addition: true },
               { name: "Gator Meatball", extra: 3, addition: true },
               gemChoice,
-              { name: "Banana Peppers", extra: 1.5, gf: true, vegan: true },
-              { name: "onions", extra: 1.5, gf: true, vegan: true },
-              { name: "peppers", extra: 1.5, gf: true, vegan: true },
-              { name: "tomatoes", extra: 1.5, gf: true, vegan: true },
-              { name: "anchovies", extra: 1.5, gf: true },
-              { name: "arugula", extra: 1.5, gf: true, vegan: true }
+              {
+                name: "Banana Peppers",
+                extra: 1.5,
+                gf: true,
+                vegan: true,
+                addition: true
+              },
+              {
+                name: "onions",
+                extra: 1.5,
+                gf: true,
+                vegan: true,
+                addition: true
+              },
+              {
+                name: "peppers",
+                extra: 1.5,
+                gf: true,
+                vegan: true,
+                addition: true
+              },
+              {
+                name: "tomatoes",
+                extra: 1.5,
+                gf: true,
+                vegan: true,
+                addition: true
+              },
+              { name: "anchovies", extra: 1.5, gf: true, addition: true },
+              {
+                name: "arugula",
+                extra: 1.5,
+                gf: true,
+                vegan: true,
+                addition: true
+              }
             ]
           },
           {
