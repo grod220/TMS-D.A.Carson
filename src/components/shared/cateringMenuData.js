@@ -1,7 +1,6 @@
 import BucketOfBalls from "./OrderModule/images/bucket-of-balls.jpg";
 import EggplantStack from "./OrderModule/images/eggplant-stack.jpg";
 import Tortellini from "./OrderModule/images/tortellini.jpg";
-import Lasagna from "./OrderModule/images/lasagna.jpg";
 import BakedZiti from "./OrderModule/images/baked-ziti.jpg";
 import CapreseSalad from "./OrderModule/images/caprese-salad.jpg";
 import StoppeSalad from "./OrderModule/images/stoppe-salad.jpg";
@@ -115,13 +114,11 @@ export default [
         name: "Lasagna Bolognese (half-pan)",
         price: 70,
         description: "",
-        image: Lasagna
       },
       {
         name: "Lasagna Bolognese (full-pan)",
         price: 125,
         description: "",
-        image: Lasagna
       }
     ]
   },
