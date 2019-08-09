@@ -20,7 +20,6 @@ const serializeOrderStore = orderStore => {
     baseObj.deliveryLocation = formatGooglePlacesObj(baseObj.deliveryLocation);
     baseObj.deliveryFee = orderStore.deliveryFee;
   }
-  console.log(baseObj)
   return baseObj;
 };
 

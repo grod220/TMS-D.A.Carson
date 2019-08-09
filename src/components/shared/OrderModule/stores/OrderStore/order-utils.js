@@ -50,6 +50,18 @@ const leadTimesInHours = {
   }
 };
 
+const yyyMMDD = date => {
+  var d = new Date(date),
+    month = "" + (d.getMonth() + 1),
+    day = "" + d.getDate(),
+    year = d.getFullYear();
+
+  if (month.length < 2) month = "0" + month;
+  if (day.length < 2) day = "0" + day;
+
+  return [year, month, day].join("-");
+};
+
 export const getNextAvailableFulfillmentDate = () => {
   const today = new Date();
   const leadTimeHours =
@@ -59,9 +71,9 @@ export const getNextAvailableFulfillmentDate = () => {
     nextAvailableDate.setDate(
       today.getDay() !== 6 ? today.getDate() + 1 : today.getDate() + 2
     );
-    return nextAvailableDate.toISOString().substr(0, 10);
+    return yyyMMDD(nextAvailableDate);
   }
-  return today.toISOString().substr(0, 10);
+  return yyyMMDD(today);
 };
 
 export const withinOpeningHours = timeStr => {
@@ -99,7 +111,7 @@ export const getNextAvailableFulfillmentTime = () => {
 export const getOneYearFromTodayStr = () => {
   const dateObj = new Date();
   dateObj.setFullYear(dateObj.getFullYear() + 1);
-  return dateObj.toISOString().substr(0, 10);
+  return yyyMMDD(dateObj);
 };
 
 export const roundToNearest15min = timeStr => {
