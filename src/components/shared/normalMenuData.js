@@ -393,7 +393,7 @@ export default [
         ]
       },
       {
-        name: "GGuy Fieri's DDD Smash",
+        name: "Guy Fieri's DDD Smash",
         price: 12.95,
         description:
           "Meatballs served on Freshly Baked Ciabatta Roll topped with Mozzarella, Polenta Ball and Gem (Fried Egg)  served with Stoppe Salad",

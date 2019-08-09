@@ -101,15 +101,19 @@ const validateOrderOrThrow = ({
   deliveryFee,
   fulfillmentOption
 }) => {
+  console.log(
+    JSON.stringify({
+      shoppingCart,
+      orderType,
+      tip,
+      tax,
+      deliveryFee,
+      fulfillmentOption
+    })
+  );
   if (tip < 0) {
     throw Error(`Tip is less than 0 zero`);
   }
-
-  console.log(
-    'fulfillmentOption === "delivery"',
-    fulfillmentOption === "delivery"
-  );
-  console.log("deliveryFee", deliveryFee);
 
   if (fulfillmentOption === "delivery" && deliveryFee < 20) {
     throw Error("Delivery fee is less than $20");
@@ -125,6 +129,12 @@ const validateOrderOrThrow = ({
     const matchingMenuItem = menuItems.find(
       menuItem => menuItem.name === cartItem.dishName
     );
+
+    if (!matchingMenuItem) {
+      throw Error(
+          `${cartItem.name} :: Could not find this dish in the official menu`
+      );
+    }
 
     if (cartItem.basePrice !== matchingMenuItem.price) {
       throw Error(
