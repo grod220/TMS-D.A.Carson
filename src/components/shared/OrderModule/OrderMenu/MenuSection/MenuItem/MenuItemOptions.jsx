@@ -27,7 +27,6 @@ const SingleOption = styled.div`
 const SelectWrapper = styled.div`
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
 `;
 
 const SelectionBox = styled.div`
@@ -41,6 +40,7 @@ const SelectionBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
 `;
 
 const InnerSelect = styled.div`
@@ -61,6 +61,7 @@ const AdditionsCheckbox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
 `;
 
 const InnerCheck = styled.div`

@@ -229,7 +229,6 @@ export default [
               { name: "Coke", vegan: true, selection: true },
               { name: "Diet Coke", vegan: true, selection: true },
               { name: "Sprite", vegan: true, selection: true },
-              { name: "Fanta Orange", vegan: true, selection: true },
               { name: "Sweet Tea", vegan: true, selection: true },
               { name: "Unsweet Tea", vegan: true, selection: true },
               { name: "Lemonade", vegan: true, selection: true }
@@ -301,138 +300,8 @@ export default [
                 vegetarian: true,
                 addition: true
               },
-              { name: "Vegan", gf: true, vegan: true, addition: true },
-              { name: "Spicy Pork", addition: true },
-
-              { name: "Lamb", gf: true, addition: true },
-              { name: "Jeffy’s Crab Ball", extra: 3, addition: true },
-              { name: "Gator Meatball", extra: 3, addition: true },
-              {
-                name: "Polenta Ball",
-                gf: true,
-                vegetarian: true,
-                addition: true
-              },
-              {
-                name: "Eggplant Zucchini Quinoa",
-                gf: true,
-                vegan: true,
-                addition: true
-              },
-              { name: "Porcupine Ball", addition: true },
-
-              { name: "Banana Peppers", gf: true, vegan: true, addition: true },
-              { name: "onions", gf: true, vegan: true, addition: true },
-              { name: "peppers", gf: true, vegan: true, addition: true },
-              { name: "tomatoes", gf: true, vegan: true, addition: true },
-              { name: "anchovies", gf: true, addition: true },
-              { name: "arugula", gf: true, vegan: true, addition: true },
-              { name: "Iana's Gem (fried egg)", gf: true, addition: true },
-              { name: "Substitute Caprese Salad", addition: true }
             ]
           },
-          {
-            name: "Extra toppings",
-            choices: [
-              {
-                name: "Nonna's Traditional Italian",
-                extra: 1.5,
-                addition: true
-              },
-              {
-                name: "Sausage Pepper & Onions",
-                extra: 1.5,
-                gf: true,
-                addition: true
-              },
-              { name: "Sausage", extra: 1.5, gf: true, addition: true },
-              {
-                name: "Chicken Parmigiana",
-                extra: 1.5,
-                gf: true,
-                addition: true
-              },
-              {
-                name: "Chicken Buffalo Bleu",
-                extra: 1.5,
-                gf: true,
-                addition: true
-              },
-              {
-                name: "Vegetarian",
-                extra: 1.5,
-                gf: true,
-                vegetarian: true,
-                addition: true
-              },
-              {
-                name: "Vegan",
-                extra: 1.5,
-                gf: true,
-                vegan: true,
-                addition: true
-              },
-              { name: "Spicy Pork", extra: 1.5, addition: true },
-
-              { name: "Lamb", extra: 1.5, gf: true, addition: true },
-              { name: "Jeffy’s Crab Ball", extra: 3, addition: true },
-              { name: "Gator Meatball", extra: 3, addition: true },
-              {
-                name: "Polenta Ball",
-                extra: 2,
-                gf: true,
-                vegetarian: true,
-                addition: true
-              },
-              {
-                name: "Eggplant Zucchini Quinoa",
-                extra: 2,
-                gf: true,
-                vegan: true,
-                addition: true
-              },
-              { name: "Porcupine Ball", extra: 2, addition: true },
-
-              {
-                name: "Banana Peppers",
-                extra: 1.5,
-                gf: true,
-                vegan: true,
-                addition: true
-              },
-              {
-                name: "onions",
-                extra: 1.5,
-                gf: true,
-                vegan: true,
-                addition: true
-              },
-              {
-                name: "peppers",
-                extra: 1.5,
-                gf: true,
-                vegan: true,
-                addition: true
-              },
-              {
-                name: "tomatoes",
-                extra: 1.5,
-                gf: true,
-                vegan: true,
-                addition: true
-              },
-              { name: "anchovies", extra: 1.5, gf: true, addition: true },
-              {
-                name: "arugula",
-                extra: 1.5,
-                gf: true,
-                vegan: true,
-                addition: true
-              },
-              gemChoice,
-              { name: "Substitute Caprese Salad", extra: 1.5, addition: true }
-            ]
-          }
         ]
       }
     ]
@@ -446,7 +315,8 @@ export default [
         description:
           "Served over Penne or Linguine. Stoppe Salad, Focaccia included",
         image: EggplantStack,
-        vegetarian: true
+        vegetarian: true,
+        options: [addonMeatballs, addOnGemAndSubSalad]
       },
       {
         name: "Cheese Tortellini",
@@ -839,7 +709,16 @@ export default [
         name: "Garlic Focaccia Bites",
         price: 6.95,
         vegan: true,
-        image: FocacciaBites
+        image: FocacciaBites,
+        options: [
+          {
+            name: 'Alternative',
+            choices: [
+                { name: "Vegan-option", vegan: true, addition: true }
+                ]
+          }
+        ]
+
       },
       {
         name: "Meatball Lettuce Wrap",
