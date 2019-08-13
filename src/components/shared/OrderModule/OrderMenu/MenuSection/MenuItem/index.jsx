@@ -15,9 +15,12 @@ const ItemContainer = styled.div`
   justify-content: space-between;
   position: relative;
 
-  &:hover {
-    cursor: pointer;
-  }
+  ${({ isPromo }) =>
+    !isPromo &&
+    `
+    &:hover {
+        cursor: pointer;
+    }`}
 `;
 
 const ItemCounter = styled.div`
@@ -98,7 +101,8 @@ const MenuItem = ({ itemData, category }) => {
         hasItem={OrderStore.shoppingCart
           .map(item => item.dishName)
           .includes(itemData.name)}
-        onClick={() => setModal(!modal)}
+        onClick={() => !itemData.isPromo && setModal(!modal)}
+        isPromo={itemData.isPromo}
       >
         {itemCount > 0 && <ItemCounter>{itemCount}</ItemCounter>}
         <LeftSide>

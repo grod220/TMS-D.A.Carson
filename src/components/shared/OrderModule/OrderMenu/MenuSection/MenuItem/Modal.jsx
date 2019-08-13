@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import ReactModal from "react-modal";
-import {observer} from "mobx-react-lite";
+import { observer } from "mobx-react-lite";
 
 import OrderStore from "../../../stores/OrderStore";
 import ItemStore from "../../../stores/ItemStore";
@@ -67,22 +67,26 @@ const Modal = observer(
     gf,
     image,
     closeFunc,
-    category
+    category,
+    isPromo
   }) => {
     ReactModal.setAppElement("#root");
     const itemStoreInstance = new ItemStore();
     itemStoreInstance.basePrice = price;
     itemStoreInstance.dishName = name;
     if (options) {
-        itemStoreInstance.selectionsRequired = options.filter(option =>
-          option.choices.some(choice => choice.selection)
+      itemStoreInstance.selectionsRequired = options.filter(option =>
+        option.choices.some(choice => choice.selection)
       ).length;
-        itemStoreInstance.additionsRequired = options
-          .filter(option => option.minimum)
-          .reduce((acc, option) => {
-              acc[option.name] = option.minimum;
-              return acc
-          }, {});
+      itemStoreInstance.additionsRequired = options
+        .filter(option => option.minimum)
+        .reduce((acc, option) => {
+          acc[option.name] = option.minimum;
+          return acc;
+        }, {});
+    }
+    if (isPromo) {
+      itemStoreInstance.selectionsRequired = 100;
     }
 
     return (

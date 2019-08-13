@@ -20,6 +20,7 @@ import CrabBalls from "./OrderModule/images/crab-balls.jpg";
 import Calamari from "./OrderModule/images/calamari.jpg";
 import Cappuccino from "./OrderModule/images/cappuccino.png";
 import PastaBowl from "./OrderModule/images/pasta-bowl.jpg";
+import Cake from "./OrderModule/images/cake.jpg";
 
 const choiceOfSide = {
   name: "Choice of Side",
@@ -814,6 +815,20 @@ export default [
     ]
   },
   {
+    category: "Desserts",
+    items: [
+      {
+        name: "Artisanal Desserts",
+        description:
+          "From our very own La Differenza Bakery. Subject to availability, please call the store for info.",
+        vegetarian: true,
+        isPromo: true,
+        image: Cake,
+        price: ""
+      }
+    ]
+  },
+  {
     category: "Beverages",
     items: [
       {
@@ -874,6 +889,21 @@ export default [
       {
         name: "San Pellegrino",
         description: "sparkling water",
+        price: 3.5
+      },
+      {
+        name: "Lorina Blood Orange",
+        description: "Non-alcoholic sparking beverage",
+        price: 3.5
+      },
+      {
+        name: "Lorina Pink Lemonade",
+        description: "Non-alcoholic sparking beverage",
+        price: 3.5
+      },
+      {
+        name: "Lorina Lemonade",
+        description: "Non-alcoholic sparking beverage",
         price: 3.5
       },
       {

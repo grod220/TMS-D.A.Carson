@@ -7,6 +7,7 @@ import StoppeSalad from "./OrderModule/images/stoppe-salad.jpg";
 import FocacciaGrande from "./OrderModule/images/focaccia-grande.jpg";
 import Polenta from "./OrderModule/images/polenta.jpg";
 import WhiteBeanRagu from "./OrderModule/images/white-bean-ragu.jpg";
+import Cake from "./OrderModule/images/cake.jpg";
 
 const cateringMeatballChoices = [
   {
@@ -393,30 +394,34 @@ export default [
           {
             name: "Choice of Sauce",
             choices: [
-              { name: "Roasted Tomato Sauce", vegan: true, vegetarian: true, selection: true },
+              {
+                name: "Roasted Tomato Sauce",
+                vegan: true,
+                vegetarian: true,
+                selection: true
+              },
               { name: "Pesto", gf: true, vegetarian: true, selection: true },
               { name: "Vegan Pesto", gf: true, vegan: true, selection: true }
             ]
           },
           // included 2      ALL VEGAN
-            // Banana Peppers
-            // onions
-            // peppers
-            // tomatoes
-            // anchovies
-            // arugula
-            // mushrooms
+          // Banana Peppers
+          // onions
+          // peppers
+          // tomatoes
+          // anchovies
+          // arugula
+          // mushrooms
           // extra after 2 is $1.50
-            // Banana Peppers
-            // onions
-            // peppers
-            // tomatoes
-            // anchovies
-            // arugula
-            // mushrooms
+          // Banana Peppers
+          // onions
+          // peppers
+          // tomatoes
+          // anchovies
+          // arugula
+          // mushrooms
 
-
-            // these should be $1.50 extra
+          // these should be $1.50 extra
           {
             name: "Choice of Toppings",
             minimum: 1,
@@ -436,6 +441,15 @@ export default [
   {
     category: "Desserts",
     items: [
+      {
+        name: "Artisanal Desserts",
+        description:
+          "From our very own La Differenza Bakery. Subject to availability, please call the store for info.",
+        vegetarian: true,
+        isPromo: true,
+        image: Cake,
+        price: ""
+      },
       {
         name: "Cannoli",
         price: 2.5,
