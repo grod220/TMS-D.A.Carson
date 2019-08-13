@@ -37,8 +37,8 @@ export default function Navigation() {
           <NavItem path="/menu" action={hideMobileMenu}>
             Menu
           </NavItem>
-          <NavItem path="/catering" action={hideMobileMenu}>
-            Catering
+          <NavItem path="/aboutus" action={hideMobileMenu}>
+            About Us
           </NavItem>
         </NavLinks>
         <Logo>

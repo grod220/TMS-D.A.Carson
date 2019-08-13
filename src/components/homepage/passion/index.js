@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 import CouplePic from "./jeffandisabella.jpg";
 
@@ -67,13 +66,6 @@ const Passion = () => (
       all in a non-traditional Italian style. The Meatball Stoppe has been
       Awarded the 'Best of the Best Meatballs' in Central Florida for 2016 and
       is a top 10 rated Orlando restaurant.
-      <p>
-        <u>
-          <i>
-            <Link to="/aboutus">Learn more about us →</Link>
-          </i>
-        </u>
-      </p>
     </LeftSide>
     <RightImage />
   </Container>
