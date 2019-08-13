@@ -2,7 +2,7 @@ const functions = require("firebase-functions");
 const app = require("express")();
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const stripe = require("stripe")("sk_test_aHRehjwK9Qu8Iy9wtWSZ1TbW");
+const stripe = require("stripe")(functions.config().myservicekeys.stripesecret);
 const Utils = require("./utils");
 
 const Sentry = require("@sentry/node");
