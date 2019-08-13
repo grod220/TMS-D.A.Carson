@@ -3,7 +3,7 @@ import OrderStore from "../stores/OrderStore";
 import { formatGooglePlacesObj } from "../stores/OrderStore/order-utils";
 
 /* global Stripe */
-const stripe = Stripe("pk_test_OaDvLsgEGQbshVWpSFMQMm1k");
+const stripe = Stripe("pk_live_ivfkFrzhLuZbUiZRVkvsBwI3");
 
 const serializeOrderStore = orderStore => {
   const baseObj = toJS(orderStore);
