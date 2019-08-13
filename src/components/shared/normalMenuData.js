@@ -794,7 +794,7 @@ export default [
               },
               { name: "Lamb", gf: true, selection: true },
               { name: "Jeffy’s Crab Ball", extra: 12, selection: true },
-              { name: "Gator Meatball", extra: 13, selection: true },
+              { name: "Gator Meatball", extra: 12, selection: true },
               {
                 name: "Polenta Ball",
                 gf: true,
