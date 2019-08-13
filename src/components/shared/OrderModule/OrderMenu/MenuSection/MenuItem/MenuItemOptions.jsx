@@ -167,7 +167,7 @@ const MenuItemOptions = observer(({ store, options }) => {
                       </SelectWrapper>
                       <ExtraCost>
                         {choice.extra && (
-                          <span>extra: ${AddZero(choice.extra)}</span>
+                          <span>add: ${AddZero(choice.extra)}</span>
                         )}
                       </ExtraCost>
                     </SingleOption>

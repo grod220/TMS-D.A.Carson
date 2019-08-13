@@ -8,100 +8,82 @@ import FocacciaGrande from "./OrderModule/images/focaccia-grande.jpg";
 import Polenta from "./OrderModule/images/polenta.jpg";
 import WhiteBeanRagu from "./OrderModule/images/white-bean-ragu.jpg";
 
-const cateringMeatballSelection = {
-  name: "Choice of Meatball",
-  choices: [
-    {
-      name: "Nonna's traditional with roasted tomato sauce",
-      selection: true
-    },
-    { name: "Spicy pork with spicy pork sauce", selection: true },
-    {
-      name: "Mac and cheese with roasted tomato and creamy provolone sauce",
-      vegetarian: true,
-      selection: true
-    },
-    {
-      name: "Porcupine with creamy provolone sauce",
-      selection: true
-    },
-    {
-      name: "Crab Balls with pepper remoulade",
-      extra: 13,
-      selection: true
-    },
-    {
-      name: "Gator Balls with spicy lemon aioli",
-      extra: 13,
-      selection: true
-    },
-    {
-      name: "Sausage peppers & onions with white wine sauce",
-      gf: true,
-      selection: true
-    },
-    {
-      name: "Sausage ball with creamy provolone sauce",
-      gf: true,
-      selection: true
-    },
-    {
-      name: "Chicken parmigiana with roasted tomato sauce and mozzarella",
-      gf: true,
-      selection: true
-    },
-    {
-      name: "Chicken marsala with marsala mushroom sauce",
-      gf: true,
-      selection: true
-    },
-    {
-      name: "Chicken buffao bleu with buffalo sauce and bleu cheese crumbles",
-      gf: true,
-      selection: true
-    },
-    { name: "Lamb with tzatziki sauce", gf: true, selection: true },
-    {
-      name: "Vegetarian with signature pesto",
-      gf: true,
-      selection: true
-    },
-    {
-      name: "Eggplant, zucchini, quinoa with signature pesto",
-      gf: true,
-      vegetarian: true,
-      selection: true
-    },
-    {
-      name: "Polenta ball with roasted tomato sauce",
-      gf: true,
-      vegetarian: true,
-      selection: true
-    },
-    {
-      name: "Vegan Ball w/ vegan pesto",
-      gf: true,
-      vegan: true,
-      selection: true
-    },
-    {
-      name: "Vegan Ball w/ vegan pesto",
-      gf: true,
-      vegan: true,
-      selection: true
-    },
-    {
-      name: "Eggplant, zucchini, quinoa with vegan pesto",
-      gf: true,
-      vegetarian: true,
-      selection: true
-    }
-  ]
-};
+const cateringMeatballChoices = [
+  {
+    name: "Nonna's traditional with roasted tomato sauce",
+    selection: true
+  },
+  { name: "Spicy pork with spicy pork sauce", selection: true },
+  {
+    name: "Mac and cheese with roasted tomato and creamy provolone sauce",
+    vegetarian: true,
+    selection: true
+  },
+  {
+    name: "Porcupine with creamy provolone sauce",
+    selection: true
+  },
+  {
+    name: "Sausage peppers & onions with white wine sauce",
+    gf: true,
+    selection: true
+  },
+  {
+    name: "Sausage ball with creamy provolone sauce",
+    gf: true,
+    selection: true
+  },
+  {
+    name: "Chicken parmigiana with roasted tomato sauce and mozzarella",
+    gf: true,
+    selection: true
+  },
+  {
+    name: "Chicken marsala with marsala mushroom sauce",
+    gf: true,
+    selection: true
+  },
+  {
+    name: "Chicken buffalo bleu with buffalo sauce and bleu cheese crumbles",
+    gf: true,
+    selection: true
+  },
+  { name: "Lamb with tzatziki sauce", gf: true, selection: true },
+  {
+    name: "Vegetarian with signature pesto",
+    gf: true,
+    vegetarian: true,
+    selection: true
+  },
+  {
+    name: "Eggplant, zucchini, quinoa with signature pesto",
+    gf: true,
+    vegetarian: true,
+    selection: true
+  },
+  {
+    name: "Eggplant, zucchini, quinoa with vegan pesto",
+    gf: true,
+    vegan: true,
+    selection: true
+  },
+  {
+    name: "Polenta ball with roasted tomato sauce",
+    gf: true,
+    vegetarian: true,
+    selection: true
+  },
+  {
+    name: "Vegan Ball w/ vegan pesto",
+    gf: true,
+    vegan: true,
+    selection: true
+  }
+];
+
 const choiceOfPasta = {
   name: "Choice of Pasta",
   choices: [
-    { name: "Linguine", vegan: true, selection: true },
     { name: "Penne", vegan: true, selection: true },
     { name: "Gluten-free Penne", gf: true, vegan: true, selection: true }
   ]
@@ -129,6 +111,11 @@ const choiceOfSauce = {
   ]
 };
 
+const veganOption = {
+  name: "Vegan-option",
+  choices: [{ name: "No cheese", vegan: true, addition: true }]
+};
+
 export default [
   {
     category: "Pan Meatballs",
@@ -136,11 +123,28 @@ export default [
       {
         name: "15 meatballs",
         price: 29.95,
-        description: "Half pan, serves 10. Includes Sauce and Focaccia.",
+        description: "Half pan, serves 10. Includes sauce and Focaccia.",
         image: BucketOfBalls,
         gf: true,
         vegan: true,
-        options: [cateringMeatballSelection]
+        options: [
+          {
+            name: "Choice of Meatball",
+            choices: [
+              ...cateringMeatballChoices,
+              {
+                name: "Crab Balls with pepper remoulade",
+                extra: 9,
+                selection: true
+              },
+              {
+                name: "Gator Balls with spicy lemon aioli",
+                extra: 9,
+                selection: true
+              }
+            ]
+          }
+        ]
       },
       {
         name: "30 meatballs",
@@ -149,7 +153,24 @@ export default [
         image: BucketOfBalls,
         gf: true,
         vegan: true,
-        options: [cateringMeatballSelection]
+        options: [
+          {
+            name: "Choice of Meatball",
+            choices: [
+              ...cateringMeatballChoices,
+              {
+                name: "Crab Balls with pepper remoulade",
+                extra: 13,
+                selection: true
+              },
+              {
+                name: "Gator Balls with spicy lemon aioli",
+                extra: 13,
+                selection: true
+              }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -253,7 +274,8 @@ export default [
         vegan: true,
         gf: true,
         description: "Serves 10. Comes with focaccia.",
-        image: StoppeSalad
+        image: StoppeSalad,
+        options: [veganOption]
       },
       {
         name: "Stoppe Salad (full-pan)",
@@ -261,7 +283,8 @@ export default [
         vegan: true,
         gf: true,
         description: "Serves 20. Comes with focaccia.",
-        image: StoppeSalad
+        image: StoppeSalad,
+        options: [veganOption]
       },
       {
         name: "Caprese Salad (half-pan)",
@@ -297,13 +320,15 @@ export default [
         name: "Mediterranean Farro Salad (half-pan)",
         price: 60,
         description: "Serves 10. Comes with focaccia.",
-        vegan: true
+        vegan: true,
+        options: [veganOption]
       },
       {
         name: "Mediterranean Farro Salad (full-pan)",
         price: 120,
         description: "Serves 20. Comes with focaccia.",
-        vegan: true
+        vegan: true,
+        options: [veganOption]
       },
       {
         name: "Roasted Shrimp Salad (half-pan)",
@@ -323,7 +348,7 @@ export default [
     category: "À la Carte Sides",
     items: [
       {
-        name: "Penne or Linguine Pasta (half-pan)",
+        name: "Penne Pasta (half-pan)",
         price: 40,
         description: "Serves 10",
         gf: true,
@@ -331,7 +356,7 @@ export default [
         options: [choiceOfPasta, choiceOfSauce]
       },
       {
-        name: "Penne or Linguine Pasta (full-pan)",
+        name: "Penne Pasta (full-pan)",
         price: 80,
         description: "Serves 20",
         gf: true,
@@ -346,11 +371,11 @@ export default [
         gf: true,
         image: WhiteBeanRagu
       },
-
       {
         name: "Creamy Polenta (half-pan)",
         price: 50,
         description: "Serves 10",
+        vegetarian: true,
         gf: true,
         image: Polenta
       }
@@ -368,18 +393,36 @@ export default [
           {
             name: "Choice of Sauce",
             choices: [
-              { name: "Roasted Tomato Sauce", vegan: true, vegetarian: true },
-              { name: "Pesto", gf: true, vegetarian: true },
-              { name: "Vegan Pesto", gf: true, vegan: true }
+              { name: "Roasted Tomato Sauce", vegan: true, vegetarian: true, selection: true },
+              { name: "Pesto", gf: true, vegetarian: true, selection: true },
+              { name: "Vegan Pesto", gf: true, vegan: true, selection: true }
             ]
           },
+          // included 2      ALL VEGAN
+            // Banana Peppers
+            // onions
+            // peppers
+            // tomatoes
+            // anchovies
+            // arugula
+            // mushrooms
+          // extra after 2 is $1.50
+            // Banana Peppers
+            // onions
+            // peppers
+            // tomatoes
+            // anchovies
+            // arugula
+            // mushrooms
+
+
+            // these should be $1.50 extra
           {
             name: "Choice of Toppings",
             minimum: 1,
             maximum: 2,
             choices: [
               { name: "Nonna's Traditional Italian", addition: true },
-              { name: "Sausage Pepper & Onions", gf: true, addition: true },
               { name: "Sausage", gf: true, addition: true },
               { name: "Chicken Parmigiana", gf: true, addition: true },
               { name: "Chicken Buffalo Bleu", gf: true, addition: true },
@@ -395,11 +438,13 @@ export default [
     items: [
       {
         name: "Cannoli",
-        price: 2.5
+        price: 2.5,
+        vegetarian: true
       },
       {
         name: "Chef’s Selection Cookies",
-        price: 2
+        price: 2,
+        vegetarian: true
       }
     ]
   },
