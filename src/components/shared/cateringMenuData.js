@@ -7,6 +7,7 @@ import StoppeSalad from "./OrderModule/images/stoppe-salad.jpg";
 import FocacciaGrande from "./OrderModule/images/focaccia-grande.jpg";
 import Polenta from "./OrderModule/images/polenta.jpg";
 import WhiteBeanRagu from "./OrderModule/images/white-bean-ragu.jpg";
+import Cake from "./OrderModule/images/cake.jpg";
 
 const cateringMeatballChoices = [
   {
@@ -393,40 +394,135 @@ export default [
           {
             name: "Choice of Sauce",
             choices: [
-              { name: "Roasted Tomato Sauce", vegan: true, vegetarian: true, selection: true },
+              {
+                name: "Roasted Tomato Sauce",
+                vegan: true,
+                vegetarian: true,
+                selection: true
+              },
               { name: "Pesto", gf: true, vegetarian: true, selection: true },
               { name: "Vegan Pesto", gf: true, vegan: true, selection: true }
             ]
           },
-          // included 2      ALL VEGAN
-            // Banana Peppers
-            // onions
-            // peppers
-            // tomatoes
-            // anchovies
-            // arugula
-            // mushrooms
-          // extra after 2 is $1.50
-            // Banana Peppers
-            // onions
-            // peppers
-            // tomatoes
-            // anchovies
-            // arugula
-            // mushrooms
-
-
-            // these should be $1.50 extra
           {
-            name: "Choice of Toppings",
-            minimum: 1,
+            name: "Choice of Toppings (2 included)",
             maximum: 2,
             choices: [
-              { name: "Nonna's Traditional Italian", addition: true },
-              { name: "Sausage", gf: true, addition: true },
-              { name: "Chicken Parmigiana", gf: true, addition: true },
-              { name: "Chicken Buffalo Bleu", gf: true, addition: true },
-              { name: "Vegetarian", gf: true, vegetarian: true, addition: true }
+              {
+                name: "Mushrooms",
+                gf: true,
+                vegan: true,
+                addition: true
+              },
+              {
+                name: "Banana Peppers",
+                gf: true,
+                vegan: true,
+                addition: true
+              },
+              {
+                name: "Onions",
+                gf: true,
+                vegan: true,
+                addition: true
+              },
+              {
+                name: "Peppers",
+                gf: true,
+                vegan: true,
+                addition: true
+              },
+              {
+                name: "Tomatoes",
+                gf: true,
+                vegan: true,
+                addition: true
+              },
+              { name: "Anchovies", gf: true, addition: true },
+              {
+                name: "Arugula",
+                gf: true,
+                vegan: true,
+                addition: true
+              }
+            ]
+          },
+          {
+            name: "Extra Toppings",
+            choices: [
+              {
+                name: "Mushrooms",
+                extra: 1.5,
+                gf: true,
+                vegan: true,
+                addition: true
+              },
+              {
+                name: "Banana Peppers",
+                extra: 1.5,
+                gf: true,
+                vegan: true,
+                addition: true
+              },
+              {
+                name: "Onions",
+                extra: 1.5,
+                gf: true,
+                vegan: true,
+                addition: true
+              },
+              {
+                name: "Peppers",
+                extra: 1.5,
+                gf: true,
+                vegan: true,
+                addition: true
+              },
+              {
+                name: "Tomatoes",
+                extra: 1.5,
+                gf: true,
+                vegan: true,
+                addition: true
+              },
+              { name: "Anchovies", extra: 1.5, gf: true, addition: true },
+              {
+                name: "Arugula",
+                extra: 1.5,
+                gf: true,
+                vegan: true,
+                addition: true
+              }
+            ]
+          },
+          {
+            name: "Optional meatball toppings",
+            choices: [
+              {
+                name: "Nonna's Traditional Italian",
+                extra: 1.5,
+                addition: true
+              },
+              { name: "Sausage", gf: true, extra: 1.5, addition: true },
+              {
+                name: "Chicken Parmigiana",
+                extra: 1.5,
+                gf: true,
+                addition: true
+              },
+              {
+                name: "Chicken Buffalo Bleu",
+                extra: 1.5,
+                gf: true,
+                addition: true
+              },
+              {
+                name: "Vegetarian",
+                extra: 1.5,
+                gf: true,
+                vegetarian: true,
+                addition: true
+              }
             ]
           }
         ]
@@ -436,6 +532,15 @@ export default [
   {
     category: "Desserts",
     items: [
+      {
+        name: "Artisanal Desserts",
+        description:
+          "From our very own La Differenza Bakery. Subject to availability, please call the store for info.",
+        vegetarian: true,
+        isPromo: true,
+        image: Cake,
+        price: ""
+      },
       {
         name: "Cannoli",
         price: 2.5,
