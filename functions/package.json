@@ -9,7 +9,7 @@
     "logs": "firebase functions:log"
   },
   "dependencies": {
-    "@sentry/node": "^5.5.0",
+    "@sentry/node": "^5.6.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
@@ -17,7 +17,7 @@
     "firebase-functions": "^3.2.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
-    "stripe": "^7.5.0"
+    "stripe": "^7.8.0"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.3"

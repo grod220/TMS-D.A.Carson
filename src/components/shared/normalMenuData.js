@@ -11,7 +11,6 @@ import PastaAglia from "./OrderModule/images/pasta-aglia.png";
 import CapreseSalad from "./OrderModule/images/caprese-salad.jpg";
 import StoppeSalad from "./OrderModule/images/stoppe-salad.jpg";
 import Focaccia from "./OrderModule/images/focaccia.jpg";
-import FocacciaGrande from "./OrderModule/images/focaccia-grande.jpg";
 import Polenta from "./OrderModule/images/polenta.jpg";
 import WhiteBeanRagu from "./OrderModule/images/white-bean-ragu.jpg";
 import FiveBall from "./OrderModule/images/five-ball.jpg";
@@ -21,12 +20,13 @@ import CrabBalls from "./OrderModule/images/crab-balls.jpg";
 import Calamari from "./OrderModule/images/calamari.jpg";
 import Cappuccino from "./OrderModule/images/cappuccino.png";
 import PastaBowl from "./OrderModule/images/pasta-bowl.jpg";
+import Cake from "./OrderModule/images/cake.jpg";
 
 const choiceOfSide = {
   name: "Choice of Side",
   choices: [
-    { name: "Creamy Polenta", vegan: true, selection: true },
-    { name: "White Bean Ragu", vegan: true, selection: true },
+    { name: "Creamy Polenta", gf: true, vegetarian: true, selection: true },
+    { name: "White Bean Ragu", gf: true, vegan: true, selection: true },
     { name: "Penne Pasta", vegan: true, selection: true },
     { name: "Gluten-free Penne", vegan: true, gf: true, selection: true },
     { name: "Linguine", vegan: true, selection: true }
@@ -189,6 +189,7 @@ const addOnGemAndSubSalad = {
     {
       name: "Substitute Caprese Salad",
       extra: 1.5,
+      vegetarian: true,
       gf: true,
       addition: true
     }
@@ -198,7 +199,51 @@ const addOnGemAndSubSalad = {
 const glutenFreePastaChoice = {
   name: "Alternative pasta",
   gf: true,
-  choices: [{ name: "Gluten-free pasta", gf: true, addition: true }]
+  choices: [
+    { name: "Gluten-free penne", vegan: true, gf: true, addition: true }
+  ]
+};
+
+const choiceOfSauce = {
+  name: "Choice of Sauce",
+  choices: [
+    {
+      name: "Roasted Tomato",
+      gf: true,
+      vegan: true,
+      selection: true
+    },
+    {
+      name: "White Wine Peppers and Onion",
+      gf: true,
+      vegan: true,
+      selection: true
+    },
+    {
+      name: "Creamy Provolone",
+      gf: true,
+      vegetarian: true,
+      selection: true
+    },
+    {
+      name: "Marsala Mushroom",
+      gf: true,
+      vegetarian: true,
+      selection: true
+    },
+    {
+      name: "Isabella’s Signature Pesto",
+      gf: true,
+      vegan: true,
+      selection: true
+    },
+    { name: "Spicy Pork Sauce", gf: true, selection: true }
+  ]
+};
+
+const veganOption = {
+  name: "Vegan-option",
+  choices: [{ name: "No cheese", vegan: true, addition: true }]
 };
 
 export default [
@@ -211,6 +256,7 @@ export default [
         description: "5 balls served with side, focaccia, and fountain drink",
         image: VeggieFlight,
         vegan: true,
+        gf: true,
         options: [
           {
             name: "Choice of Meatballs",
@@ -242,6 +288,7 @@ export default [
         description: "3 Meatballs served with side, stoppe Salad and focaccia",
         image: StoppeTrio,
         vegan: true,
+        gf: true,
         options: [
           {
             name: "Choice of Meatballs",
@@ -257,6 +304,7 @@ export default [
                 name: "Substitute Caprese Salad",
                 extra: 1.5,
                 gf: true,
+                vegetarian: true,
                 addition: true
               }
             ]
@@ -265,43 +313,106 @@ export default [
         ]
       },
       {
-        name: "Focaccia Grande Pizza",
-        price: 26.95,
-        description: "14 pieces with two toppings",
-        image: FocacciaGrande,
+        name: "Focaccia Pizza",
+        price: 9.95,
         vegan: true,
+        image: Focaccia,
         options: [
           {
-            name: "Choose sauce",
+            name: "Choice of Toppings",
             choices: [
               {
-                name: "Roasted Tomato Sauce",
-                gf: true,
-                vegan: true,
-                selection: true
+                name: "Nonna's Traditional Italian",
+                extra: 1.5,
+                addition: true
               },
-              { name: "Pesto", gf: true, vegetarian: true, selection: true },
-              { name: "Vegan Pesto", gf: true, vegan: true, selection: true }
-            ]
-          },
-          {
-            name: "Choice of Toppings",
-            minimum: 1,
-            maximum: 2,
-            choices: [
-              { name: "Nonna's Traditional Italian", addition: true },
-              { name: "Sausage Pepper & Onions", gf: true, addition: true },
-              { name: "Sausage", gf: true, addition: true },
-              { name: "Chicken Parmigiana", gf: true, addition: true },
-              { name: "Chicken Buffalo Bleu", gf: true, addition: true },
+              {
+                name: "Sausage Pepper & Onions",
+                extra: 1.5,
+                gf: true,
+                addition: true
+              },
+              { name: "Sausage", extra: 1.5, gf: true, addition: true },
+              {
+                name: "Chicken Parmigiana",
+                extra: 1.5,
+                gf: true,
+                addition: true
+              },
+              {
+                name: "Chicken Buffalo Bleu",
+                extra: 1.5,
+                gf: true,
+                addition: true
+              },
               {
                 name: "Vegetarian",
+                extra: 1.5,
                 gf: true,
                 vegetarian: true,
                 addition: true
               },
+              {
+                name: "Vegan",
+                extra: 1.5,
+                gf: true,
+                vegan: true,
+                addition: true
+              },
+              { name: "Spicy Pork", extra: 1.5, addition: true },
+              { name: "Lamb", extra: 1.5, gf: true, addition: true },
+              { name: "Jeffy’s Crab Ball", extra: 3, addition: true },
+              { name: "Gator Meatball", extra: 3, addition: true },
+              gemChoice,
+              {
+                name: "Mushrooms",
+                extra: 1.5,
+                gf: true,
+                vegan: true,
+                addition: true
+              },
+              {
+                name: "Banana Peppers",
+                extra: 1.5,
+                gf: true,
+                vegan: true,
+                addition: true
+              },
+              {
+                name: "Onions",
+                extra: 1.5,
+                gf: true,
+                vegan: true,
+                addition: true
+              },
+              {
+                name: "Peppers",
+                extra: 1.5,
+                gf: true,
+                vegan: true,
+                addition: true
+              },
+              {
+                name: "Tomatoes",
+                extra: 1.5,
+                gf: true,
+                vegan: true,
+                addition: true
+              },
+              { name: "Anchovies", extra: 1.5, gf: true, addition: true },
+              {
+                name: "Arugula",
+                extra: 1.5,
+                gf: true,
+                vegan: true,
+                addition: true
+              }
             ]
           },
+          {
+            name: "Vegan",
+            choices: [{ name: "no cheese", vegan: true, addition: true }]
+          }
         ]
       }
     ]
@@ -315,8 +426,15 @@ export default [
         description:
           "Served over Penne or Linguine. Stoppe Salad, Focaccia included",
         image: EggplantStack,
-        vegetarian: true,
-        options: [addonMeatballs, addOnGemAndSubSalad]
+        vegan: true,
+        options: [
+          addonMeatballs,
+          addOnGemAndSubSalad,
+          {
+            name: "Vegan-option",
+            choices: [{ name: "No cheese", vegan: true, addition: true }]
+          }
+        ]
       },
       {
         name: "Cheese Tortellini",
@@ -324,6 +442,7 @@ export default [
         description:
           "Pillowy cheese filled pasta in pink sauce with touch of garlic",
         image: Tortellini,
+        vegetarian: true,
         options: [addonMeatballs, addOnGemAndSubSalad]
       },
       {
@@ -335,6 +454,7 @@ export default [
         name: "Baked Ziti",
         price: 11.95,
         gf: true,
+        vegetarian: true,
         description:
           "Tossed with house-made 3 cheese mix, Roasted Tomato Sauce and Mozzarella",
         image: BakedZiti,
@@ -354,7 +474,6 @@ export default [
         price: 10.95,
         description:
           "Linguine tossed with Olive Oil, Red Pepper Flakes, a hint of Anchovies, Fresh Basil and Spices",
-        gf: true,
         image: PastaAglia,
         options: [addonMeatballs, addOnGemAndSubSalad, glutenFreePastaChoice]
       }
@@ -411,7 +530,7 @@ export default [
         price: 10.95,
         description:
           "Breaded, Seasoned Eggplant topped with Fresh Mozzarella, sauteed peppers, onions, Fresh Arugula on Freshly baked Ciabiatta roll with Pesto Mayo",
-        vegan: true,
+        vegetarian: true,
         image: Panino
       }
     ]
@@ -426,6 +545,7 @@ export default [
         image: PastaBowl,
         vegan: true,
         options: [
+          choiceOfSauce,
           addonMeatballs,
           {
             name: "Addon",
@@ -435,9 +555,10 @@ export default [
       },
       {
         name: "Polenta bowl",
-        description: "Creamy Polenta, Signature Sauces and seasonal vegetables",
+        description: "Creamy polenta and seasonal vegetables",
         price: 8.25,
-        vegan: true,
+        vegetarian: true,
+        gf: true,
         options: [
           {
             name: "Seasonal Vegetables",
@@ -468,7 +589,8 @@ export default [
         vegan: true,
         description:
           "Garden Fresh Arugula, Romaine, Cherry Tomatoes, Red Onions, Roasted Corn tossed with our Red Wine Vinaigrette. Served with Focaccia Bread",
-        image: StoppeSalad
+        image: StoppeSalad,
+        options: [veganOption]
       },
       {
         name: "Caprese Salad",
@@ -484,7 +606,8 @@ export default [
         price: 9.95,
         vegan: true,
         description:
-          "Farro,Chick Peas, Tomatoes, onion, olives, Arugula, tossed with Red Wine Vinaigrette, toppped with Feta"
+          "Farro,Chick Peas, Tomatoes, onion, olives, Arugula, tossed with Red Wine Vinaigrette, toppped with Feta",
+        options: [veganOption]
       },
       {
         name: "Roasted Vegetable Salad",
@@ -526,45 +649,10 @@ export default [
             choices: [
               { name: "Linguine", selection: true },
               { name: "Penne", selection: true },
-              { name: "Gluten free Penne", gf: true, selection: true }
+              { name: "Gluten-free penne", gf: true, selection: true }
             ]
           },
-          {
-            name: "Choice of Sauce",
-            choices: [
-              {
-                name: "Roasted Tomato",
-                gf: true,
-                vegan: true,
-                selection: true
-              },
-              {
-                name: "White Wine Peppers and Onion",
-                gf: true,
-                vegan: true,
-                selection: true
-              },
-              {
-                name: "Creamy Provolone",
-                gf: true,
-                vegetarian: true,
-                selection: true
-              },
-              {
-                name: "Marsala Mushroom",
-                gf: true,
-                vegetarian: true,
-                selection: true
-              },
-              {
-                name: "Isabella’s Signature Pesto",
-                gf: true,
-                vegan: true,
-                selection: true
-              },
-              { name: "Spicy Pork Sauce", gf: true, selection: true }
-            ]
-          }
+          choiceOfSauce
         ]
       }
     ]
@@ -588,6 +676,7 @@ export default [
         price: 8.95,
         image: FiveBall,
         vegan: true,
+        gf: true,
         options: [
           {
             name: "Choice of Meatballs",
@@ -609,121 +698,22 @@ export default [
         vegetarian: true
       },
       {
-        name: "Focaccia Pizza",
-        price: 9.95,
-        vegan: true,
-        vegetarian: true,
-        image: Focaccia,
-        options: [
-          {
-            name: "Choice of Toppings",
-            choices: [
-              {
-                name: "Nonna's Traditional Italian",
-                extra: 1.5,
-                addition: true
-              },
-              {
-                name: "Sausage Pepper & Onions",
-                extra: 1.5,
-                gf: true,
-                addition: true
-              },
-              { name: "Sausage", extra: 1.5, gf: true, addition: true },
-              {
-                name: "Chicken Parmigiana",
-                extra: 1.5,
-                gf: true,
-                addition: true
-              },
-              {
-                name: "Chicken Buffalo Bleu",
-                extra: 1.5,
-                gf: true,
-                addition: true
-              },
-              {
-                name: "Vegetarian",
-                extra: 1.5,
-                gf: true,
-                vegetarian: true,
-                addition: true
-              },
-              {
-                name: "Vegan",
-                extra: 1.5,
-                gf: true,
-                vegan: true,
-                addition: true
-              },
-              { name: "Spicy Pork", extra: 1.5, addition: true },
-              { name: "Lamb", extra: 1.5, gf: true, addition: true },
-              { name: "Jeffy’s Crab Ball", extra: 3, addition: true },
-              { name: "Gator Meatball", extra: 3, addition: true },
-              gemChoice,
-              {
-                name: "Banana Peppers",
-                extra: 1.5,
-                gf: true,
-                vegan: true,
-                addition: true
-              },
-              {
-                name: "onions",
-                extra: 1.5,
-                gf: true,
-                vegan: true,
-                addition: true
-              },
-              {
-                name: "peppers",
-                extra: 1.5,
-                gf: true,
-                vegan: true,
-                addition: true
-              },
-              {
-                name: "tomatoes",
-                extra: 1.5,
-                gf: true,
-                vegan: true,
-                addition: true
-              },
-              { name: "anchovies", extra: 1.5, gf: true, addition: true },
-              {
-                name: "arugula",
-                extra: 1.5,
-                gf: true,
-                vegan: true,
-                addition: true
-              }
-            ]
-          },
-          {
-            name: "Vegan",
-            choices: [{ name: "no cheese", vegan: true, addition: true }]
-          }
-        ]
-      },
-      {
         name: "Garlic Focaccia Bites",
         price: 6.95,
         vegan: true,
         image: FocacciaBites,
         options: [
           {
-            name: 'Alternative',
-            choices: [
-                { name: "Vegan-option", vegan: true, addition: true }
-                ]
+            name: "Alternative",
+            choices: [{ name: "Vegan-option", vegan: true, addition: true }]
           }
         ]
-
       },
       {
         name: "Meatball Lettuce Wrap",
         price: 7.25,
         vegan: true,
+        gf: true,
         options: [
           {
             name: "Choice of Meatballs",
@@ -761,7 +751,7 @@ export default [
             name: "Choice of Meatball",
             choices: [
               { name: "Crab Ball", selection: true },
-              { name: "Gator Ball", gf: true, selection: true }
+              { name: "Gator Ball", selection: true }
             ]
           }
         ]
@@ -777,6 +767,7 @@ export default [
         description:
           "13 Balls one style served with 6 pieces of Focaccia and Sauce",
         vegan: true,
+        gf: true,
         image: BucketOfBalls,
         options: [
           {
@@ -803,7 +794,7 @@ export default [
               },
               { name: "Lamb", gf: true, selection: true },
               { name: "Jeffy’s Crab Ball", extra: 12, selection: true },
-              { name: "Gator Meatball", extra: 13, selection: true },
+              { name: "Gator Meatball", extra: 12, selection: true },
               {
                 name: "Polenta Ball",
                 gf: true,
@@ -820,6 +811,20 @@ export default [
             ]
           }
         ]
+      }
+    ]
+  },
+  {
+    category: "Desserts",
+    items: [
+      {
+        name: "Artisanal Desserts",
+        description:
+          "From our very own La Differenza Bakery. Subject to availability, please call the store for info.",
+        vegetarian: true,
+        isPromo: true,
+        image: Cake,
+        price: ""
       }
     ]
   },
@@ -883,7 +888,22 @@ export default [
       },
       {
         name: "San Pellegrino",
-        description: "Non-Alchoholic Italian Beverages",
+        description: "sparkling water",
+        price: 3.5
+      },
+      {
+        name: "Lorina Blood Orange",
+        description: "Non-alcoholic sparking beverage",
+        price: 3.5
+      },
+      {
+        name: "Lorina Pink Lemonade",
+        description: "Non-alcoholic sparking beverage",
+        price: 3.5
+      },
+      {
+        name: "Lorina Lemonade",
+        description: "Non-alcoholic sparking beverage",
         price: 3.5
       },
       {
