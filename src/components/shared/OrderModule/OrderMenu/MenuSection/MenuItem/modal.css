@@ -17,11 +17,6 @@
   box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 25px, rgba(0, 0, 0, 0.2) 0px 4px 20px;
 }
 
-.modal-box::-webkit-scrollbar {
-  visibility: hidden;
-  width: 0px;
-}
-
 .modal-overlay {
   background-color: rgba(12, 12, 12, 0.75);
   z-index: 1000;

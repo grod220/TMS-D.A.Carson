@@ -117,8 +117,8 @@ export const getOneYearFromTodayStr = () => {
 export const roundToNearest15min = timeStr => {
   const splitTime = timeStr.split(":");
   const minutes = Number(splitTime[1]);
-  const nearest15 = Math.ceil(minutes / 15) * 15;
-  splitTime[1] = nearest15 === 0 ? "00" : nearest15.toString();
+  const nearest5 = Math.ceil(minutes / 5) * 5;
+  splitTime[1] = nearest5 === 0 ? "00" : nearest5.toString();
   if (splitTime[1] === "60") {
     splitTime[0] = (Number(splitTime[0]) + 1).toString();
     splitTime[1] = "00";

@@ -7,7 +7,7 @@ import StoppeSalad from "./OrderModule/images/stoppe-salad.jpg";
 import FocacciaGrande from "./OrderModule/images/focaccia-grande.jpg";
 import Polenta from "./OrderModule/images/polenta.jpg";
 import WhiteBeanRagu from "./OrderModule/images/white-bean-ragu.jpg";
-import Cake from "./OrderModule/images/cake.jpg";
+import { deserts } from "./normalMenuData";
 
 const cateringMeatballChoices = [
   {
@@ -529,30 +529,7 @@ export default [
       }
     ]
   },
-  {
-    category: "Desserts",
-    items: [
-      {
-        name: "Artisanal Desserts",
-        description:
-          "From our very own La Differenza Bakery. Subject to availability, please call the store for info.",
-        vegetarian: true,
-        isPromo: true,
-        image: Cake,
-        price: ""
-      },
-      {
-        name: "Cannoli",
-        price: 2.5,
-        vegetarian: true
-      },
-      {
-        name: "Chef’s Selection Cookies",
-        price: 2,
-        vegetarian: true
-      }
-    ]
-  },
+  deserts,
   {
     category: "Beverages",
     items: [

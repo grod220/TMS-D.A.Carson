@@ -58,7 +58,7 @@ const FulfillmentOptions = observer(() => {
         type="time"
         hasError={OrderStore.fulfillmentTimeError}
         storeField="fulfillmentTime"
-        step="900"
+        step="300"
       />
       {OrderStore.fulfillmentOption === "delivery" && (
         <>

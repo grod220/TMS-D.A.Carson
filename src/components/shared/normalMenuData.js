@@ -182,8 +182,13 @@ const gemChoice = {
   addition: true
 };
 
+const addOnGem = {
+  name: "Add-on",
+  choices: [gemChoice]
+};
+
 const addOnGemAndSubSalad = {
-  name: "Addon",
+  name: "Add-on",
   choices: [
     gemChoice,
     {
@@ -246,6 +251,31 @@ const veganOption = {
   choices: [{ name: "No cheese", vegan: true, addition: true }]
 };
 
+export const deserts = {
+  category: "Desserts",
+  items: [
+    {
+      name: "Artisanal Desserts",
+      description:
+        "From our very own La Differenza Bakery. Subject to availability, please call the store for info.",
+      vegetarian: true,
+      isPromo: true,
+      image: Cake,
+      price: ""
+    },
+    {
+      name: "Cannoli",
+      price: 2.5,
+      vegetarian: true
+    },
+    {
+      name: "Chef’s Selection Cookies",
+      price: 2,
+      vegetarian: true
+    }
+  ]
+};
+
 export default [
   {
     category: "Entrées",
@@ -264,10 +294,7 @@ export default [
             maximum: 5,
             choices: notPricedMeatballAdditions
           },
-          {
-            name: "Addon",
-            choices: [gemChoice]
-          },
+          addOnGem,
           choiceOfSide,
           {
             name: "Choice of Beverage",
@@ -296,19 +323,7 @@ export default [
             maximum: 3,
             choices: notPricedMeatballAdditions
           },
-          {
-            name: "Addon",
-            choices: [
-              gemChoice,
-              {
-                name: "Substitute Caprese Salad",
-                extra: 1.5,
-                gf: true,
-                vegetarian: true,
-                addition: true
-              }
-            ]
-          },
+          addOnGemAndSubSalad,
           choiceOfSide
         ]
       },
@@ -544,14 +559,7 @@ export default [
         price: 11.95,
         image: PastaBowl,
         vegan: true,
-        options: [
-          choiceOfSauce,
-          addonMeatballs,
-          {
-            name: "Addon",
-            choices: [gemChoice]
-          }
-        ]
+        options: [choiceOfSauce, addonMeatballs, addOnGem]
       },
       {
         name: "Polenta bowl",
@@ -571,10 +579,7 @@ export default [
             ]
           },
           addonMeatballs,
-          {
-            name: "Addon",
-            choices: [gemChoice]
-          }
+          addOnGem
         ]
       }
     ]
@@ -684,10 +689,7 @@ export default [
             maximum: 4,
             choices: notPricedMeatballAdditions
           },
-          {
-            name: "Addon",
-            choices: [gemChoice]
-          }
+          addOnGem
         ]
       },
       {
@@ -719,10 +721,7 @@ export default [
             name: "Choice of Meatballs",
             choices: notPricedMeatballSelection
           },
-          {
-            name: "Addon",
-            choices: [gemChoice]
-          }
+          addOnGem
         ]
       },
       {
@@ -736,10 +735,7 @@ export default [
             maximum: 2,
             choices: notPricedMeatballAdditions
           },
-          {
-            name: "Addon",
-            choices: [gemChoice]
-          }
+          addOnGem
         ]
       },
       {
@@ -814,20 +810,7 @@ export default [
       }
     ]
   },
-  {
-    category: "Desserts",
-    items: [
-      {
-        name: "Artisanal Desserts",
-        description:
-          "From our very own La Differenza Bakery. Subject to availability, please call the store for info.",
-        vegetarian: true,
-        isPromo: true,
-        image: Cake,
-        price: ""
-      }
-    ]
-  },
+  deserts,
   {
     category: "Beverages",
     items: [
