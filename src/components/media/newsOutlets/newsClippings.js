@@ -1,14 +1,21 @@
 import TenBest from "./images/10best.jpg";
-import EdibleBronx from "./images/edible-bronx.png";
 import Orlando from "./images/orlando.png";
 import RealRadio from "./images/realradio.png";
 import UniqueEats from "./images/unique-eats.jpg";
 import Summit from "./images/summit.png";
-
+import TheGame from './images/the-game.jpg'
 import SummitPDF from "./files/summit.pdf";
 import UniqueEatsPDF from "./files/unique-eats.pdf";
 
 export default [
+  {
+    name: "fm96.9: The Game",
+    image: TheGame,
+    audio:
+        "https://firebasestorage.googleapis.com/v0/b/the-meatball-stoppe.appspot.com/o/wygm.mp3?alt=media&token=9c772467-af8b-470e-803c-05530868745d",
+    text:
+        "You know it's real italian when the lady gives you a hug and a kiss on the cheek."
+  },
   {
     name: "Unique Eats Orlando",
     image: UniqueEats,
@@ -46,13 +53,5 @@ export default [
       "http://www.10best.com/destinations/florida/orlando/restaurants/family-friendly/",
     text:
       "Orlando's #1 ranked most family-friendly restaurant and #7 best value in USA Today's travel guide."
-  },
-  {
-    name: "Edible Bronx",
-    image: EdibleBronx,
-    linkTo:
-      "https://www.facebook.com/tastyladies.bx/videos/673459176352442/?t=109",
-    text:
-      "If ever I had a last meal this would be it! If you’re a Floridian who never had real Italian food, you need to get here."
   }
 ];
