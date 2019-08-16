@@ -621,6 +621,13 @@ export default [
         price: 7.5,
         description:
           "Sauteed seasonal vegetables seasoned with fresh garlic, herbs, served over a bed of greens with Focaccia Bread"
+      },
+      {
+        name: "Roasted Shrimp Salad",
+        price: 12.99,
+        description:
+          "With garlic and herbs served over a bed of greens with focaccia bread",
+        gf: true
       }
     ]
   },
