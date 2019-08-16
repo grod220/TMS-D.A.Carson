@@ -437,7 +437,7 @@ export default [
     items: [
       {
         name: "Eggplant Stack",
-        price: 10.95,
+        price: 12.95,
         description:
           "Served over Penne or Linguine. Stoppe Salad, Focaccia included",
         image: EggplantStack,
@@ -445,6 +445,14 @@ export default [
         options: [
           addonMeatballs,
           addOnGemAndSubSalad,
+          {
+            name: "Optional pasta",
+            choices: [
+              { name: "Linguine", extra: 2, addition: true },
+              { name: "Penne", extra: 2, addition: true },
+              { name: "Gluten-free penne", extra: 2, gf: true, addition: true }
+            ]
+          },
           {
             name: "Vegan-option",
             choices: [{ name: "No cheese", vegan: true, addition: true }]
