@@ -12,9 +12,7 @@ const serializeOrderStore = orderStore => {
     return item;
   });
   baseObj.tax = orderStore.tax;
-  baseObj.fulfillmentTime = new Date(
-    `1970-01-01 ${orderStore.fulfillmentTime}`
-  ).toLocaleTimeString("en-us");
+  baseObj.fulfillmentTime = orderStore.fulfillmentTime;
   baseObj.fulfillmentDate = new Date(orderStore.fulfillmentDate).toDateString();
   if (orderStore.fulfillmentOption === "delivery") {
     baseObj.deliveryLocation = formatGooglePlacesObj(baseObj.deliveryLocation);
