@@ -77,6 +77,7 @@ export const getNextAvailableFulfillmentDate = () => {
 };
 
 export const withinOpeningHours = timeStr => {
+  if (!OrderStore.fulfillmentDate) return false;
   const hour = Number(timeStr.split(":")[0]);
   const dayProposed = convertYYYYMMDD(OrderStore.fulfillmentDate).getDay();
   return (
@@ -85,7 +86,7 @@ export const withinOpeningHours = timeStr => {
   );
 };
 
-const convertYYYYMMDD = dateStr => {
+export const convertYYYYMMDD = dateStr => {
   const dateArr = dateStr.split("-");
   const year = dateArr[0];
   const month = dateArr[1];

@@ -3,7 +3,8 @@ import {
   withinOpeningHours,
   distanceFromTMS,
   getNextAvailableFulfillmentDate,
-  withinLeadTime
+  withinLeadTime,
+  convertYYYYMMDD
 } from "./order-utils";
 import * as Sentry from "@sentry/browser";
 import addZero from "../../../../../sharedUtilities/addZero";
@@ -40,8 +41,10 @@ class OrderStore {
   set fulfillmentDate(proposedDateStr) {
     this._sanitizedfulfillmentDate = proposedDateStr;
     if (
-      new Date(proposedDateStr) < new Date(getNextAvailableFulfillmentDate()) ||
-      new Date(proposedDateStr).getDay() === 0
+      !this._sanitizedfulfillmentDate ||
+      convertYYYYMMDD(proposedDateStr) <
+        convertYYYYMMDD(getNextAvailableFulfillmentDate()) ||
+      convertYYYYMMDD(proposedDateStr).getDay() === 0
     ) {
       this.fulfillmentDateError = true;
     } else {
