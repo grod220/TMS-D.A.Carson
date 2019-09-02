@@ -21,6 +21,7 @@ import Calamari from "./OrderModule/images/calamari.jpg";
 import Cappuccino from "./OrderModule/images/cappuccino.png";
 import PastaBowl from "./OrderModule/images/pasta-bowl.jpg";
 import Cake from "./OrderModule/images/cake.jpg";
+import SpicyFriedShrimp from './OrderModule/images/spicy-fried-shrimp.jpg'
 
 const choiceOfSide = {
   name: "Choice of Side",
@@ -187,18 +188,17 @@ const addOnGem = {
   choices: [gemChoice]
 };
 
+const subCapreseSalad = {
+  name: "Substitute Caprese Salad",
+  extra: 1.5,
+  vegetarian: true,
+  gf: true,
+  addition: true
+};
+
 const addOnGemAndSubSalad = {
   name: "Add-on",
-  choices: [
-    gemChoice,
-    {
-      name: "Substitute Caprese Salad",
-      extra: 1.5,
-      vegetarian: true,
-      gf: true,
-      addition: true
-    }
-  ]
+  choices: [gemChoice, subCapreseSalad]
 };
 
 const glutenFreePastaChoice = {
@@ -270,7 +270,7 @@ export const deserts = {
     },
     {
       name: "Chef’s Selection Cookies",
-      price: 2,
+      price: 2.95,
       vegetarian: true
     }
   ]
@@ -329,7 +329,7 @@ export default [
       },
       {
         name: "Focaccia Pizza",
-        price: 9.95,
+        price: 9,
         vegan: true,
         image: Focaccia,
         options: [
@@ -338,44 +338,44 @@ export default [
             choices: [
               {
                 name: "Nonna's Traditional Italian",
-                extra: 1.5,
+                extra: 2,
                 addition: true
               },
               {
                 name: "Sausage Pepper & Onions",
-                extra: 1.5,
+                extra: 2,
                 gf: true,
                 addition: true
               },
-              { name: "Sausage", extra: 1.5, gf: true, addition: true },
+              { name: "Sausage", extra: 2, gf: true, addition: true },
               {
                 name: "Chicken Parmigiana",
-                extra: 1.5,
+                extra: 2,
                 gf: true,
                 addition: true
               },
               {
                 name: "Chicken Buffalo Bleu",
-                extra: 1.5,
+                extra: 2,
                 gf: true,
                 addition: true
               },
               {
                 name: "Vegetarian",
-                extra: 1.5,
+                extra: 2,
                 gf: true,
                 vegetarian: true,
                 addition: true
               },
               {
                 name: "Vegan",
-                extra: 1.5,
+                extra: 2,
                 gf: true,
                 vegan: true,
                 addition: true
               },
-              { name: "Spicy Pork", extra: 1.5, addition: true },
-              { name: "Lamb", extra: 1.5, gf: true, addition: true },
+              { name: "Spicy Pork", extra: 2, addition: true },
+              { name: "Lamb", extra: 2, gf: true, addition: true },
               { name: "Jeffy’s Crab Ball", extra: 3, addition: true },
               { name: "Gator Meatball", extra: 3, addition: true },
               gemChoice,
@@ -439,20 +439,20 @@ export default [
         name: "Eggplant Stack",
         price: 12.95,
         description:
-          "Served over Penne or Linguine. Stoppe Salad, Focaccia included",
+          "Served over Penne or Linguine. Stoppe Salad & focaccia included.",
         image: EggplantStack,
         vegan: true,
         options: [
-          addonMeatballs,
-          addOnGemAndSubSalad,
           {
-            name: "Optional pasta",
+            name: "Choice of Pasta",
             choices: [
-              { name: "Linguine", extra: 2, addition: true },
-              { name: "Penne", extra: 2, addition: true },
-              { name: "Gluten-free penne", extra: 2, gf: true, addition: true }
+              { name: "Linguine", selection: true },
+              { name: "Penne", selection: true },
+              { name: "Gluten-free penne", gf: true, selection: true }
             ]
           },
+          addonMeatballs,
+          addOnGemAndSubSalad,
           {
             name: "Vegan-option",
             choices: [{ name: "No cheese", vegan: true, addition: true }]
@@ -554,7 +554,13 @@ export default [
         description:
           "Breaded, Seasoned Eggplant topped with Fresh Mozzarella, sauteed peppers, onions, Fresh Arugula on Freshly baked Ciabiatta roll with Pesto Mayo",
         vegetarian: true,
-        image: Panino
+        image: Panino,
+        options: [
+          {
+            name: "Add-on",
+            choices: [subCapreseSalad]
+          }
+        ]
       }
     ]
   },
@@ -572,7 +578,7 @@ export default [
       {
         name: "Polenta bowl",
         description: "Creamy polenta and seasonal vegetables",
-        price: 8.25,
+        price: 9.95,
         vegetarian: true,
         gf: true,
         options: [
@@ -626,12 +632,19 @@ export default [
         name: "Roasted Vegetable Salad",
         gf: true,
         vegan: true,
-        price: 7.5,
+        price: 7.95,
         description:
           "Sauteed seasonal vegetables seasoned with fresh garlic, herbs, served over a bed of greens with Focaccia Bread"
       },
       {
         name: "Roasted Shrimp Salad",
+        price: 12.99,
+        description:
+          "With garlic and herbs served over a bed of greens with focaccia bread",
+        gf: true
+      },
+      {
+        name: "Fried Shrimp Salad",
         price: 12.99,
         description:
           "With garlic and herbs served over a bed of greens with focaccia bread",
@@ -682,14 +695,15 @@ export default [
     items: [
       {
         name: "Fried Calamari",
-        price: 9.95,
+        price: 10.95,
         image: Calamari,
         gf: true
       },
       {
         name: "Spicy Fried Shrimp",
-        price: 10.95,
-        gf: true
+        price: 12.95,
+        gf: true,
+        image: SpicyFriedShrimp
       },
       {
         name: "4 Ball Sampler",
@@ -728,7 +742,7 @@ export default [
       },
       {
         name: "Meatball Lettuce Wrap",
-        price: 7.25,
+        price: 7.95,
         vegan: true,
         gf: true,
         options: [
