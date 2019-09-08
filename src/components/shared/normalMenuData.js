@@ -844,33 +844,27 @@ export default [
     category: "Beverages",
     items: [
       {
-        name: "Coke",
-        description: "fountain soft drink",
+        name: "Coke (fountain drink)",
         price: 2.5
       },
       {
-        name: "Coke",
-        description: "16oz Bottle",
+        name: "Coke (16oz bottle)",
         price: 2.95
       },
       {
-        name: "Diet Coke",
-        description: "fountain soft drink",
+        name: "Diet Coke (fountain drink)",
         price: 2.5
       },
       {
-        name: "Diet Coke",
-        description: "16oz Bottle",
+        name: "Diet Coke (16oz bottle)",
         price: 2.95
       },
       {
-        name: "Sprite",
-        description: "fountain soft drink",
+        name: "Sprite (fountain drink)",
         price: 2.5
       },
       {
-        name: "Sprite",
-        description: "16oz Bottle",
+        name: "Sprite (16oz bottle)",
         price: 2.95
       },
       {
