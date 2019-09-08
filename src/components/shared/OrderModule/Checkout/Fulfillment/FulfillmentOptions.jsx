@@ -42,22 +42,30 @@ const FulfillmentOptions = observer(() => {
             : "Name"
         }
         type="text"
-        storeField="contactName"
+        store={OrderStore}
+        field="contactName"
       />
-      <FulfillmentInput title="phone #" type="tel" storeField="contactNumber" />
+      <FulfillmentInput
+        title="phone #"
+        type="tel"
+        store={OrderStore}
+        field="contactNumber"
+      />
       <FulfillmentInput
         title={`${OrderStore.fulfillmentOption} date`}
         type="date"
-        storeField="fulfillmentDate"
-        hasError={OrderStore.fulfillmentDateError}
+        store={OrderStore.dateStore}
+        field="fulfillmentDate"
+        hasError={OrderStore.dateStore.fulfillmentDateError}
         min={getNextAvailableFulfillmentDate()}
         max={getOneYearFromTodayStr()}
       />
       <FulfillmentInput
         title={`${OrderStore.fulfillmentOption} time`}
         type="time"
-        hasError={OrderStore.fulfillmentTimeError}
-        storeField="fulfillmentTime"
+        hasError={OrderStore.dateStore.fulfillmentTimeError}
+        store={OrderStore.dateStore}
+        field="fulfillmentTime"
         step="300"
       />
       {OrderStore.fulfillmentOption === "delivery" && (
@@ -65,7 +73,8 @@ const FulfillmentOptions = observer(() => {
           <FulfillmentInput
             title="Number of guests"
             type="number"
-            storeField="numberOfGuests"
+            store={OrderStore}
+            field="numberOfGuests"
           />
           <DeliveryAutocomplete />
         </>
@@ -73,7 +82,8 @@ const FulfillmentOptions = observer(() => {
       <FulfillmentInput
         title="Any special instructions?"
         type="text"
-        storeField="specialInstructions"
+        store={OrderStore}
+        field="specialInstructions"
       />
       {OrderStore.fulfillmentOption !== "delivery" && (
         <PickupLocation>

@@ -1,30 +1,20 @@
 import { observable, decorate, computed, reaction } from "mobx";
-import {
-  withinOpeningHours,
-  distanceFromTMS,
-  getNextAvailableFulfillmentDate,
-  withinLeadTime,
-  convertYYYYMMDD
-} from "./order-utils";
+import { distanceFromTMS } from "./order-utils";
 import * as Sentry from "@sentry/browser";
 import addZero from "../../../../../sharedUtilities/addZero";
+import DateStore from "../DateStore";
 
 class OrderStore {
   constructor() {
+    this.dateStore = new DateStore();
     reaction(
       () => this.deliveryLocation,
       this.handleDeliverLocationUpdate.bind(this)
     );
     reaction(
-      () => this.fulfillmentDate,
-      () => {
-        if (this.fulfillmentTime) this.fulfillmentTime = this.fulfillmentTime;
-      }
-    );
-    reaction(
       () => this.fulfillmentOption,
       () => {
-        if (this.fulfillmentTime) this.fulfillmentTime = this.fulfillmentTime;
+        // if (this.fulfillmentTime) this.fulfillmentTime = this.fulfillmentTime;
       }
     );
   }
@@ -32,42 +22,6 @@ class OrderStore {
   orderType;
   activeTab;
   fulfillmentOption;
-
-  fulfillmentDateError = false;
-  _sanitizedfulfillmentDate;
-  get fulfillmentDate() {
-    return this._sanitizedfulfillmentDate;
-  }
-  set fulfillmentDate(proposedDateStr) {
-    this._sanitizedfulfillmentDate = proposedDateStr;
-    if (
-      !this._sanitizedfulfillmentDate ||
-      convertYYYYMMDD(proposedDateStr) <
-        convertYYYYMMDD(getNextAvailableFulfillmentDate()) ||
-      convertYYYYMMDD(proposedDateStr).getDay() === 0
-    ) {
-      this.fulfillmentDateError = true;
-    } else {
-      this.fulfillmentDateError = false;
-    }
-  }
-
-  fulfillmentTimeError = false;
-  _sanitizedTime;
-  get fulfillmentTime() {
-    return this._sanitizedTime;
-  }
-  set fulfillmentTime(proposedTimeStr) {
-    this._sanitizedTime = proposedTimeStr;
-    if (
-      !withinOpeningHours(proposedTimeStr) ||
-      !withinLeadTime(proposedTimeStr)
-    ) {
-      this.fulfillmentTimeError = true;
-    } else {
-      this.fulfillmentTimeError = false;
-    }
-  }
 
   _validatedNumberOfGuests = 0;
   get numberOfGuests() {
@@ -173,10 +127,10 @@ class OrderStore {
     const baseQualificationsSatisfied =
       Boolean(this.contactName) &&
       Boolean(this.contactNumber) &&
-      Boolean(this._sanitizedfulfillmentDate) &&
-      !this.fulfillmentDateError &&
-      Boolean(this._sanitizedTime) &&
-      !this.fulfillmentTimeError;
+      Boolean(this.dateStore.fulfillmentDate) &&
+      !this.dateStore.fulfillmentDateError &&
+      Boolean(this.dateStore.fulfillmentTime) &&
+      !this.dateStore.fulfillmentTimeError;
     if (
       this.orderType === "normal" ||
       (this.orderType === "catering" && this.fulfillmentOption === "pickup")
@@ -198,12 +152,6 @@ decorate(OrderStore, {
   orderType: observable,
   shoppingCart: observable,
   fulfillmentOption: observable,
-  _sanitizedfulfillmentDate: observable,
-  fulfillmentDate: computed,
-  fulfillmentDateError: observable,
-  _sanitizedTime: observable,
-  fulfillmentTime: computed,
-  fulfillmentTimeError: observable,
   contactName: observable,
   contactNumber: observable,
   deliveryLocation: observable,

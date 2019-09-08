@@ -77,9 +77,11 @@ export const getNextAvailableFulfillmentDate = () => {
 };
 
 export const withinOpeningHours = timeStr => {
-  if (!OrderStore.fulfillmentDate) return false;
+  if (!OrderStore.dateStore.fulfillmentDate) return false;
   const hour = Number(timeStr.split(":")[0]);
-  const dayProposed = convertYYYYMMDD(OrderStore.fulfillmentDate).getDay();
+  const dayProposed = convertYYYYMMDD(
+    OrderStore.dateStore.fulfillmentDate
+  ).getDay();
   return (
     hour >= openingHours[dayProposed].open &&
     hour < openingHours[dayProposed].close
@@ -95,7 +97,9 @@ export const convertYYYYMMDD = dateStr => {
 };
 
 export const withinLeadTime = timeStr => {
-  const proposedTimeObj = new Date(`${OrderStore.fulfillmentDate} ${timeStr}`);
+  const proposedTimeObj = new Date(
+    `${OrderStore.dateStore.fulfillmentDate} ${timeStr}`
+  );
   const nextAvailable = new Date(
     `${getNextAvailableFulfillmentDate()} ${getNextAvailableFulfillmentTime()}`
   );
@@ -112,7 +116,7 @@ export const getNextAvailableFulfillmentTime = () => {
   );
   if (
     new Date().getDay() ===
-      convertYYYYMMDD(OrderStore.fulfillmentDate).getDay() &&
+      convertYYYYMMDD(OrderStore.dateStore.fulfillmentDate).getDay() &&
     withinOpeningHours(nextAvailableToday)
   ) {
     return nextAvailableToday;

@@ -25,15 +25,15 @@ const InputEl = styled.input`
 `;
 
 const FulfillmentInput = observer(
-  ({ title, storeField, hasError, ...others }) => {
+  ({ title, store, field, hasError, ...others }) => {
     return (
       <WidgetWrapper>
         <LabelHelper>{title}</LabelHelper>
         <InputEl
           {...others}
           hasError={hasError}
-          onChange={e => (OrderStore[storeField] = e.target.value)}
-          value={OrderStore[storeField] || ""}
+          onChange={e => (store[field] = e.target.value)}
+          value={store[field] || ""}
           required
         />
       </WidgetWrapper>

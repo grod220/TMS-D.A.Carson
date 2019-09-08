@@ -25,8 +25,8 @@ const initializeModule = catering => {
     OrderStore.fulfillmentOption = "pickup";
   }
   OrderStore.activeTab = "Full menu";
-  OrderStore.fulfillmentDate = getNextAvailableFulfillmentDate();
-  OrderStore._sanitizedTime = getNextAvailableFulfillmentTime();
+  OrderStore.dateStore.fulfillmentDate = getNextAvailableFulfillmentDate();
+  OrderStore.dateStore.fulfillmentTime = getNextAvailableFulfillmentTime();
 };
 
 const OrderModule = observer(({ catering }) => {
