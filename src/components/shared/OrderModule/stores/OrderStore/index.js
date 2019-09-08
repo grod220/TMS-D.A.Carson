@@ -9,12 +9,12 @@ class OrderStore {
     this.dateStore = new DateStore();
     reaction(
       () => this.deliveryLocation,
-      this.handleDeliverLocationUpdate.bind(this)
+      googlePlacesObj => this.handleDeliverLocationUpdate(googlePlacesObj)
     );
     reaction(
       () => this.fulfillmentOption,
       () => {
-        // if (this.fulfillmentTime) this.fulfillmentTime = this.fulfillmentTime;
+        if (this.dateStore.fulfillmentTime) this.dateStore.validateTime();
       }
     );
   }

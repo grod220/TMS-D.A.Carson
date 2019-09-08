@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import OrderStore from "../../stores/OrderStore";
 import { observer } from "mobx-react-lite";
 
 const WidgetWrapper = styled.div`

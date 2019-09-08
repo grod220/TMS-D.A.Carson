@@ -1,52 +1,48 @@
-import { observable, decorate, computed, reaction } from "mobx";
+import { observable, decorate, reaction } from "mobx";
+import {
+  convertYYYYMMDD,
+  getNextAvailableFulfillmentDate,
+  withinOpeningHours,
+  withinLeadTime
+} from "../OrderStore/order-utils";
 
 class DateStore {
   constructor() {
     reaction(
       () => this.fulfillmentDate,
-      () => {
-        // need to do verifications here
-        if (this.fulfillmentTime) this.fulfillmentTime = this.fulfillmentTime;
+      dateStr => {
+        if (
+          convertYYYYMMDD(dateStr) <
+            convertYYYYMMDD(getNextAvailableFulfillmentDate()) ||
+          convertYYYYMMDD(dateStr).getDay() === 0
+        ) {
+          this.fulfillmentDateError = true;
+        } else {
+          this.fulfillmentDateError = false;
+        }
+        this.validateTime();
       }
     );
-    reaction(
-      () => this.fulfillmentOption,
-      () => {
-        // if (this.fulfillmentTime) this.fulfillmentTime = this.fulfillmentTime;
-      }
-    );
+
+    reaction(() => this.fulfillmentTime, () => this.validateTime());
   }
 
   fulfillmentDateError = false;
   fulfillmentDate;
-
-  // set fulfillmentDate(proposedDateStr) {
-  // this._sanitizedfulfillmentDate = proposedDateStr;
-  // if (
-  //   !this._sanitizedfulfillmentDate ||
-  //   convertYYYYMMDD(proposedDateStr) <
-  //     convertYYYYMMDD(getNextAvailableFulfillmentDate()) ||
-  //   convertYYYYMMDD(proposedDateStr).getDay() === 0
-  // ) {
-  //   this.fulfillmentDateError = true;
-  // } else {
-  //   this.fulfillmentDateError = false;
-  // }
-  // }
-
   fulfillmentTimeError = false;
   fulfillmentTime;
-  // set fulfillmentTime(proposedTimeStr) {
-  //   this._sanitizedTime = proposedTimeStr;
-  //   if (
-  //     !withinOpeningHours(proposedTimeStr) ||
-  //     !withinLeadTime(proposedTimeStr)
-  //   ) {
-  //     this.fulfillmentTimeError = true;
-  //   } else {
-  //     this.fulfillmentTimeError = false;
-  //   }
-  // }
+
+  validateTime() {
+    if (
+      this.fulfillmentTime &&
+      (!withinOpeningHours(this.fulfillmentTime) ||
+        !withinLeadTime(this.fulfillmentTime))
+    ) {
+      this.fulfillmentTimeError = true;
+    } else {
+      this.fulfillmentTimeError = false;
+    }
+  }
 }
 
 decorate(DateStore, {
