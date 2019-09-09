@@ -1,10 +1,11 @@
 import { observable, decorate, reaction } from "mobx";
+import isBefore from "date-fns/isBefore";
+import { withinOpeningHours, withinLeadTime } from "../OrderStore/order-utils";
 import {
-  convertYYYYMMDD,
   getNextAvailableFulfillmentDate,
-  withinOpeningHours,
-  withinLeadTime
-} from "../OrderStore/order-utils";
+  isOpenOnDay,
+  parseHTMLDateStr
+} from "./date-utils";
 
 class DateStore {
   fulfillmentDate;
@@ -15,11 +16,11 @@ class DateStore {
   constructor() {
     reaction(
       () => this.fulfillmentDate,
-      dateStr => {
+      htmlDateStr => {
+        const proposedDate = parseHTMLDateStr(htmlDateStr);
         this.fulfillmentDateError =
-          convertYYYYMMDD(dateStr) <
-            convertYYYYMMDD(getNextAvailableFulfillmentDate()) ||
-          convertYYYYMMDD(dateStr).getDay() === 0;
+          !isOpenOnDay(proposedDate) ||
+          isBefore(proposedDate, getNextAvailableFulfillmentDate());
         this.validateTime();
       }
     );

@@ -5,10 +5,8 @@ import { observer } from "mobx-react-lite";
 
 import FulfillmentInput from "./FulfillmentInput";
 import DeliveryAutocomplete from "./DeliveryAutocomplete";
-import {
-  getOneYearFromTodayStr,
-  getNextAvailableFulfillmentDate
-} from "../../stores/OrderStore/order-utils";
+import { getOneYearFromTodayStr } from "../../stores/OrderStore/order-utils";
+import { getNextAvailableFulfillmentDateStr } from "../../stores/DateStore/date-utils";
 
 const Container = styled.div`
   display: flex;
@@ -57,7 +55,7 @@ const FulfillmentOptions = observer(() => {
         store={OrderStore.dateStore}
         field="fulfillmentDate"
         hasError={OrderStore.dateStore.fulfillmentDateError}
-        min={getNextAvailableFulfillmentDate()}
+        min={getNextAvailableFulfillmentDateStr()}
         max={getOneYearFromTodayStr()}
       />
       <FulfillmentInput

@@ -4,11 +4,8 @@ import { observer } from "mobx-react-lite";
 import OrderNav from "./OrderNav";
 import OrderMenu from "./OrderMenu";
 import OrderStore from "./stores/OrderStore";
-import {
-  getNextAvailableFulfillmentDate,
-  getNextAvailableFulfillmentTime
-} from "./stores/OrderStore/order-utils";
 import Checkout from "./Checkout";
+import { getNextAvailableFulfillmentDateStr, getNextAvailableFulfillmentTime } from "./stores/DateStore/date-utils";
 
 const initializeModule = catering => {
   if (
@@ -25,7 +22,7 @@ const initializeModule = catering => {
     OrderStore.fulfillmentOption = "pickup";
   }
   OrderStore.activeTab = "Full menu";
-  OrderStore.dateStore.fulfillmentDate = getNextAvailableFulfillmentDate();
+  OrderStore.dateStore.fulfillmentDate = getNextAvailableFulfillmentDateStr();
   OrderStore.dateStore.fulfillmentTime = getNextAvailableFulfillmentTime();
 };
 

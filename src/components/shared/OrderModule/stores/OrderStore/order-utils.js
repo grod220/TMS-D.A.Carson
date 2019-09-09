@@ -1,6 +1,10 @@
 /* global google */
 import { insertGoogleMapsScript } from "../../Checkout/Fulfillment/DeliveryAutocomplete/autocomplete";
 import OrderStore from "../OrderStore";
+import {
+  getNextAvailableFulfillmentDateStr,
+  getNextAvailableFulfillmentTime
+} from "../DateStore/date-utils";
 
 const openingHours = {
   0: {
@@ -40,16 +44,6 @@ const openingHours = {
   }
 };
 
-const leadTimesInHours = {
-  normal: {
-    pickup: 1
-  },
-  catering: {
-    delivery: 3,
-    pickup: 2
-  }
-};
-
 const yyyMMDD = date => {
   var d = new Date(date),
     month = "" + (d.getMonth() + 1),
@@ -60,20 +54,6 @@ const yyyMMDD = date => {
   if (day.length < 2) day = "0" + day;
 
   return [year, month, day].join("-");
-};
-
-export const getNextAvailableFulfillmentDate = () => {
-  const today = new Date();
-  const leadTimeHours =
-    leadTimesInHours[OrderStore.orderType][OrderStore.fulfillmentOption];
-  if (today.getHours() + leadTimeHours >= openingHours[today.getDay()].close) {
-    const nextAvailableDate = new Date();
-    nextAvailableDate.setDate(
-      today.getDay() !== 6 ? today.getDate() + 1 : today.getDate() + 2
-    );
-    return yyyMMDD(nextAvailableDate);
-  }
-  return yyyMMDD(today);
 };
 
 export const withinOpeningHours = timeStr => {
@@ -101,28 +81,9 @@ export const withinLeadTime = timeStr => {
     `${OrderStore.dateStore.fulfillmentDate} ${timeStr}`
   );
   const nextAvailable = new Date(
-    `${getNextAvailableFulfillmentDate()} ${getNextAvailableFulfillmentTime()}`
+    `${getNextAvailableFulfillmentDateStr()} ${getNextAvailableFulfillmentTime()}`
   );
   return proposedTimeObj >= nextAvailable;
-};
-
-export const getNextAvailableFulfillmentTime = () => {
-  const leadTimeHours =
-    leadTimesInHours[OrderStore.orderType][OrderStore.fulfillmentOption];
-  const today = new Date();
-  today.setHours(today.getHours() + leadTimeHours);
-  const nextAvailableToday = roundToNearest15min(
-    `${today.getHours()}:${today.getMinutes()}`
-  );
-  if (
-    new Date().getDay() ===
-      convertYYYYMMDD(OrderStore.dateStore.fulfillmentDate).getDay() &&
-    withinOpeningHours(nextAvailableToday)
-  ) {
-    return nextAvailableToday;
-  } else {
-    return "11:00";
-  }
 };
 
 export const getOneYearFromTodayStr = () => {
@@ -141,7 +102,7 @@ export const roundToNearest15min = timeStr => {
     splitTime[1] = "00";
   }
   if (splitTime[1].length === 1) {
-    splitTime[1] = '0' + splitTime[1];
+    splitTime[1] = "0" + splitTime[1];
   }
   return splitTime.join(":");
 };
