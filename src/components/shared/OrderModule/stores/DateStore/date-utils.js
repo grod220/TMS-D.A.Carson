@@ -103,6 +103,7 @@ export const withinOpeningHours = dateObj => {
     hour < openingHours[dayProposed].close
   );
 };
+
 export const getNextAvailableFulfillmentTimeStr = () => {
   const leadTimeHours =
     leadTimesInHours[OrderStore.orderType][OrderStore.fulfillmentOption];
@@ -120,11 +121,17 @@ export const getNextAvailableFulfillmentTimeStr = () => {
 export const getOneYearFromTodayStr = () =>
   convertToHTMLDateStr(addYears(startOfToday(), 1));
 
-export const withinLeadTime = proposedDateObj => {
-  const nextAvailableTime = parse(
-    `${getNextAvailableFulfillmentDateStr()} ${getNextAvailableFulfillmentTimeStr()}`,
+export const parseHTMLDateAndTime = (proposedDateStr, proposedTimeStr) =>
+  parse(
+    `${proposedDateStr} ${proposedTimeStr}`,
     "yyyy-MM-dd HH:mm",
     new Date()
+  );
+
+export const withinLeadTime = proposedDateObj => {
+  const nextAvailableTime = parseHTMLDateAndTime(
+    getNextAvailableFulfillmentDateStr(),
+    getNextAvailableFulfillmentTimeStr()
   );
   return (
     isAfter(proposedDateObj, nextAvailableTime) ||

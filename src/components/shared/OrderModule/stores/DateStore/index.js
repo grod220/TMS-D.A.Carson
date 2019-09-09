@@ -5,7 +5,9 @@ import {
   isOpenOnDay,
   parseHTMLDateStr,
   withinOpeningHours,
-  parseHTMLTimeStr, withinLeadTime
+  withinLeadTime,
+  parseHTMLDateAndTime,
+  parseHTMLTimeStr
 } from "./date-utils";
 
 class DateStore {
@@ -30,10 +32,12 @@ class DateStore {
   }
 
   validateTime() {
-    const proposedTime = parseHTMLTimeStr(this.fulfillmentTime);
     this.fulfillmentTimeError = !!(
       this.fulfillmentTime &&
-      (!withinOpeningHours(proposedTime) || !withinLeadTime(proposedTime))
+      (!withinOpeningHours(parseHTMLTimeStr(this.fulfillmentTime)) ||
+        !withinLeadTime(
+          parseHTMLDateAndTime(this.fulfillmentDate, this.fulfillmentTime)
+        ))
     );
   }
 }
