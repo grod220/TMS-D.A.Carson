@@ -94,9 +94,7 @@ export const getNextAvailableFulfillmentDateStr = () =>
   convertToHTMLDateStr(getNextAvailableFulfillmentDate());
 
 export const withinOpeningHours = dateObj => {
-  const dayProposed = getDayOfWeekStr(
-    parseHTMLDateStr(OrderStore.dateStore.fulfillmentDate)
-  );
+  const dayProposed = getDayOfWeekStr(dateObj);
   const hour = getHours(dateObj);
   return (
     hour >= openingHours[dayProposed].open &&

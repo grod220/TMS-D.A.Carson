@@ -6,8 +6,7 @@ import {
   parseHTMLDateStr,
   withinOpeningHours,
   withinLeadTime,
-  parseHTMLDateAndTime,
-  parseHTMLTimeStr
+  parseHTMLDateAndTime
 } from "./date-utils";
 
 class DateStore {
@@ -32,12 +31,13 @@ class DateStore {
   }
 
   validateTime() {
+    const proposedDateObj = parseHTMLDateAndTime(
+      this.fulfillmentDate,
+      this.fulfillmentTime
+    );
     this.fulfillmentTimeError = !!(
       this.fulfillmentTime &&
-      (!withinOpeningHours(parseHTMLTimeStr(this.fulfillmentTime)) ||
-        !withinLeadTime(
-          parseHTMLDateAndTime(this.fulfillmentDate, this.fulfillmentTime)
-        ))
+      (!withinOpeningHours(proposedDateObj) || !withinLeadTime(proposedDateObj))
     );
   }
 }
