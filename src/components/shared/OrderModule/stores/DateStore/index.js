@@ -1,10 +1,11 @@
 import { observable, decorate, reaction } from "mobx";
-import isBefore from "date-fns/isBefore";
-import { withinOpeningHours, withinLeadTime } from "../OrderStore/order-utils";
+import { isBefore } from "date-fns";
 import {
   getNextAvailableFulfillmentDate,
   isOpenOnDay,
-  parseHTMLDateStr
+  parseHTMLDateStr,
+  withinOpeningHours,
+  parseHTMLTimeStr, withinLeadTime
 } from "./date-utils";
 
 class DateStore {
@@ -29,10 +30,10 @@ class DateStore {
   }
 
   validateTime() {
+    const proposedTime = parseHTMLTimeStr(this.fulfillmentTime);
     this.fulfillmentTimeError = !!(
       this.fulfillmentTime &&
-      (!withinOpeningHours(this.fulfillmentTime) ||
-        !withinLeadTime(this.fulfillmentTime))
+      (!withinOpeningHours(proposedTime) || !withinLeadTime(proposedTime))
     );
   }
 }

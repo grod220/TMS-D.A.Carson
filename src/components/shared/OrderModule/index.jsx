@@ -5,7 +5,7 @@ import OrderNav from "./OrderNav";
 import OrderMenu from "./OrderMenu";
 import OrderStore from "./stores/OrderStore";
 import Checkout from "./Checkout";
-import { getNextAvailableFulfillmentDateStr, getNextAvailableFulfillmentTime } from "./stores/DateStore/date-utils";
+import { getNextAvailableFulfillmentDateStr, getNextAvailableFulfillmentTimeStr } from "./stores/DateStore/date-utils";
 
 const initializeModule = catering => {
   if (
@@ -23,7 +23,7 @@ const initializeModule = catering => {
   }
   OrderStore.activeTab = "Full menu";
   OrderStore.dateStore.fulfillmentDate = getNextAvailableFulfillmentDateStr();
-  OrderStore.dateStore.fulfillmentTime = getNextAvailableFulfillmentTime();
+  OrderStore.dateStore.fulfillmentTime = getNextAvailableFulfillmentTimeStr();
 };
 
 const OrderModule = observer(({ catering }) => {

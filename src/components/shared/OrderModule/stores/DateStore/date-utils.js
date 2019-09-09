@@ -1,17 +1,19 @@
-import parse from "date-fns/parse";
-import format from "date-fns/format";
-import isSunday from "date-fns/isSunday";
-import getHours from "date-fns/getHours";
-import addDays from "date-fns/addDays";
-import startOfTomorrow from "date-fns/startOfTomorrow";
-import startOfToday from "date-fns/startOfToday";
+import {
+  addDays,
+  addHours,
+  addYears,
+  format,
+  getHours,
+  isSunday,
+  parse,
+  roundToNearestMinutes,
+  startOfToday,
+  startOfTomorrow,
+  isAfter,
+  isEqual
+} from "date-fns";
 
 import OrderStore from "../OrderStore";
-import {
-  convertYYYYMMDD,
-  roundToNearest15min,
-  withinOpeningHours
-} from "../OrderStore/order-utils";
 
 const openingHours = {
   Sunday: {
@@ -55,13 +57,16 @@ const leadTimesInHours = {
 };
 
 export const convert24HourTo12Format = militaryTime =>
-  format(parse(militaryTime, "HH:mm", new Date()), "h:mm aa");
+  format(parseHTMLTimeStr(militaryTime, "HH:mm"), "h:mm aa");
 
 export const extendedDateFormat = htmlDate =>
   format(parseHTMLDateStr(htmlDate), "EEEE, MMMM do y");
 
 export const parseHTMLDateStr = htmlDate =>
   parse(htmlDate, "yyyy-MM-dd", new Date());
+
+export const parseHTMLTimeStr = htmlTime =>
+  parse(htmlTime, "HH:mm", new Date());
 
 const convertToHTMLDateStr = dateObj => format(dateObj, "yyyy-MM-dd");
 
@@ -88,21 +93,41 @@ export const getNextAvailableFulfillmentDate = () => {
 export const getNextAvailableFulfillmentDateStr = () =>
   convertToHTMLDateStr(getNextAvailableFulfillmentDate());
 
-export const getNextAvailableFulfillmentTime = () => {
+export const withinOpeningHours = dateObj => {
+  const dayProposed = getDayOfWeekStr(
+    parseHTMLDateStr(OrderStore.dateStore.fulfillmentDate)
+  );
+  const hour = getHours(dateObj);
+  return (
+    hour >= openingHours[dayProposed].open &&
+    hour < openingHours[dayProposed].close
+  );
+};
+export const getNextAvailableFulfillmentTimeStr = () => {
   const leadTimeHours =
     leadTimesInHours[OrderStore.orderType][OrderStore.fulfillmentOption];
-  const today = new Date();
-  today.setHours(today.getHours() + leadTimeHours);
-  const nextAvailableToday = roundToNearest15min(
-    `${today.getHours()}:${today.getMinutes()}`
+  const now = new Date();
+  const roundedPlusLeadTime = roundToNearestMinutes(
+    addHours(now, leadTimeHours),
+    { nearestTo: 5 }
   );
-  if (
-    new Date().getDay() ===
-      convertYYYYMMDD(OrderStore.dateStore.fulfillmentDate).getDay() &&
-    withinOpeningHours(nextAvailableToday)
-  ) {
-    return nextAvailableToday;
+  if (withinOpeningHours(roundedPlusLeadTime)) {
+    return format(roundedPlusLeadTime, "HH:mm");
   } else {
     return "11:00";
   }
+};
+export const getOneYearFromTodayStr = () =>
+  convertToHTMLDateStr(addYears(startOfToday(), 1));
+
+export const withinLeadTime = proposedDateObj => {
+  const nextAvailableTime = parse(
+    `${getNextAvailableFulfillmentDateStr()} ${getNextAvailableFulfillmentTimeStr()}`,
+    "yyyy-MM-dd HH:mm",
+    new Date()
+  );
+  return (
+    isAfter(proposedDateObj, nextAvailableTime) ||
+    isEqual(proposedDateObj, nextAvailableTime)
+  );
 };
