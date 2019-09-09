@@ -1,6 +1,10 @@
 import { toJS } from "mobx";
 import OrderStore from "../stores/OrderStore";
 import { formatGooglePlacesObj } from "../stores/OrderStore/order-utils";
+import {
+  convert24HourTo12Format,
+  extendedDateFormat
+} from "../stores/DateStore/date-utils";
 
 /* global Stripe */
 const stripe = Stripe("pk_live_ivfkFrzhLuZbUiZRVkvsBwI3");
@@ -12,8 +16,14 @@ const serializeOrderStore = orderStore => {
     return item;
   });
   baseObj.tax = orderStore.tax;
-  baseObj.fulfillmentTime = orderStore.fulfillmentTime;
-  baseObj.fulfillmentDate = new Date(orderStore.fulfillmentDate).toDateString();
+
+  baseObj.fulfillmentTime = convert24HourTo12Format(
+    orderStore.dateStore.fulfillmentTime
+  );
+  baseObj.fulfillmentDate = extendedDateFormat(
+    orderStore.dateStore.fulfillmentDate
+  );
+
   if (orderStore.fulfillmentOption === "delivery") {
     baseObj.deliveryLocation = formatGooglePlacesObj(baseObj.deliveryLocation);
     baseObj.deliveryFee = orderStore.deliveryFee;

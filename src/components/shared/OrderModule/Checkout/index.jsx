@@ -10,7 +10,6 @@ import Total from "./Total";
 import StripeButton from "./StripeButton";
 
 const Container = styled.div`
-  width: 100vw;
   display: flex;
   justify-content: center;
   margin-bottom: 40px;

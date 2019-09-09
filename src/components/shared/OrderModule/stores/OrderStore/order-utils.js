@@ -140,6 +140,9 @@ export const roundToNearest15min = timeStr => {
     splitTime[0] = (Number(splitTime[0]) + 1).toString();
     splitTime[1] = "00";
   }
+  if (splitTime[1].length === 1) {
+    splitTime[1] = '0' + splitTime[1];
+  }
   return splitTime.join(":");
 };
 

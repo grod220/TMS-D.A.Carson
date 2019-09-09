@@ -6,7 +6,6 @@ import SectionTab from "./SectionTab";
 import CheckoutTab from "./CheckoutTab";
 
 const Container = styled.div`
-  width: 100vw;
   height: 7rem;
   background-color: #e0e0e0;
   display: flex;

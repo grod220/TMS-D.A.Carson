@@ -7,19 +7,19 @@ import {
 } from "../OrderStore/order-utils";
 
 class DateStore {
+  fulfillmentDate;
+  fulfillmentDateError = false;
+  fulfillmentTime;
+  fulfillmentTimeError = false;
+
   constructor() {
     reaction(
       () => this.fulfillmentDate,
       dateStr => {
-        if (
+        this.fulfillmentDateError =
           convertYYYYMMDD(dateStr) <
             convertYYYYMMDD(getNextAvailableFulfillmentDate()) ||
-          convertYYYYMMDD(dateStr).getDay() === 0
-        ) {
-          this.fulfillmentDateError = true;
-        } else {
-          this.fulfillmentDateError = false;
-        }
+          convertYYYYMMDD(dateStr).getDay() === 0;
         this.validateTime();
       }
     );
@@ -27,21 +27,12 @@ class DateStore {
     reaction(() => this.fulfillmentTime, () => this.validateTime());
   }
 
-  fulfillmentDateError = false;
-  fulfillmentDate;
-  fulfillmentTimeError = false;
-  fulfillmentTime;
-
   validateTime() {
-    if (
+    this.fulfillmentTimeError = !!(
       this.fulfillmentTime &&
       (!withinOpeningHours(this.fulfillmentTime) ||
         !withinLeadTime(this.fulfillmentTime))
-    ) {
-      this.fulfillmentTimeError = true;
-    } else {
-      this.fulfillmentTimeError = false;
-    }
+    );
   }
 }
 

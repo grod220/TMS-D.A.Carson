@@ -1,7 +1,7 @@
 .modal-box {
   height: fit-content;
   max-height: calc(100vh - 50px);
-  max-width: 550px;
+  max-width: 620px;
   margin: auto;
   padding: 0;
   position: absolute;
@@ -29,7 +29,8 @@
 
 .ReactModal__Body--open,
 .ReactModal__Html--open {
-  overflow: hidden;
+  /* disables background scroll. Disabling now so the page background doesn't jump */
+  /*overflow: hidden;*/
 }
 
 .ReactModal__Overlay {

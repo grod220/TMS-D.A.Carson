@@ -9,7 +9,6 @@ import Legend from "./Legend";
 import MenuSection from "./MenuSection";
 
 const Container = styled.div`
-  width: 100vw;
   display: flex;
   justify-content: center;
 `;
