@@ -1,8 +1,7 @@
 import { observable, decorate, reaction } from "mobx";
-import { isBefore } from "date-fns";
+import { isBefore, isSunday } from "date-fns";
 import {
   getNextAvailableFulfillmentDate,
-  isOpenOnDay,
   parseHTMLDateStr,
   withinOpeningHours,
   withinLeadTime,
@@ -21,7 +20,7 @@ class DateStore {
       htmlDateStr => {
         const proposedDate = parseHTMLDateStr(htmlDateStr);
         this.fulfillmentDateError =
-          !isOpenOnDay(proposedDate) ||
+          isSunday(proposedDate) ||
           isBefore(proposedDate, getNextAvailableFulfillmentDate());
         this.validateTime();
       }

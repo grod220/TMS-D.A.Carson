@@ -8,9 +8,9 @@ import {
   parse,
   roundToNearestMinutes,
   startOfToday,
-  startOfTomorrow,
   isAfter,
-  isEqual
+  isEqual,
+  startOfTomorrow
 } from "date-fns";
 
 import OrderStore from "../OrderStore";
@@ -56,21 +56,19 @@ const leadTimesInHours = {
   }
 };
 
+/* All time is browser-time. May be a bit tricky if ordering from a different timezone. */
+
 export const convert24HourTo12Format = militaryTime =>
-  format(parseHTMLTimeStr(militaryTime, "HH:mm"), "h:mm aa");
+  format(parseHTMLTimeStr(militaryTime), "h:mm aa");
+
+export const parseHTMLTimeStr = htmlTime =>
+  parse(htmlTime, "HH:mm", new Date());
 
 export const extendedDateFormat = htmlDate =>
   format(parseHTMLDateStr(htmlDate), "EEEE, MMMM do y");
 
 export const parseHTMLDateStr = htmlDate =>
-  parse(htmlDate, "yyyy-MM-dd", new Date());
-
-export const parseHTMLTimeStr = htmlTime =>
-  parse(htmlTime, "HH:mm", new Date());
-
-const convertToHTMLDateStr = dateObj => format(dateObj, "yyyy-MM-dd");
-
-export const isOpenOnDay = dateObj => !isSunday(dateObj);
+  parse(htmlDate, "yyyy-MM-dd", startOfToday());
 
 const getDayOfWeekStr = dateObj => format(dateObj, "EEEE");
 
@@ -89,6 +87,8 @@ export const getNextAvailableFulfillmentDate = () => {
       : startOfTomorrow();
   }
 };
+
+const convertToHTMLDateStr = dateObj => format(dateObj, "yyyy-MM-dd");
 
 export const getNextAvailableFulfillmentDateStr = () =>
   convertToHTMLDateStr(getNextAvailableFulfillmentDate());
@@ -116,6 +116,7 @@ export const getNextAvailableFulfillmentTimeStr = () => {
     return "11:00";
   }
 };
+
 export const getOneYearFromTodayStr = () =>
   convertToHTMLDateStr(addYears(startOfToday(), 1));
 
