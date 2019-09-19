@@ -10,7 +10,8 @@ import {
   startOfToday,
   isAfter,
   isEqual,
-  startOfTomorrow
+  startOfTomorrow,
+  endOfYesterday
 } from "date-fns";
 
 import OrderStore from "../OrderStore";
@@ -71,6 +72,8 @@ export const parseHTMLDateStr = htmlDate =>
   parse(htmlDate, "yyyy-MM-dd", startOfToday());
 
 const getDayOfWeekStr = dateObj => format(dateObj, "EEEE");
+
+export const isDateInPast = proposedStartOfDay => endOfYesterday() > proposedStartOfDay;
 
 export const getNextAvailableFulfillmentDate = () => {
   const today = new Date();

@@ -6,6 +6,15 @@ const WidgetWrapper = styled.div`
   position: relative;
 `;
 
+const ErrorMessage = styled.span`
+  position: absolute;
+  color: #ff1310;
+  font-size: 16px;
+  font-style: italic;
+  top: -16px;
+  user-select: none;
+`;
+
 const LabelHelper = styled.label`
   position: absolute;
   color: #484848;
@@ -24,13 +33,14 @@ const InputEl = styled.input`
 `;
 
 const FulfillmentInput = observer(
-  ({ title, store, field, hasError, ...others }) => {
+  ({ title, store, field, error, ...others }) => {
     return (
       <WidgetWrapper>
+        {error && <ErrorMessage>{error}</ErrorMessage>}
         <LabelHelper>{title}</LabelHelper>
         <InputEl
           {...others}
-          hasError={hasError}
+          hasError={Boolean(error)}
           onChange={e => (store[field] = e.target.value)}
           value={store[field] || ""}
           required

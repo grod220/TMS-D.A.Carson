@@ -56,14 +56,14 @@ const FulfillmentOptions = observer(() => {
         type="date"
         store={OrderStore.dateStore}
         field="fulfillmentDate"
-        hasError={OrderStore.dateStore.fulfillmentDateError}
+        error={OrderStore.dateStore.fulfillmentDateError}
         min={getNextAvailableFulfillmentDateStr()}
         max={getOneYearFromTodayStr()}
       />
       <FulfillmentInput
         title={`${OrderStore.fulfillmentOption} time`}
         type="time"
-        hasError={OrderStore.dateStore.fulfillmentTimeError}
+        error={OrderStore.dateStore.fulfillmentTimeError}
         store={OrderStore.dateStore}
         field="fulfillmentTime"
         step="300"
