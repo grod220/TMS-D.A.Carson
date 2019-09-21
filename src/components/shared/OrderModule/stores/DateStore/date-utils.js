@@ -1,6 +1,6 @@
 import {
   addDays,
-  addHours,
+  addMinutes,
   addYears,
   format,
   getHours,
@@ -47,13 +47,13 @@ const openingHours = {
   }
 };
 
-const leadTimesInHours = {
+const leadTimesInMinutes = {
   normal: {
-    pickup: 1
+    pickup: 30
   },
   catering: {
-    delivery: 3,
-    pickup: 2
+    delivery: 180,
+    pickup: 120
   }
 };
 
@@ -73,12 +73,13 @@ export const parseHTMLDateStr = htmlDate =>
 
 const getDayOfWeekStr = dateObj => format(dateObj, "EEEE");
 
-export const isDateInPast = proposedStartOfDay => endOfYesterday() > proposedStartOfDay;
+export const isDateInPast = proposedStartOfDay =>
+  endOfYesterday() > proposedStartOfDay;
 
 export const getNextAvailableFulfillmentDate = () => {
   const today = new Date();
   const leadTimeHours =
-    leadTimesInHours[OrderStore.orderType][OrderStore.fulfillmentOption];
+    leadTimesInMinutes[OrderStore.orderType][OrderStore.fulfillmentOption] / 60;
   if (
     getHours(today) + leadTimeHours <
     openingHours[getDayOfWeekStr(today)].close
@@ -106,11 +107,11 @@ export const withinOpeningHours = dateObj => {
 };
 
 export const getNextAvailableFulfillmentTimeStr = () => {
-  const leadTimeHours =
-    leadTimesInHours[OrderStore.orderType][OrderStore.fulfillmentOption];
+  const leadTimeMinutes =
+    leadTimesInMinutes[OrderStore.orderType][OrderStore.fulfillmentOption];
   const now = new Date();
   const roundedPlusLeadTime = roundToNearestMinutes(
-    addHours(now, leadTimeHours),
+    addMinutes(now, leadTimeMinutes),
     { nearestTo: 5 }
   );
   if (withinOpeningHours(roundedPlusLeadTime)) {
