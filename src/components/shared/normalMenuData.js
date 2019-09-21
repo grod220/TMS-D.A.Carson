@@ -812,10 +812,12 @@ export default [
         vegan: true,
         options: [
           {
-            name: "Choice of Meatballs",
-            minimum: 1,
-            maximum: 2,
-            choices: notPricedMeatballAdditions
+            name: "First Meatball",
+            choices: notPricedMeatballSelection
+          },
+          {
+            name: "Second Meatball",
+            choices: notPricedMeatballSelection
           },
           addOnGem
         ]
