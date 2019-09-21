@@ -108,7 +108,7 @@ class OrderStore {
         return "⚠️ Minimum cart total for this distance is $200";
       }
     } else {
-      return "🚫 Distance too far for delivery 😢";
+      return "Distance beyond 20 miles. Call 📞 the Meatball Stoppe to place order.";
     }
   }
 
