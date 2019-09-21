@@ -5,9 +5,9 @@ import styled from "styled-components";
 import Fulfillment from "./Fulfillment";
 import OrderSummary from "./OrderSummary";
 import OrderStore from "../stores/OrderStore";
-import CateringHighlightPromo from "./CateringHighlightPromo";
 import Total from "./Total";
 import StripeButton from "./StripeButton";
+import CateringHighlightPromos from "./CateringHighlightPromos";
 
 const Container = styled.div`
   display: flex;
@@ -24,8 +24,8 @@ const Checkout = observer(() => {
   return (
     <Container>
       <Content>
+        {OrderStore.orderType === "catering" && <CateringHighlightPromos />}
         <Fulfillment />
-        {OrderStore.orderType === "catering" && <CateringHighlightPromo />}
         <OrderSummary />
         {Boolean(OrderStore.shoppingCart.length) && (
           <>
