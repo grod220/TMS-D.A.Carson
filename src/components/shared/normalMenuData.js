@@ -21,7 +21,8 @@ import Calamari from "./OrderModule/images/calamari.jpg";
 import Cappuccino from "./OrderModule/images/cappuccino.png";
 import PastaBowl from "./OrderModule/images/pasta-bowl.jpg";
 import Cake from "./OrderModule/images/cake.jpg";
-import SpicyFriedShrimp from './OrderModule/images/spicy-fried-shrimp.jpg'
+import SpicyFriedShrimp from "./OrderModule/images/spicy-fried-shrimp.jpg";
+import Scampi from "./OrderModule/images/scampi.jpg";
 
 const choiceOfSide = {
   name: "Choice of Side",
@@ -188,6 +189,25 @@ const addOnGem = {
   choices: [gemChoice]
 };
 
+const addOnGemAndShrimp = {
+  name: "Add-on",
+  choices: [
+    gemChoice,
+    {
+      name: "Fried Shrimp",
+      extra: 5,
+      gf: true,
+      addition: true
+    },
+    {
+      name: "Sauteed Shrimp",
+      extra: 5,
+      gf: true,
+      addition: true
+    }
+  ]
+};
+
 const subCapreseSalad = {
   name: "Substitute Caprese Salad",
   extra: 1.5,
@@ -289,10 +309,24 @@ export default [
         gf: true,
         options: [
           {
-            name: "Choice of Meatballs",
-            minimum: 1,
-            maximum: 5,
-            choices: notPricedMeatballAdditions
+            name: "First Meatball",
+            choices: notPricedMeatballSelection
+          },
+          {
+            name: "Second Meatball",
+            choices: notPricedMeatballSelection
+          },
+          {
+            name: "Third Meatball",
+            choices: notPricedMeatballSelection
+          },
+          {
+            name: "Fourth Meatball",
+            choices: notPricedMeatballSelection
+          },
+          {
+            name: "Fifth Meatball",
+            choices: notPricedMeatballSelection
           },
           addOnGem,
           choiceOfSide,
@@ -318,10 +352,16 @@ export default [
         gf: true,
         options: [
           {
-            name: "Choice of Meatballs",
-            minimum: 1,
-            maximum: 3,
-            choices: notPricedMeatballAdditions
+            name: "First Meatball",
+            choices: notPricedMeatballSelection
+          },
+          {
+            name: "Second Meatball",
+            choices: notPricedMeatballSelection
+          },
+          {
+            name: "Third Meatball",
+            choices: notPricedMeatballSelection
           },
           addOnGemAndSubSalad,
           choiceOfSide
@@ -460,6 +500,12 @@ export default [
         ]
       },
       {
+        name: "Shrimp Scampi",
+        price: 15,
+        image: Scampi,
+        gf: true
+      },
+      {
         name: "Cheese Tortellini",
         price: 11.95,
         description:
@@ -573,7 +619,7 @@ export default [
         price: 11.95,
         image: PastaBowl,
         vegan: true,
-        options: [choiceOfSauce, addonMeatballs, addOnGem]
+        options: [choiceOfSauce, addonMeatballs, addOnGemAndShrimp]
       },
       {
         name: "Polenta bowl",
@@ -593,7 +639,7 @@ export default [
             ]
           },
           addonMeatballs,
-          addOnGem
+          addOnGemAndShrimp
         ]
       }
     ]
@@ -637,18 +683,25 @@ export default [
           "Sauteed seasonal vegetables seasoned with fresh garlic, herbs, served over a bed of greens with Focaccia Bread"
       },
       {
-        name: "Roasted Shrimp Salad",
-        price: 12.99,
+        name: "Shrimp Salad",
+        price: 14,
         description:
-          "With garlic and herbs served over a bed of greens with focaccia bread",
-        gf: true
-      },
-      {
-        name: "Fried Shrimp Salad",
-        price: 12.99,
-        description:
-          "With garlic and herbs served over a bed of greens with focaccia bread",
-        gf: true
+          "Garden Fresh Arugula, Romaine, Cherry Tomatoes, Red Onions, Roasted Corn tossed with our Red Wine Vinaigrette. Served with Focaccia Bread",
+        options: [
+          {
+            name: "Type of shrimp",
+            choices: [
+              {
+                name: "Fried",
+                selection: true
+              },
+              {
+                name: "Sauteed",
+                selection: true
+              }
+            ]
+          }
+        ]
       }
     ]
   },

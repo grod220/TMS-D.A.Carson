@@ -109,7 +109,7 @@ const MenuItem = ({ itemData, category }) => {
           <ItemTitle>{itemData.name}</ItemTitle>
           <Description>{itemData.description}</Description>
           <Details>
-            <Price>${formatPrice(itemData.price)}</Price>
+            {itemData.price && <Price>${formatPrice(itemData.price)}</Price>}
             {itemData.gf && <Wheat src={GlutenFreePNG} />}
             {(itemData.vegetarian || itemData.vegan) && (
               <SVG width="16px" src={VeggieSVG} />

@@ -119,6 +119,353 @@ const veganOption = {
 
 export default [
   {
+    category: "Special packages",
+    items: [
+      {
+        name: "Italiano Classico",
+        price: 119.95,
+        description: "Famiglia favorite entrées. Serves 10",
+        options: [
+          {
+            name: "Choose entrée",
+            choices: [
+              {
+                name: "Lasagna Bolognese Rollatini",
+                selection: true
+              },
+              {
+                name: "Baked Ziti",
+                selection: true
+              },
+              {
+                name: "Eggplant Stack",
+                selection: true
+              }
+            ]
+          },
+          {
+            name: "Choose salad",
+            choices: [
+              {
+                name: "Stoppe Salad",
+                selection: true
+              },
+              {
+                name: "Caprese Salad",
+                extra: 15,
+                selection: true
+              }
+            ]
+          },
+          {
+            name: "Choose dessert",
+            choices: [
+              {
+                name: "Cookies",
+                selection: true
+              },
+              {
+                name: "Cannoli",
+                extra: 15,
+                selection: true
+              },
+              {
+                name: "½ Cookies & ½ Cannoli",
+                extra: 7.5,
+                selection: true
+              }
+            ]
+          },
+          {
+            name: "Choose beverage",
+            choices: [
+              {
+                name: "Bottled Water",
+                selection: true
+              },
+              {
+                name: "Sweetened Tea",
+                selection: true
+              },
+              {
+                name: "Unsweetened Tea",
+                selection: true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        name: "Healthier Italian",
+        price: 12,
+        description:
+          "Grilled chicken entrées. Serves one. Increase order size below.",
+        options: [
+          {
+            name: "Choose entrée",
+            choices: [
+              {
+                name: "Grilled Chicken with Marsala Mushroom Sauce",
+                selection: true
+              },
+              {
+                name: "Grilled Chicken with Signature Pesto",
+                selection: true
+              },
+              {
+                name: "Grilled Chicken with Roasted Tomato Sauce",
+                selection: true
+              }
+            ]
+          },
+          {
+            name: "Choose side",
+            choices: [
+              {
+                name: "Chef's Recommendation",
+                selection: true
+              },
+              {
+                name: "White Bean Ragu",
+                selection: true
+              },
+              {
+                name: "Creamy Polenta",
+                selection: true
+              },
+              {
+                name: "Penne Pasta",
+                selection: true
+              }
+            ]
+          },
+          {
+            name: "Choose salad",
+            choices: [
+              {
+                name: "Stoppe Salad",
+                selection: true
+              },
+              {
+                name: "Caprese Salad",
+                extra: 1.5,
+                selection: true
+              }
+            ]
+          },
+          {
+            name: "Choose dessert",
+            choices: [
+              {
+                name: "Cookies",
+                selection: true
+              },
+              {
+                name: "Cannoli",
+                extra: 1.5,
+                selection: true
+              },
+              {
+                name: "½ Cookies & ½ Cannoli",
+                extra: 0.75,
+                selection: true
+              }
+            ]
+          },
+          {
+            name: "Choose beverage",
+            choices: [
+              {
+                name: "Bottled Water",
+                selection: true
+              },
+              {
+                name: "Sweetened Tea",
+                selection: true
+              },
+              {
+                name: "Unsweetened Tea",
+                selection: true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        name: "The Meatball Bar",
+        price: 12,
+        description:
+          "Two meatball entrée. Serves one. Increase order size below.",
+        options: [
+          {
+            name: "Choose first meatball",
+            choices: [
+              {
+                name: "Traditional Meatballs",
+                selection: true
+              },
+              {
+                name: "Eggplant Ball",
+                selection: true
+              },
+              {
+                name: "Chicken Buffalo",
+                selection: true
+              },
+              {
+                name: "Vegetarian ball",
+                selection: true
+              },
+              {
+                name: "Vegan ball",
+                selection: true
+              },
+              {
+                name: "Sausage Ball",
+                selection: true
+              }
+            ]
+          },
+          {
+            name: "Choose second meatball",
+            choices: [
+              {
+                name: "Traditional Meatballs",
+                selection: true
+              },
+              {
+                name: "Eggplant Ball",
+                selection: true
+              },
+              {
+                name: "Chicken Buffalo",
+                selection: true
+              },
+              {
+                name: "Vegetarian ball",
+                selection: true
+              },
+              {
+                name: "Vegan ball",
+                selection: true
+              },
+              {
+                name: "Sausage Ball",
+                selection: true
+              }
+            ]
+          },
+          {
+            name: "Optional third meatball",
+            choices: [
+              {
+                name: "Traditional Meatballs",
+                extra: 1.5,
+                addition: true
+              },
+              {
+                name: "Eggplant Ball",
+                extra: 1.5,
+                addition: true
+              },
+              {
+                name: "Chicken Buffalo",
+                extra: 1.5,
+                addition: true
+              },
+              {
+                name: "Vegetarian ball",
+                extra: 1.5,
+                addition: true
+              },
+              {
+                name: "Vegan ball",
+                extra: 1.5,
+                addition: true
+              },
+              {
+                name: "Sausage Ball",
+                extra: 1.5,
+                addition: true
+              }
+            ]
+          },
+          {
+            name: "Choose side",
+            choices: [
+              {
+                name: "Chef's Recommendation",
+                selection: true
+              },
+              {
+                name: "White Bean Ragu",
+                selection: true
+              },
+              {
+                name: "Creamy Polenta",
+                selection: true
+              },
+              {
+                name: "Penne Pasta",
+                selection: true
+              }
+            ]
+          },
+          {
+            name: "Choose salad",
+            choices: [
+              {
+                name: "Stoppe Salad",
+                selection: true
+              },
+              {
+                name: "Caprese Salad",
+                extra: 1.5,
+                selection: true
+              }
+            ]
+          },
+          {
+            name: "Choose dessert",
+            choices: [
+              {
+                name: "Cookies",
+                selection: true
+              },
+              {
+                name: "Cannoli",
+                extra: 1.5,
+                selection: true
+              },
+              {
+                name: "½ Cookies & ½ Cannoli",
+                extra: 0.75,
+                selection: true
+              }
+            ]
+          },
+          {
+            name: "Choose beverage",
+            choices: [
+              {
+                name: "Bottled Water",
+                selection: true
+              },
+              {
+                name: "Sweetened Tea",
+                selection: true
+              },
+              {
+                name: "Unsweetened Tea",
+                selection: true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     category: "Pan Meatballs",
     items: [
       {
