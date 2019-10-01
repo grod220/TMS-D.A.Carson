@@ -27,6 +27,7 @@ const serializeOrderStore = orderStore => {
   if (orderStore.fulfillmentOption === "delivery") {
     baseObj.deliveryLocation = formatGooglePlacesObj(baseObj.deliveryLocation);
     baseObj.deliveryFee = orderStore.deliveryFee;
+    baseObj.numberOfGuests = orderStore.numberOfGuests
   }
   return baseObj;
 };

@@ -60,7 +60,6 @@ const formatPaymentIntentObj = reqBody => {
     fulfillment_time: reqBody.fulfillmentTime,
     fulfillment_date: reqBody.fulfillmentDate,
     contact_number: reqBody.contactNumber,
-    cultery_sets: reqBody.culterySets,
     special_instructions: reqBody.specialInstructions,
     fulfillment_option: reqBody.fulfillmentOption
   };
@@ -89,6 +88,7 @@ const formatPaymentIntentObj = reqBody => {
       address: { line1: reqBody.deliveryLocation },
       name: reqBody.contactName
     };
+    metaDataObj.number_of_guests = reqBody.numberOfGuests;
   }
   return paymentIntentObj;
 };
@@ -132,7 +132,7 @@ const validateOrderOrThrow = ({
 
     if (!matchingMenuItem) {
       throw Error(
-          `${cartItem.name} :: Could not find this dish in the official menu`
+        `${cartItem.name} :: Could not find this dish in the official menu`
       );
     }
 
