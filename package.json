@@ -1,6 +1,6 @@
 {
   "name": "tms-d.a.carson",
-  "version": "4.6",
+  "version": "4.6.0",
   "private": true,
   "dependencies": {
     "@sentry/browser": "^5.11.1",
