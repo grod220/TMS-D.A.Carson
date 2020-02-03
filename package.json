@@ -3,9 +3,9 @@
   "version": "4.6.0",
   "private": true,
   "dependencies": {
-    "@sentry/browser": "^5.11.1",
+    "@sentry/browser": "^5.12.0",
     "date-fns": "^2.9.0",
-    "mobx": "^5.15.3",
+    "mobx": "^5.15.4",
     "mobx-react-lite": "^1.5.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -15,7 +15,7 @@
     "react-lazyload": "^2.6.5",
     "react-modal": "^3.11.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.3.0",
+    "react-scripts": "^3.3.1",
     "styled-components": "^5.0.0",
     "svg-loaders-react": "^2.2.1"
   },
