@@ -1,6 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
+import Overlay from "./modal-overlay";
 import TallHero from "./hero/";
 import OrderBar from "./orderBar/";
 import SocialBar from "./socialBar/";
@@ -22,6 +23,7 @@ const Homepage = () => (
         content="Authentic Italian food loved by Guy Fieri & the entire community. Orlando's #1 ranked most family-friendly restaurant by USA Today."
       />
     </Helmet>
+    <Overlay />
     <TallHero />
     <OrderBar />
     <LazyLoad height={350}>
