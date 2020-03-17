@@ -14,7 +14,6 @@ const BlurredBackground = styled.div`
   justify-content: center;
   align-items: center;
   background: rgba(0, 0, 0, 0.62);
-  backdrop-filter: blur(5px);
 `;
 
 const Modal = styled.div`
