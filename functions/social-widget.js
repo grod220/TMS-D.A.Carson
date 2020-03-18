@@ -14,7 +14,7 @@ app.get("/helloworld", (req, res) => {
 
 app.get("/webhook", (req, res) => {
   if (
-    req.query["hub.verify_token"] === functions.config().myservicekeys.fbtoken
+    req.query["hub.verify_token"] === functions.config().myservicekeys.fb_verify_token
   ) {
     res.send(req.query["hub.challenge"]);
   } else {
@@ -41,9 +41,9 @@ app.post("/webhook", async (req, res) => {
 });
 
 const getMostRecentPost = async () => {
-  const fbSecret = functions.config().myservicekeys.fbappsecret;
+  const FB_ACCESS_TOKEN = functions.config().myservicekeys.fb_access_token;
   const options = {
-    uri: `https://graph.facebook.com/v2.8/790534394301792/feed?fields=permalink_url,from,message,full_picture&access_token=1828570360690824|${fbSecret}`,
+    uri: `https://graph.facebook.com/v6.0/790534394301792/posts?fields=permalink_url,from,message,full_picture&access_token=${FB_ACCESS_TOKEN}&format=json`,
     json: true
   };
   const response = await rp(options);
