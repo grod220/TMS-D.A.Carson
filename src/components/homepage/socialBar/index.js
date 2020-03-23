@@ -82,7 +82,7 @@ const SocialBar = () => (
       <LeftSide>
         <div>
           We are open{" "}
-          <Highlight>Mon-Thurs (11am-9pm), Fri-Sat (11am-10pm)</Highlight>, and
+          <Highlight>Mon-Thurs (3pm-9pm), Fri-Sat (11am-9pm)</Highlight>, and
           closed on Sundays. Come visit us!
         </div>
         <Connect>Connect with us!</Connect>
