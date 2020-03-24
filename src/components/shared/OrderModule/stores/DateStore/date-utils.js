@@ -4,6 +4,7 @@ import {
   addYears,
   format,
   getHours,
+  setHours,
   isSunday,
   parse,
   roundToNearestMinutes,
@@ -22,28 +23,28 @@ const openingHours = {
     close: 0
   },
   Monday: {
-    open: 11,
+    open: 15,
     close: 21
   },
   Tuesday: {
-    open: 11,
+    open: 15,
     close: 21
   },
   Wednesday: {
-    open: 11,
+    open: 15,
     close: 21
   },
   Thursday: {
-    open: 11,
+    open: 15,
     close: 21
   },
   Friday: {
     open: 11,
-    close: 22
+    close: 21
   },
   Saturday: {
     open: 11,
-    close: 22
+    close: 21
   }
 };
 
@@ -117,7 +118,9 @@ export const getNextAvailableFulfillmentTimeStr = () => {
   if (withinOpeningHours(roundedPlusLeadTime)) {
     return format(roundedPlusLeadTime, "HH:mm");
   } else {
-    return "11:00";
+    const tomorrowNameStr = getDayOfWeekStr(startOfTomorrow())
+    const tomorrowsOpeningHour = openingHours[tomorrowNameStr].open
+    return format(setHours(startOfTomorrow(), tomorrowsOpeningHour), "HH:mm")
   }
 };
 
