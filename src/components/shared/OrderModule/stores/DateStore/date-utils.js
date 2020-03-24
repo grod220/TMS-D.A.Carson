@@ -117,6 +117,11 @@ export const getNextAvailableFulfillmentTimeStr = () => {
   );
   if (withinOpeningHours(roundedPlusLeadTime)) {
     return format(roundedPlusLeadTime, "HH:mm");
+  } else if (isSunday(startOfTomorrow())) {
+    const dayAfterTomorrow = addDays(startOfTomorrow(), 1);
+    const dayAfterTomorrowNameStr = getDayOfWeekStr(dayAfterTomorrow);
+    const dayAfterTomorrowOpeningHour = openingHours[dayAfterTomorrowNameStr].open
+    return format(setHours(startOfTomorrow(), dayAfterTomorrowOpeningHour), "HH:mm")
   } else {
     const tomorrowNameStr = getDayOfWeekStr(startOfTomorrow())
     const tomorrowsOpeningHour = openingHours[tomorrowNameStr].open
