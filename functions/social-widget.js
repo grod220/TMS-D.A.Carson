@@ -27,7 +27,7 @@ app.post("/webhook", async (req, res) => {
   const githubToken = functions.config().myservicekeys.githubtoken;
   try {
     const postInfo = await getMostRecentPost();
-    const githubFBJson = await getFBDataFromGithub(githubToken);
+    const githubFBJson = await getFBDataFromGithub();
     const response = await updateGithubFBData(
       githubFBJson,
       postInfo,
@@ -44,7 +44,7 @@ const getMostRecentPost = async () => {
   const FB_ACCESS_TOKEN = functions.config().myservicekeys.fb_access_token;
   const options = {
     uri: `https://graph.facebook.com/v6.0/790534394301792/posts?fields=permalink_url,from,message,full_picture&access_token=${FB_ACCESS_TOKEN}&format=json`,
-    json: true
+    json: true,
   };
   const response = await rp(options);
   const postInfo = response.data.filter(
@@ -56,15 +56,15 @@ const getMostRecentPost = async () => {
   return postInfo;
 };
 
-const getFBDataFromGithub = async githubToken => {
+const getFBDataFromGithub = async () => {
   const options = {
-    uri: `https://api.github.com/repos/grod220/TMS-D.A.Carson/contents/src/components/homepage/socialBar/livePost/FBData.json?access_token=${githubToken}`,
-    json: true,
+    uri: "https://api.github.com/repos/grod220/TMS-D.A.Carson/contents/src/components/homepage/socialBar/livePost/FBData.json",
     headers: {
-      "User-Agent": "Request-Promise"
-    }
+      "User-Agent": "firebase-function"
+    },
+    json: true
   };
-  return rp(options); // think this needs await?
+  return rp(options);
 };
 
 const updateGithubFBData = async (githubFBJson, postInfo, githubToken) => {
@@ -95,11 +95,12 @@ const updateGithubFBData = async (githubFBJson, postInfo, githubToken) => {
 
   const options = {
     method: "PUT",
-    uri: `https://api.github.com/repos/grod220/TMS-D.A.Carson/contents/src/components/homepage/socialBar/livePost/FBData.json?access_token=${githubToken}`,
+    uri: `https://api.github.com/repos/grod220/TMS-D.A.Carson/contents/src/components/homepage/socialBar/livePost/FBData.json`,
     json: true,
     body: newFileBody,
     headers: {
-      "User-Agent": "Request-Promise"
+      "Authorization": `token ${githubToken}`,
+      "User-Agent": "firebase-function"
     }
   };
 
