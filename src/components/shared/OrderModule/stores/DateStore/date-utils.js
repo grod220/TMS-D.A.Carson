@@ -58,13 +58,16 @@ const leadTimesInMinutes = {
   }
 };
 
-/* All time is browser-time. May be a bit tricky if ordering from a different timezone. */
+/* All time is adjusted to EST */
+export const currentTimeEST = () => new Date(
+    new Date().toLocaleString("en-US", {timeZone: "America/New_York"})
+);
 
 export const convert24HourTo12Format = militaryTime =>
   format(parseHTMLTimeStr(militaryTime), "h:mm aa");
 
 export const parseHTMLTimeStr = htmlTime =>
-  parse(htmlTime, "HH:mm", new Date());
+  parse(htmlTime, "HH:mm", currentTimeEST());
 
 export const extendedDateFormat = htmlDate =>
   format(parseHTMLDateStr(htmlDate), "EEEE, MMMM do y");
@@ -78,7 +81,7 @@ export const isDateInPast = proposedStartOfDay =>
   endOfYesterday() > proposedStartOfDay;
 
 export const getNextAvailableFulfillmentDate = () => {
-  const today = new Date();
+  const today = currentTimeEST();
   const leadTimeHours =
     leadTimesInMinutes[OrderStore.orderType][OrderStore.fulfillmentOption] / 60;
   if (
@@ -110,7 +113,7 @@ export const withinOpeningHours = dateObj => {
 export const getNextAvailableFulfillmentTimeStr = () => {
   const leadTimeMinutes =
     leadTimesInMinutes[OrderStore.orderType][OrderStore.fulfillmentOption];
-  const now = new Date();
+  const now = currentTimeEST();
   const roundedPlusLeadTime = roundToNearestMinutes(
     addMinutes(now, leadTimeMinutes),
     { nearestTo: 5 }
@@ -136,7 +139,7 @@ export const parseHTMLDateAndTime = (proposedDateStr, proposedTimeStr) =>
   parse(
     `${proposedDateStr} ${proposedTimeStr}`,
     "yyyy-MM-dd HH:mm",
-    new Date()
+    currentTimeEST()
   );
 
 export const withinLeadTime = proposedDateObj => {
