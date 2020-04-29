@@ -3,7 +3,7 @@
   "version": "4.6.1",
   "private": true,
   "dependencies": {
-    "@sentry/browser": "^5.15.4",
+    "@sentry/browser": "^5.15.5",
     "date-fns": "^2.12.0",
     "mobx": "^5.15.4",
     "mobx-react-lite": "^2.0.6",

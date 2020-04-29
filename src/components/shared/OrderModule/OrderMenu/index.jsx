@@ -38,6 +38,12 @@ const filterOptions = (item, filterCats) => {
   return itemCopy;
 };
 
+const useVegImage = (menuItem) => {
+  const menuItemCopy = JSON.parse(JSON.stringify(menuItem));
+  menuItemCopy.image = menuItem.vegImage;
+  return menuItemCopy;
+};
+
 const filterMenu = (tab, fullMenu) => {
   if (tab === "Full menu") {
     return fullMenu;
@@ -51,12 +57,14 @@ const filterMenu = (tab, fullMenu) => {
           category: "Vegetarian",
           items: fullMenuItems
             .filter(item => item.vegetarian || item.vegan)
+            .map(useVegImage)
             .map(item => filterOptions(item, ["vegetarian", "vegan"]))
         },
         {
           category: "Vegan",
           items: fullMenuItems
             .filter(item => item.vegan)
+            .map(useVegImage)
             .map(item => filterOptions(item, ["vegan"]))
         }
       ];

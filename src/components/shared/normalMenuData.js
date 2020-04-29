@@ -22,6 +22,8 @@ import PastaBowl from "./OrderModule/images/pasta-bowl.jpg";
 import Cake from "./OrderModule/images/cake.jpg";
 import SpicyFriedShrimp from "./OrderModule/images/spicy-fried-shrimp.jpg";
 import Scampi from "./OrderModule/images/scampi.jpg";
+import VeganSmash from "./OrderModule/images/vegan-smash.jpg";
+import VeganFiveBall from "./OrderModule/images/five-ball-vegan.jpg";
 
 const choiceOfSide = {
   name: "Choice of Side",
@@ -459,6 +461,7 @@ export default [
           "2 Meatballs, one style,  on Fresh Ciabatta Roll served with Stoppe Salad",
         vegan: true,
         image: Smash,
+        vegImage: VeganSmash,
         options: [
           {
             name: "Choice of Meatball",
@@ -679,6 +682,7 @@ export default [
         image: FiveBall,
         vegan: true,
         gf: true,
+        vegImage: VeganFiveBall,
         options: [
           {
             name: "Choice of Meatballs",

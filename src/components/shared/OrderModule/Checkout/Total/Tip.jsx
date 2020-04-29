@@ -18,7 +18,7 @@ const Tip = observer(() => {
   return (
     <>
       <div>
-        optional tip {OrderStore.tip > 0 && <>({OrderStore.tipPercent}%)</>}
+          support the staff with a tip {OrderStore.tip > 0 && <>({OrderStore.tipPercent}%)</>}
       </div>
       <div>
         <Input
