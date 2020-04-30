@@ -12,7 +12,8 @@ import {
   isAfter,
   isEqual,
   startOfTomorrow,
-  endOfYesterday
+  endOfYesterday,
+  isToday
 } from "date-fns";
 
 import OrderStore from "../OrderStore";
@@ -107,6 +108,12 @@ export const withinOpeningHours = dateObj => {
   );
 };
 
+const isBeforeOpeningToday = proposedDateObj => {
+  const todayStr = getDayOfWeekStr(startOfToday());
+  const proposedHour = getHours(proposedDateObj);
+  return isToday(proposedDateObj) && proposedHour < openingHours[todayStr].open;
+};
+
 export const getNextAvailableFulfillmentTimeStr = () => {
   const leadTimeMinutes =
     leadTimesInMinutes[OrderStore.orderType][OrderStore.fulfillmentOption];
@@ -117,15 +124,20 @@ export const getNextAvailableFulfillmentTimeStr = () => {
   );
   if (withinOpeningHours(roundedPlusLeadTime)) {
     return format(roundedPlusLeadTime, "HH:mm");
-  } else if (isSunday(startOfTomorrow())) {
+  } else if (isBeforeOpeningToday(roundedPlusLeadTime)) {
+    const todayStr = getDayOfWeekStr(startOfToday());
+    const openingHour = openingHours[todayStr].open;
+    return format(setHours(startOfToday(), openingHour), "HH:mm");
+  }
+    else if (isSunday(startOfTomorrow())) {
     const dayAfterTomorrow = addDays(startOfTomorrow(), 1);
     const dayAfterTomorrowNameStr = getDayOfWeekStr(dayAfterTomorrow);
-    const dayAfterTomorrowOpeningHour = openingHours[dayAfterTomorrowNameStr].open
-    return format(setHours(startOfTomorrow(), dayAfterTomorrowOpeningHour), "HH:mm")
+    const dayAfterTomorrowOpeningHour = openingHours[dayAfterTomorrowNameStr].open;
+    return format(setHours(startOfTomorrow(), dayAfterTomorrowOpeningHour), "HH:mm");
   } else {
-    const tomorrowNameStr = getDayOfWeekStr(startOfTomorrow())
-    const tomorrowsOpeningHour = openingHours[tomorrowNameStr].open
-    return format(setHours(startOfTomorrow(), tomorrowsOpeningHour), "HH:mm")
+    const tomorrowNameStr = getDayOfWeekStr(startOfTomorrow());
+    const tomorrowsOpeningHour = openingHours[tomorrowNameStr].open;
+    return format(setHours(startOfTomorrow(), tomorrowsOpeningHour), "HH:mm");
   }
 };
 
