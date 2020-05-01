@@ -34,7 +34,7 @@ const DeliveryServices = () => (
     <UberEatsBlock>
       <img src={UberEatsLogo} alt="Uber Eats logo" />
       <div />
-      <BlueButton href="https://www.ubereats.com/stores/c810eda3-c78d-436f-97d8-784dbcc637f5/">
+      <BlueButton href="https://www.ubereats.com/orlando/food-delivery/the-meatball-stoppe/yBDto8eNQ2-X2HhNvMY39Q">
         Full Menu
       </BlueButton>
       <BlueButton href="https://www.ubereats.com/en-US/orlando/food-delivery/primo-vegan-vegetarian-and-gluten-free-by-the-meatball-stoppe/PV2V5fEsTEaVEUBSQdLcSQ/">

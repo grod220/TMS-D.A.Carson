@@ -88,7 +88,7 @@ const Delivery = () => (
             image={uberEatsLogo}
             buttonText="Go to Uber"
             color="rgb(91, 192, 222)"
-            url="https://www.ubereats.com/stores/c810eda3-c78d-436f-97d8-784dbcc637f5/"
+            url="https://www.ubereats.com/orlando/food-delivery/the-meatball-stoppe/yBDto8eNQ2-X2HhNvMY39Q"
           />
         </ServicesBox>
       </LeftBox>
