@@ -96,7 +96,7 @@ const LocationInfo = () => (
         </a>
       </p>
       <p>
-        We’re open Mon-Thurs (3pm-9pm), Fri-Sat (11am-9pm), and closed on
+        We’re open Mon-Sat (11am-9pm), and closed on
         Sundays.
       </p>
     </RedBox>
